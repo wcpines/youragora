@@ -53,6 +53,8 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
+    jwt (0.1.13)
+      multi_json (>= 1.5)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -66,6 +68,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.0)
+    multi_json (1.12.1)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -143,6 +146,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bcrypt (~> 3.1.7)
+  jwt
   listen (~> 3.0.5)
   pg (~> 0.18)
   pry-byebug

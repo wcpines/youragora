@@ -10,7 +10,7 @@ class Auth
   end
 
   def self.decode(token)
-    JWT.decode(token, SECRET_KEY_BASE, true, {algorithm: ALGORITHM})
+    JWT.decode(token, SECRET_KEY_BASE, { algorithm: ALGORITHM })
   end
 
 end

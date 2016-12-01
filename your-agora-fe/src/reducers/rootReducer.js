@@ -9,6 +9,17 @@ import { combineReducers } from 'redux'
 //   }
 // }
 
-const rootReducer = combineReducers({})
+
+function mainArticle(state = "", action){
+ switch (action.type) {
+   case "FETCH_CONTENT":
+        let content = action.payload.content
+        return content
+    default:
+         return state
+    }
+}
+
+const rootReducer = combineReducers({ mainArticle })
 
 export default rootReducer

@@ -3,3 +3,4 @@ Tags
 .DS_Sore
 ./*node_modules
 your-agora-api/config/secrets.yml
+.env

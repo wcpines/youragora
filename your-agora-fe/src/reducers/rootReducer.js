@@ -4,8 +4,11 @@ import { combineReducers } from 'redux'
 //   switch (action.type) {
 //     case 'CREATING_USER':
 //       return {...state, creatingUser}
+
 //     case 'LOGIN_USER':
 //       return state
+//     case 'LOGIN_USER':
+//       return state 
 //     default:
 //       return state
 //   }

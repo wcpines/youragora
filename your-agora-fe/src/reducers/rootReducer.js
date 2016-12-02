@@ -2,8 +2,10 @@ import { combineReducers } from 'redux'
 
 // function users(state = [], action){
 //   switch (action.type) {
-//     case "FETCH_VIDEOS":
-//       return action.payload.videos
+//     case 'CREATING_USER':
+//       return {...state, creatingUser}
+//     case 'LOGIN_USER':
+//       return state
 //     default:
 //       return state
 //   }
@@ -15,8 +17,8 @@ function mainArticle(state = {}, action){
    case "FETCH_ARTICLE":
         return action.payload
     default:
-         return state
-    }
+      return state
+  }
 }
 
 const rootReducer = combineReducers({ mainArticle })

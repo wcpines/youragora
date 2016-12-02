@@ -10,11 +10,10 @@ import { combineReducers } from 'redux'
 // }
 
 
-function mainArticle(state = "", action){
+function mainArticle(state = {}, action){
  switch (action.type) {
-   case "FETCH_CONTENT":
-        let content = action.payload.content
-        return content
+   case "FETCH_ARTICLE":
+        return action.payload
     default:
          return state
     }

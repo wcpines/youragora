@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { getArticle } from '../actions/actions'
+import { getArticle } from '../actions/getArticles'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import {Link} from 'react-router';
 
 class SearchBar extends Component{
     handleClick(event){
@@ -10,12 +11,15 @@ class SearchBar extends Component{
     }
 
     render(){
-        return(
+        return(<div >
             <form className='search-bar' onSubmit={this.handleClick.bind(this)}>
                 <input type="text" />
                 <label className='search-bar'>Search Bar</label>
                 <input type='submit' className='search-bar' name='submit' />
             </form>
+                        <Link to="mainarticle" className="button" >see article</Link>
+
+            </div>
             )
     }
 }

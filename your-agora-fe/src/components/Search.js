@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getArticle } from '../actions/actions'
+import { getArticle } from '../actions/getArticles'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 

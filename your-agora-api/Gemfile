@@ -19,6 +19,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'annotate'
 
+gem 'mercury_parser'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

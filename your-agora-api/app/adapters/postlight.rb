@@ -1,3 +1,0 @@
-class Postlight
-
-end

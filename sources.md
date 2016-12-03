@@ -9,6 +9,11 @@
 - Front Porch Republic 
 - National Review [8]
 - First Things (religious) 
+- AEI
+- Manhattan Institute
+
+## Conservative/Libertarian
+- Hoover Institution
 
 ### Libertarian
 
@@ -16,6 +21,7 @@
 - Reason
 - Mises
 - Cato
+- 
 
 ### Liberal
 
@@ -28,6 +34,10 @@
 - Vox
 - The Daily Beast
 - Mother Jones
+- CAP
+- Guttmacher Institute
+- Urban Institute
+- EPI
 
 #  MvP
 

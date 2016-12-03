@@ -11,11 +11,13 @@ class ArticleParser
       author = "No Author Found"
     end
 
+    # add lead image url
     article_hash = {
       title: html.title,
       author: author,
       content: html.content,
-      word_count: html.word_count
+      word_count: html.word_count,
+      img_url: html.lead_image_url
     }
 
   end

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import MainArticle from './MainArticle'
 import SearchBar from './SearchBar'
 
 
@@ -8,7 +7,6 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar />
-        <MainArticle />
         {this.props.children}
       </div>
     );

@@ -15,16 +15,15 @@ import { combineReducers } from 'redux'
 // }
 
 
-function mainArticle(state = [], action){
+function fetchedArticles(state = [], action){
   switch (action.type) {
     case "FETCH_ARTICLE":
-    debugger
       return action.payload
     default:
       return state
   }
 }
 
-const rootReducer = combineReducers({ mainArticle })
+const rootReducer = combineReducers({ fetchedArticles })
 
 export default rootReducer

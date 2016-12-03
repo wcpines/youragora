@@ -6,7 +6,7 @@ class RandomSourceGenerator
 
   def random_sources
 
-    Source.order("RANDOM()")[0...3]
+    Source.order("RANDOM()")[0...1]
 
   end
 

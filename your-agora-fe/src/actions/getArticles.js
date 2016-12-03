@@ -1,6 +1,7 @@
 import $ from 'jquery'
+import { browserHistory } from 'react-router'
 
-export function getArticle(searchTerm){
+export function getArticles(searchTerm){
   return function(dispatch){
     dispatch({type: 'FETCHING_ARTICLES'})
     $.ajax({
@@ -10,7 +11,7 @@ export function getArticle(searchTerm){
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done(function(data){
-      debugger
+      browserHistory.push('/mainteaser')
       dispatch({type: 'FETCH_ARTICLE', payload: data})
     })
   }

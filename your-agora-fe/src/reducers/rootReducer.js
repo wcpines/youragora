@@ -8,16 +8,17 @@ import { combineReducers } from 'redux'
 //     case 'LOGIN_USER':
 //       return state
 //     case 'LOGIN_USER':
-//       return state 
+//       return state
 //     default:
 //       return state
 //   }
 // }
 
 
-function mainArticle(state = {}, action){
+function mainArticle(state = [], action){
   switch (action.type) {
     case "FETCH_ARTICLE":
+    debugger
       return action.payload
     default:
       return state

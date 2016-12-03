@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+// import App from './components/App';
 import store from './store'
 import { Provider } from 'react-redux'
 import { Router, browserHistory } from 'react-router'

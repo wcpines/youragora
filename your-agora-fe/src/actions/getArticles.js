@@ -2,23 +2,18 @@ import $ from 'jquery'
 
 export function getArticle(searchTerm){
   return function(dispatch){
-    
-    $.ajax({url: `https://mercury.postlight.com/parser?url=${searchTerm}`,
-            type: "GET",
-            contentType: "application/json",
-            headers: {"x-api-key": "T9b6wK7r9S9HC6jFHYtDY9EaErommV6q3wu0bRcc"}})
-      .done(function(data){
-      	debugger
-      	let article = 	{title: data.title,
-      				author: data.author,
-      				image_url: data.lead_image_url,
-      				url: data.url,
-      				content: data.content,
-      				date_published: data.date_published}
-      dispatch({type: 'FETCH_CONTENT', payload: article})
-
-  	})
-	}
+    dispatch({type: 'FETCHING_ARTICLES'})
+    $.ajax({
+      url: `http://localhost:3000/articles`,
+      type: 'POST',
+      data: JSON.stringify({search_term: searchTerm }),
+      contentType: 'application/json; charset=utf-8',
+      dataType: 'json'
+    }).done(function(data){
+      debugger
+      dispatch({type: 'FETCH_ARTICLE', payload: data})
+    })
+  }
 }
 // export function makeUser(formValues){
 
@@ -37,20 +32,7 @@ export function getArticle(searchTerm){
 // }
 
 
-export function getArticle(searchTerm){
-  return function(dispatch){
-    dispatch({type: 'FETCHING_ARTICLES'})
-    $.ajax({
-      url: `http://localhost:3000/articles`,
-      type: 'POST',
-      data: JSON.stringify({search_term: searchTerm }),
-      contentType: 'application/json; charset=utf-8',
-      dataType: 'json'
-    }).done(function(data){
-      dispatch({type: 'FETCH_ARTICLE', payload: data})
-    })
-  }
-}
+
 
 // function getArticleHTML(url, key){
 //   return function(dispatch){

@@ -4,3 +4,4 @@ Tags
 ./*node_modules
 your-agora-api/config/secrets.yml
 your-agora-api/.env
+your-agora-api/config/npm-debug.log 

@@ -8,6 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar />
+        <MainArticle />
         {this.props.children}
       </div>
     );

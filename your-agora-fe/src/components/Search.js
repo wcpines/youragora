@@ -21,6 +21,7 @@ class SearchBar extends Component{
 }
 
 function mapStateToProps(state){
+  debugger
     return state
 }
 

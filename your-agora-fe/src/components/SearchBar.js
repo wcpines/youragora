@@ -7,7 +7,7 @@ import {Link} from 'react-router';
 class SearchBar extends Component{
   handleClick(event){
     event.preventDefault()
-    this.props.getArticle(event.target.children[0].value)
+    this.props.getArticle(event.target.children[1].value)
   }
 
   render(){

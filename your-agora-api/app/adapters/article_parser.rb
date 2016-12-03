@@ -1,6 +1,7 @@
 class ArticleParser
 
   def self.get_article_html(url)
+    # url = 'https://mises.org/library/free-markets-property-rights-and-climate-change-how-privatize-climate-policy'
     client = MercuryParser::Client.new(api_key: Rails.application.secrets[:mercury_api_key])
     html = client.parse(url)
 
@@ -8,7 +9,7 @@ class ArticleParser
       author = html.author.split[0...2].join(" ")
     else
       author = "No Author Found"
-    end 
+    end
 
     article_hash = {
       title: html.title,
@@ -17,7 +18,6 @@ class ArticleParser
       word_count: html.word_count
     }
 
-  end 
+  end
 
 end
-

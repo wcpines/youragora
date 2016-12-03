@@ -1,5 +1,7 @@
 # [Mostly] OpEds
 
+http://www.thebestschools.org/features/most-influential-think-tanks/
+
 ### Conservative
 
 - The American Conservative 
@@ -9,6 +11,11 @@
 - Front Porch Republic 
 - National Review [8]
 - First Things (religious) 
+- AEI
+- Manhattan Institute
+
+## Conservative/Libertarian
+- Hoover Institution
 
 ### Libertarian
 
@@ -16,6 +23,7 @@
 - Reason
 - Mises
 - Cato
+- 
 
 ### Liberal
 
@@ -28,6 +36,10 @@
 - Vox
 - The Daily Beast
 - Mother Jones
+- CAP
+- Guttmacher Institute
+- Urban Institute
+- EPI
 
 #  MvP
 

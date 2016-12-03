@@ -6,17 +6,23 @@ class ArticlesController < ApplicationController
 
     articles = []
 
-    GoogleNews.get_articles(params[:search_term], sources[0].name, sources[0].domain).each do |article_url|
-      articles << {url: article_url, source_id: sources[0].id}
+    sources.each do |source|
+      GoogleNews.get_articles(params[:search_term], source.name, source.domain).each do |article_url|
+        articles << {url: article_url, source_id: source.id}
+      end
     end
 
-    GoogleNews.get_articles(params[:search_term], sources[1].name, sources[1].domain).each do |article_url|
-      articles << {url: article_url, source_id: sources[1].id}
-    end
+    # GoogleNews.get_articles(params[:search_term], sources[0].name, sources[0].domain).each do |article_url|
+    #   articles << {url: article_url, source_id: sources[0].id}
+    # end
 
-    GoogleNews.get_articles(params[:search_term], sources[2].name, sources[2].domain).each do |article_url|
-      articles << {url: article_url, source_id: sources[2].id}
-    end
+    # GoogleNews.get_articles(params[:search_term], sources[1].name, sources[1].domain).each do |article_url|
+    #   articles << {url: article_url, source_id: sources[1].id}
+    # end
+
+    # GoogleNews.get_articles(params[:search_term], sources[2].name, sources[2].domain).each do |article_url|
+    #   articles << {url: article_url, source_id: sources[2].id}
+    # end
 
     @full_articles = articles.map do |article_hash|
       parser = ArticleParser.get_article_html(article_hash[:url])
@@ -29,4 +35,4 @@ class ArticlesController < ApplicationController
   end
 
 end
-
+ArticleParser.get_article_html("https://www.jacobinmag.com/2016/11/trump-trumpism-opposition-democrats-protests-berlusconi/")

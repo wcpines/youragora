@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    binding.pry
     @users = User.all
     # render json: {jwt: jwt, current_user: user.id}
     render json: @users

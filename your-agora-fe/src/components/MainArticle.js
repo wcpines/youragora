@@ -11,7 +11,7 @@ function MainArticle (props){
 }
 
 function mapStateToProps(state){
-  return state.mainArticle
+  return state.mainArticle[0]
 }
 
 export default connect(mapStateToProps)(MainArticle)

@@ -27,9 +27,7 @@ export function getArticle(searchTerm){
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done(function(data){
-
-
-      debugger
+      dispatch({type: 'FETCH_ARTICLE', payload: data})
     })
   }
 }

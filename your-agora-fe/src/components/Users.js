@@ -6,7 +6,7 @@ export default function Users(props){
 
   return (
     <ul>
-      butts
+      easter butts
     </ul>
   )
 

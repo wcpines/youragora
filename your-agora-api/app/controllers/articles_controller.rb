@@ -22,9 +22,13 @@ class ArticlesController < ApplicationController
     end
 
     @full_articles = articles.map do |article_hash|
-      parser = ArticleParser.get_article_html(article_hash[:url])
-      article_attributes = parser.merge(article_hash)
-      Article.find_or_create_by(article_attributes)
+      article = Article.find_by(url: article_hash[:url])
+      if article.nil?
+        parser = ArticleParser.get_article_html(article_hash[:url])
+        article_attributes = parser.merge(article_hash)
+        article = Article.create(article_attributes)
+      end
+      article
     end
 
     render json: @full_articles

@@ -21,14 +21,21 @@ class ArticlesController < ApplicationController
 
     end
 
-    @full_articles = articles.map do |article_hash|
-      article = Article.find_by(url: article_hash[:url])
+    @full_articles = articles.map do |url_and_source_id|
+
+      source_name = Source.find(url_and_source_id[:source_id]).name
+
+      article = Article.find_by(url: url_and_source_id[:url])
+
       if article.nil?
-        parser = ArticleParser.get_article_html(article_hash[:url])
-        article_attributes = parser.merge(article_hash)
+        parser = ArticleParser.get_article_html(url_and_source_id[:url])
+        redacted_content = parser.merge(content: parser[:content].gsub(/#{source_name}/, "REDACTED"))
+        article_attributes = redacted_content.merge(url_and_source_id)
         article = Article.create(article_attributes)
       end
+
       article
+
     end
 
     render json: @full_articles

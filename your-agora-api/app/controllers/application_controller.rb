@@ -7,7 +7,6 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    binding.pry
     unless request.env["HTTP_AUTHORIZATION"].empty?
       user = User.find(Auth.decode(request.env["HTTP_AUTHORIZATION"])["user_id"])
       render json: user

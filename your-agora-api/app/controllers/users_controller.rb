@@ -3,10 +3,9 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user
 
   def index
-    binding.pry
-    @users = User.all
-    # render json: {jwt: jwt, current_user: user.id}
-    render json: @users
+    user_id = Auth.decode(request.env["HTTP_AUTHORIZATION"]).first['user_id']
+    @user = User.find(user_id)
+    render json: @user
   end
 
   # def show

@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
+  skip_before_action :authenticate_user
+
   def index
+    binding.pry
     @users = User.all
     # render json: {jwt: jwt, current_user: user.id}
     render json: @users
@@ -17,7 +20,7 @@ class UsersController < ApplicationController
     if user.persisted?
       jwt = Auth.issue({user_id: user.id})
       render json: {jwt: jwt, current_user: user.id}
-    else 
+    else
       render json: {error: "Something is wrong"}, status: 404
     end
   end

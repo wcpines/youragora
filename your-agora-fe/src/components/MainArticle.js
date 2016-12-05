@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ThumbsButtons from './ThumbsButtons'
-import MainTeaser from './MainTeaser' 
 
 
 function MainArticle (props){
@@ -11,6 +10,7 @@ function MainArticle (props){
       <h1>{props.title}</h1>
       <div style={{"textAlign": "left"}} dangerouslySetInnerHTML={{__html: props.content}} />
       <ThumbsButtons />
+      {props.children}
     </div>
   )
 }

@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { findUser } from '../actions/findUser';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-class SignIn extends Component { 
+class SignIn extends Component {
 
   constructor(props){
 
@@ -34,7 +34,7 @@ class SignIn extends Component {
 
     return(
       <form onSubmit={this.handleSubmit}>
-        LOGIN FORM: <br /> 
+        LOGIN FORM: <br />
         Email: <input onChange={this.handleEmail} type="text" /><br />
         Password: <input onChange={this.handlePassword} type="password" />
         <input type="submit" value="Double Dino Danger!" />
@@ -49,4 +49,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(null, mapDispatchToProps)(SignIn)
-

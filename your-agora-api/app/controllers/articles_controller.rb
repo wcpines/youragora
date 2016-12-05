@@ -26,7 +26,6 @@ class ArticlesController < ApplicationController
       article = Article.find_by(url: url_and_source[:url])
       if article.nil?
         parser = ArticleParser.get_article_html(url_and_source[:url])
-        binding.pry
         parser.assign_attributes(url_and_source)
         parser.save
         parser

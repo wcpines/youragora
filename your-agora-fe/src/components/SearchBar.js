@@ -25,12 +25,8 @@ class SearchBar extends Component{
   }
 }
 
-function mapStateToProps(state){
-  return state
-}
-
 function mapDispatchToProps(dispatch){
   return bindActionCreators({ getArticles }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
+export default connect(null, mapDispatchToProps)(SearchBar)

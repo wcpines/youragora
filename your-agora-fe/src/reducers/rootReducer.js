@@ -1,21 +1,18 @@
 import { combineReducers } from 'redux'
 
-// function users(state = [], action){
-//   switch (action.type) {
-//     case 'CREATING_USER':
-//       return {...state, creatingUser}
-
-//     case 'LOGIN_USER':
-//       return state
-//     case 'LOGIN_USER':
-//       return state
-//     default:
-//       return state
-//   }
-// }
+function authenticatedUsers(state = {making_user: false, currentUser: null}, action){
+  switch (action.type) {
+    case 'MAKING_USER':
+      return {...state, making_user: true}
+    case 'LOGIN_USER':
+      return {...state, making_user: false, currentUser: action.currentUser}
+    default:
+      return state
+  }
+}
 
 
-function fetchedArticles(state = [], action){
+function articles(state = [], action){
   switch (action.type) {
     case "FETCH_ARTICLE":
       return action.payload
@@ -24,6 +21,6 @@ function fetchedArticles(state = [], action){
   }
 }
 
-const rootReducer = combineReducers({ fetchedArticles })
+const rootReducer = combineReducers({ articles, authenticatedUsers })
 
 export default rootReducer

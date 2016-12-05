@@ -3,7 +3,8 @@ class ArticlesController < ApplicationController
   def create
 
     sources = RandomSourceGenerator.new.random_sources
-
+    # JK: using the articles array, is sandwich code.  instead use map.
+    # Also, this logic should be pulled out into a service object.
     articles = []
 
     sources.each do |source|

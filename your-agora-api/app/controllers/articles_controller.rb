@@ -21,12 +21,12 @@ class ArticlesController < ApplicationController
 
     end
 
-    @full_articles = articles.map do |article_hash|
-      article = Article.find_by(url: article_hash[:url])
+    @full_articles = articles.map do |url_and_source|
+      article = Article.find_by(url: url_and_source[:url])
       if article.nil?
-        parser = ArticleParser.get_article_html(article_hash[:url])
-        article_attributes = parser.merge(article_hash)
-        article = Article.create(article_attributes)
+        parser = ArticleParser.get_article_html(url_and_source[:url])
+        parser.assign_attributes(url_and_source)
+        article = parser.save
       end
       article
     end

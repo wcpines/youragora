@@ -12,13 +12,15 @@ class ArticleParser
     end
 
     # add lead image url
-    article_hash = {
+    article_attributes_hash = {
       title: html.title,
       author: author,
       content: html.content,
       word_count: html.word_count,
       img_url: html.lead_image_url
     }
+
+    Article.new(article_attributes_hash)
 
   end
 

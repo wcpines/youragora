@@ -42,3 +42,12 @@ class ArticlesController < ApplicationController
   end
 
 end
+
+
+# # First we have an array of all possible names for a source
+# names = ['The New York Times', 'The Times']
+#
+# # Create a new regex with all the possible names
+# re = Regexp.new(names.join('|'))
+#
+# parser[:content].gsub(re, "REDACTED")

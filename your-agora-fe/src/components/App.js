@@ -4,6 +4,7 @@ import SignIn from './SignIn'
 import fetchUserId from '../actions/fetchUserId'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { browserHistory } from 'react-router'
 import SearchBar from './SearchBar'
 
 
@@ -13,6 +14,7 @@ class App extends Component {
     if(this.props.currentUser === null && localStorage.getItem('jwt') != null){
       this.props.fetchUserId()
     }
+    browserHistory.push('/')
   }
 
   render() {
@@ -21,7 +23,7 @@ class App extends Component {
       loggedIn = <div><SignUp /> <br /> <SignIn /></div>
 
     }else {
-      loggedIn = <p> Youre user id is {this.props.currentUser} </p>
+      loggedIn = <p> Welcome back user: {this.props.currentUser} </p>
     }
     return (
       <div className="App">

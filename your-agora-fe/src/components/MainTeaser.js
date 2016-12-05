@@ -6,8 +6,8 @@ import {Link} from 'react-router';
 function MainTeaser(props){
   return(
     <div>
-      <img className="thumbnail" src={props.img_url} />
-      <h1>{props.title}</h1>
+      <img className="thumbnail" src={props.article.img_url} />
+      <h1>{props.article.title}</h1>
       <Link to="mainarticle" className="button" >Read More</Link>
     </div>
   )
@@ -15,7 +15,7 @@ function MainTeaser(props){
 
 
 function mapStateToProps(state){
-  return state.articles.fetched[0].article
+  return state.mainArticle
 }
 
 export default connect(mapStateToProps)(MainTeaser)

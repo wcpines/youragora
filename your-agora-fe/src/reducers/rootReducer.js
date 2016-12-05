@@ -18,13 +18,25 @@ function articles(state = {fetched: [], fetching: false}, action){
   switch (action.type) {
     case 'FETCHING_ARTICLES':
       return {...state, fetching: true}
-    case "FETCH_ARTICLE":
+    case "FETCH_ARTICLES":
       return {...state, fetched: action.payload, fetching: false}
     default:
       return state
   }
 }
 
-const rootReducer = combineReducers({ articles, currentUser })
+
+function mainArticle(state = {article: {title: "", content: ""}}, action ){
+  switch (action.type) {
+    case "FETCH_ARTICLES":
+      return action.payload[0]
+    case "GET_NEXT":
+      return action.payload
+    default:
+      return state
+  }
+}
+
+const rootReducer = combineReducers({ articles, currentUser, mainArticle })
 
 export default rootReducer

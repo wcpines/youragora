@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import { makeUser } from '../actions/makeUser';
+import { findUser } from '../actions/findUser';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-class SignUp extends Component { 
+class SignIn extends Component { 
 
   constructor(props){
 
@@ -27,16 +27,17 @@ class SignUp extends Component {
 
   handleSubmit(event){
     event.preventDefault()
-    this.props.makeUser(this.state)
+    this.props.findUser(this.state)
   }
 
   render(){
 
     return(
       <form onSubmit={this.handleSubmit}>
+        LOGIN FORM: <br /> 
         Email: <input onChange={this.handleEmail} type="text" /><br />
         Password: <input onChange={this.handlePassword} type="password" />
-        <input type="submit" value="Dino Danger!" />
+        <input type="submit" value="Double Dino Danger!" />
       </form>
     )
   }
@@ -44,8 +45,8 @@ class SignUp extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ makeUser: makeUser }, dispatch)
+  return bindActionCreators({ findUser: findUser }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(SignUp)
+export default connect(null, mapDispatchToProps)(SignIn)
 

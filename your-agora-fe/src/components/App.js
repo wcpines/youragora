@@ -3,6 +3,7 @@ import SignUp from './SignUp'
 import SignIn from './SignIn'
 import fetchUserId from '../actions/fetchUserId'
 import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
 import SearchBar from './SearchBar'
 
 
@@ -20,7 +21,7 @@ class App extends Component {
       loggedIn = <div><SignUp /> <br /> <SignIn /></div>
 
     }else {
-      loggedIn = <p> You are logged in </p>
+      loggedIn = <p> Youre user id is {this.props.currentUser} </p>
     }
     return (
       <div className="App">
@@ -37,7 +38,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return { fetchUserId }
+  return bindActionCreators({ fetchUserId }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

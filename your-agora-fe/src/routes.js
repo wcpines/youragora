@@ -11,9 +11,8 @@ export default (
   <Route path="/" component={App} >
     <Route path="mainteaser" component={MainTeaser} />
     <Route path="mainarticle" component={MainArticle} >
-    	<Route path="showSource" component={ShowSource} >
-        <Route path="source" component={Source} />
-      </Route>
+      <Route path="showSource" component={ShowSource} />
+      <Route path="source" component={Source} />
     </Route>
   </Route>
 );

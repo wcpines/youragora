@@ -1,16 +1,19 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default function Source(props){
-
-  debugger
+function Source(props){
 
   return(
     <div>
+      butts
       {props.source}
     </div>
   )
 }
 
 function mapStateToProps(state){
+  debugger
   return {source: state.articles[0].url}
 }
+
+export default connect(mapStateToProps)(Source)

@@ -29,8 +29,11 @@ class ArticlesController < ApplicationController
 
       if article.nil?
         parser = ArticleParser.get_article_html(url_and_source_id[:url])
-        redacted_content = parser.merge(content: parser[:content].gsub(/#{source_name}/, "REDACTED"))
-        article_attributes = redacted_content.merge(url_and_source_id)
+
+        redacted_content = parser[:content].gsub(/#{source_name}/, "REDACTED")
+        parser_results = parser.merge(content: redacted_content)
+
+        article_attributes = parser_results.merge(url_and_source_id)
         article = Article.create(article_attributes)
       end
 
@@ -43,3 +46,12 @@ class ArticlesController < ApplicationController
   end
 
 end
+
+
+# # First we have an array of all possible names for a source
+# names = ['The New York Times', 'The Times']
+#
+# # Create a new regex with all the possible names
+# re = Regexp.new(names.join('|'))
+#
+# parser[:content].gsub(re, "REDACTED")

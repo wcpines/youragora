@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
-function authenticatedUsers(state = {making_user: false, currentUser: null}, action){
+function currentUser(state = {making_user: false, userId: null}, action){
   switch (action.type) {
     case 'MAKING_USER':
       return {...state, making_user: true}
     case 'LOGIN_USER':
-      return {...state, making_user: false, currentUser: action.currentUser}
+      return {...state, making_user: false, userId: action.currentUser}
     default:
       return state
   }
@@ -21,6 +21,6 @@ function articles(state = [], action){
   }
 }
 
-const rootReducer = combineReducers({ articles, authenticatedUsers })
+const rootReducer = combineReducers({ articles, currentUser })
 
 export default rootReducer

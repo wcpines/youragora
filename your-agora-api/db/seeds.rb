@@ -1,58 +1,38 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
-Source.create(name: 'The New York Times', domain: 'nytimes.com')
-Source.create(name: 'Jacobin', domain: 'jacobinmag.com')
-Source.create(name: 'The Nation', domain: 'thenation.com')
-
-Source.create(name: 'Fox News', domain: 'foxnews.com')
-Source.create(name: 'American Conservative', domain: 'theamericanconservative.com')
-Source.create(name: 'Mises', domain: 'mises.org')
-
-
-# TODO: Finish
-=begin
-
 sources = [
-  {name: "The American Conservative", domain: 'theamericanconservative.com', leaning: 1},
-  {name: 'The Imaginative Conservative', domain: 'theimaginativeconservative.org', leaning: 1},
-  {name: 'American Spectator', domain: 'spectator.org/', leaning: 1},
-  {name: 'American Thinker', domain: 'americanthinker.com', leaning: 1},
-  {name: 'Front Porch Republic', domain: 'frontporchrepublic.com', leaning: 1},
-  {name: 'National Review', domain: 'nationalreview.com', leaning: 1},
-{name: 'First Things', domain: 'firstthings.com', leaning: 1},
+  {name: 'The American Conservative', domain: 'theamericanconservative.com', leaning: 'R'},
+  {name: 'The Imaginative Conservative', domain: 'theimaginativeconservative.org', leaning: 'R'},
+  {name: 'American Spectator', domain: 'spectator.org', leaning: 'R'},
+  {name: 'American Thinker', domain: 'americanthinker.com', leaning: 'R'},
+  {name: 'Front Porch Republic', domain: 'frontporchrepublic.com', leaning: 'R'},
+  {name: 'National Review', domain: 'nationalreview.com', leaning: 'R'},
+  {name: 'First Things', domain: 'firstthings.com', leaning: 'R'},
+  {name: 'American Enterprise Institute (AEI)', domain: 'aei.org', leaning: 'R'},
+  {name: 'The Heritage Foundation', domain: 'heritage.org', leaning: 'R'}, 
+  {name: 'Hoover Institution', domain: 'hoover.org', leaning: 'R'},
+  {name: 'Independent Institute', domain: 'independent.org', leaning: 'A'},
+  {name: 'Reason', domain: 'reason.com', leaning: 'A'},
+  {name: 'Mises Institute', domain: 'mises.org', leaning: 'A'},
+  {name: 'Cato Institute', domain: 'cato.org', leaning: 'A'},
+  {name: 'Electronic Frontier Foundation (EFF)', domain: 'eff.org', leaning: 'A'},
+  {name: 'Slate', domain: 'slate.com', leaning: 'L'},
+  {name: 'NPR', domain: 'npr.org', leaning: 'L'},
+  {name: 'Brookings Institute', domain: 'brookings.edu', leaning: 'L'}, 
+  {name: 'Jacobin', domain: 'jacobinmag.com', leaning: 'L'},
+  {name: 'The Huffington Post', domain: 'huffingtonpost.com', leaning: 'L'},
+  {name: 'The Atlantic', domain: 'theatlantic.com', leaning: 'L'},
+  {name: 'Policy Mic', domain: 'mic.com/policy', leaning: 'L'},
+  {name: 'Vox', domain: 'vox.com', leaning: 'L'},
+  {name: 'Mother Jones', domain: 'motherjones.com', leaning: 'L'},
+  {name: 'Center for American Progress', domain: 'americanprogress.org', leaning: 'L'},
+  {name: 'Guttmacher Institute', domain: 'guttmacher.org', leaning: 'L'},
+  {name: 'Urban Institute', domain: 'urban.org', leaning: 'L'},
+  {name: 'Vanity Fair', domain: 'vanityfair.com', leaning: 'L'},
+  {name: 'Economic Policy Institute (EPI)', domain: 'epi.org', leaning: 'L'},
+  {name: 'The Progressive', domain: 'progressive.org', leaning: 'L'},
+  {name: 'The American Prospect', domain: 'prospect.org', leaning: 'L'},
 ]
 
 
-
-
-name: 'American Enterprise Institute (AEI)'
-name: 'Manhattan Institute'
-name: 'Hoover Institution'
-name: 'Independent Institute'
-name: 'Reason'
-name: 'Mises Institute'
-name: 'Cato Institute'
-name: 'Electronic Frontier Foundation (EFF)'
-name: 'Slate'
-name: 'NPR'
-name: 'Jacobin'
-name: 'The Huffington Post'
-name: 'The Atlantic'
-name: 'Policy Mic'
-name: 'Vox'
-name: 'Mother Jones'
-name: 'Center for American Progress'
-name: 'Guttmacher Institute'
-name: 'Urban Institute'
-name: 'Vanity Fair'
-name: 'Economic Policy Institute (EPI)'
-name: 'The Progressive'
-name: 'The American Prospect'
-=end
+sources.map do |source|
+  Source.create(name: source[:name], domain: source[:domain], leaning: source[:leaning])
+end

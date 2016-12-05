@@ -6,7 +6,7 @@
 
 <!-- http://www.thebestschools.org/features/most-influential-think-tanks/ -->
 
-### Conservative/Traditional
+### Conservative/Traditional (R)
 
 The American Conservative
 The Imaginative Conservative
@@ -19,7 +19,7 @@ AEI
 Manhattan Institute
 Hoover Institution
 
-### Libertarian/AnarchoCap
+### Libertarian/AnarchoCap (A)
 
 Independent Institute
 Reason
@@ -27,7 +27,7 @@ Mises
 Cato
 Electronic Frontier Foundation
 
-### Liberal/Progressive
+### Liberal/Progressive (L)
 
 Slate
 NPR

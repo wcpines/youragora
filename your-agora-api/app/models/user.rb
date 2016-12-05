@@ -16,5 +16,4 @@ class User < ApplicationRecord
 
   has_many :ratings
   has_many :articles, through: :ratings
-
 end

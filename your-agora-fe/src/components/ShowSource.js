@@ -1,15 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router';
-// import {connect} from 'redux'
+import { connect } from 'react-redux'
 
 
-export default function showSource(props){
-  // if(props.state.loggedIn?){
-  	let test = <button> Show Source </button>
-  // } 
-  // else {
-  // 	let test = "propmt to make an account"
-  // }
+function showSource(props){
+  if( props.currentUserId != null ){
+  	var test = <Link to="mainarticle/source" >Show Source</Link>
+  }
+  else {
+  	var test = "Make an account"
+  }
   return(
     <div>
     	{test}
@@ -17,8 +17,9 @@ export default function showSource(props){
   )
 }
 
-// function mapStateToProps(state){
-// 	return state
-// }
 
-// export default connect(mapStateToProps)(showSource)
+function mapStateToProps(state){
+  return {currentUserId: state.currentUser.userId}
+}
+
+export default connect(mapStateToProps)(showSource)

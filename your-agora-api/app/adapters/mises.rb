@@ -21,7 +21,9 @@ class Mises
     end
 
     # This is to show what the return value is. We don't need to explicity state it here cause Ruby is awesome
+    # JK: Yes, but this should automatically be the return value of the fn, if you are using map.
     formatted_links
+    #     
 
   end
 

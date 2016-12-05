@@ -17,11 +17,9 @@ class Mises
       if mises_url[0] == '/'
         mises_url = 'https://mises.org' + mises_url
       end
-      mises_url
+      mises_url # NOTE: Returns 3 formatted links
     end
 
-    # This is to show what the return value is. We don't need to explicity state it here cause Ruby is awesome
-    formatted_links
 
   end
 

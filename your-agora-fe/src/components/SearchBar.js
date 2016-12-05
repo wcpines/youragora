@@ -11,6 +11,7 @@ class SearchBar extends Component{
   }
 
   render(){
+
     return(
 
       <div >
@@ -18,15 +19,19 @@ class SearchBar extends Component{
         <form className='search-bar' onSubmit={this.handleClick.bind(this)}>
           <label htmlFor='search' className='search-bar'>Search for a topic: </label>
           <input id='search' type="text" />
-          <input type='submit' className='search-bar' name='submit' value='Search'/>
+          <input type='submit' disabled={this.props.fetching} className='search-bar' name='submit' value='Search'/>
         </form>
       </div>
     )
   }
 }
 
+function mapStateToProps(state){
+  return {fetching: state.articles.fetching}
+}
+
 function mapDispatchToProps(dispatch){
   return bindActionCreators({ getArticles }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)

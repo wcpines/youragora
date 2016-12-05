@@ -13,7 +13,7 @@ function Source(props){
 
 function mapStateToProps(state){
   debugger
-  return {source: state.articles[0].url}
+  return {source: state.articles.fetched[0].url}
 }
 
 export default connect(mapStateToProps)(Source)

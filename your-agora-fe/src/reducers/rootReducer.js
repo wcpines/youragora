@@ -14,10 +14,12 @@ function currentUser(state = {making_user: false, userId: null}, action){
 }
 
 
-function articles(state = [], action){
+function articles(state = {fetched: [], fetching: false}, action){
   switch (action.type) {
+    case 'FETCHING_ARTICLES':
+      return {...state, fetching: true}
     case "FETCH_ARTICLE":
-      return action.payload
+      return state = {fetched: action.payload, fetching: false}
     default:
       return state
   }

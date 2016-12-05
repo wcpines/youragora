@@ -17,7 +17,7 @@ function MainArticle (props){
 
 function mapStateToProps(state){
   // TODO: Right now this is only showing the first article from all the articles we are gathering. eventually we want to fetch one article display it and fetch the rest in the background.
-  return state.articles[0]
+  return state.articles.fetched[0]
 }
 
 export default connect(mapStateToProps)(MainArticle)

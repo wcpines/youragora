@@ -28,9 +28,14 @@ class ArticlesController < ApplicationController
         parser = ArticleParser.get_article_html(url_and_source[:url])
         parser.assign_attributes(url_and_source)
         parser.save
-        parser
+        article = parser
       end
+
+      {article: article, source_name: Source.find(url_and_source[:source_id]).name}
+
     end
+
+    puts sources
 
     render json: @full_articles
 

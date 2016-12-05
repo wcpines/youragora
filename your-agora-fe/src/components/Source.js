@@ -5,15 +5,17 @@ function Source(props){
 
   return(
     <div>
-      butts
-      {props.source}
+      {props.sourceName}
+      {props.sourceUrl}
     </div>
   )
 }
 
 function mapStateToProps(state){
-  debugger
-  return {source: state.articles.fetched[0].url}
+  return {
+    sourceName: state.articles.fetched[0].source_name,
+    sourceUrl: state.articles.fetched[0].article.url
+    }
 }
 
 export default connect(mapStateToProps)(Source)

@@ -3,7 +3,7 @@ import { makeUser } from '../actions/makeUser';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-class SignUp extends Component { 
+class SignUp extends Component {
 
   constructor(props){
 
@@ -48,4 +48,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(null, mapDispatchToProps)(SignUp)
-

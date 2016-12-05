@@ -11,8 +11,8 @@ export function getArticles(searchTerm){
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done(function(data){
-      browserHistory.push('/mainteaser')
       dispatch({type: 'FETCH_ARTICLE', payload: data})
+      browserHistory.push('/mainteaser')
     })
   }
 }

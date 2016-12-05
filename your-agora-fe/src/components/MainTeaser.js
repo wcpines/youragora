@@ -15,7 +15,7 @@ function MainTeaser(props){
 
 
 function mapStateToProps(state){
-  return state.articles.fetched[0]
+  return state.articles.fetched[0].article
 }
 
 export default connect(mapStateToProps)(MainTeaser)

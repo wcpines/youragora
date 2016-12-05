@@ -2,7 +2,6 @@ import $ from 'jquery'
 import { browserHistory } from 'react-router'
 
 export function findUser(formValues){
-  debugger
   return function(dispatch){
     dispatch({type: 'FINDING_USER'})
     $.ajax({

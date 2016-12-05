@@ -19,7 +19,7 @@ function articles(state = {fetched: [], fetching: false}, action){
     case 'FETCHING_ARTICLES':
       return {...state, fetching: true}
     case "FETCH_ARTICLE":
-      return state = {fetched: action.payload, fetching: false}
+      return {...state, fetched: action.payload, fetching: false}
     default:
       return state
   }

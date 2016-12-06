@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { findUser } from '../../actions/findUser';
+import { signIn } from '../../actions/signIn';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -27,7 +27,7 @@ class SignIn extends Component {
 
   handleSubmit(event){
     event.preventDefault()
-    this.props.findUser(this.state)
+    this.props.signIn(this.state)
   }
 
   render(){
@@ -45,7 +45,7 @@ class SignIn extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ findUser: findUser }, dispatch)
+  return bindActionCreators({ signIn: signIn }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SignIn)

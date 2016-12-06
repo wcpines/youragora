@@ -7,7 +7,7 @@ function currentUser(state = {making_user: false, userId: null}, action){
       return {...state, making_user: true}
     case 'FETCH_USER':
       return {...state, userId: action.currentUserId}
-    case 'LOGIN_USER':
+    case 'SIGNIN_USER':
       return {...state, making_user: false, userId: action.currentUser}
     case 'SIGN_OUT':
       return {making_user: false, userId: null}
@@ -28,12 +28,22 @@ function articles(state = {fetched: [], fetching: false}, action){
   }
 }
 
+function stashes(state = [], action){
+  switch (action.type) {
+    case "STASH_ARTICLE":
+      return state
+    case "FETCH_STASHES":
+      return state
+    default:
+      return state
+  }
+}
 
 function mainArticle(state = {article: {title: "", content: ""}}, action ){
   switch (action.type) {
     case "FETCH_ARTICLES":
       return action.payload[0]
-    case "GET_NEXT":
+    case "NEXT_ARTICLE":
       browserHistory.push(`/articles/random/teaser`)
       return action.payload
     default:
@@ -41,6 +51,6 @@ function mainArticle(state = {article: {title: "", content: ""}}, action ){
   }
 }
 
-const rootReducer = combineReducers({ articles, currentUser, mainArticle })
+const rootReducer = combineReducers({ articles, currentUser, mainArticle, stashes })
 
 export default rootReducer

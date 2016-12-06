@@ -18,6 +18,10 @@ class Article < ApplicationRecord
 
   has_many :reactions
   has_many :users, through: :reactions
+
+  has_many :stashes
+  has_many :users, through: :stashes
+
   belongs_to :source
 
 end

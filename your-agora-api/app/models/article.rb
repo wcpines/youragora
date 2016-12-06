@@ -11,12 +11,13 @@
 #  author     :string
 #  content    :string
 #  word_count :integer
+#  img_url    :string
 #
 
 class Article < ApplicationRecord
 
-  has_many :ratings
-  has_many :users, through: :ratings
+  has_many :reactions
+  has_many :users, through: :reactions
   belongs_to :source
 
 end

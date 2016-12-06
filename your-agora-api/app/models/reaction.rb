@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class Rating < ApplicationRecord
+class Reaction < ApplicationRecord
 
   belongs_to :article
   belongs_to :user

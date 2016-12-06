@@ -20,7 +20,7 @@ class Header extends Component {
         <Link id="sign-up-link" to="/signup" >Sign Up</Link>
       </div>
     }else {
-      loggedIn = <div><p> Welcome back user: {this.props.currentUser} </p> <SignOut /></div>
+      loggedIn = <div><p> Welcome back {this.props.currentUser} </p> <SignOut /></div>
     }
     return (
       <div className="header-container">
@@ -34,7 +34,7 @@ class Header extends Component {
 }
 
 function mapStateToProps(state){
-  return {currentUser: state.currentUser.userId}
+  return {currentUser: state.currentUser.userName}
 }
 
 function mapDispatchToProps(dispatch){

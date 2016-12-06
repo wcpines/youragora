@@ -10,7 +10,7 @@ export default function fetchUserId(){
       type: "GET",
       headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
-      dispatch({type: 'FETCH_USER', currentUserId: data.id}) // NOTE: current_user is from the API/Ruby
+      dispatch({type: 'FETCH_USER', currentUserId: data.id, currentUserName: data.name}) // NOTE: current_user is from the API/Ruby
     })
   }
 }

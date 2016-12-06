@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.persisted?
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, current_user: user.id}
+      render json: {jwt: jwt, current_user: {user_id: user.id, user_name: user.name}}
     else
       render json: {error: "Something is wrong"}, status: 404
     end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:auth).permit(:email, :password)
+    params.require(:auth).permit(:email, :password, :name)
   end
 
 end

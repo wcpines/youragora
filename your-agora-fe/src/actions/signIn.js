@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import { browserHistory } from 'react-router'
 
-export function findUser(formValues){
+export function signIn(formValues){
   return function(dispatch){
     dispatch({type: 'FINDING_USER'})
     $.ajax({
@@ -12,7 +12,7 @@ export function findUser(formValues){
       dataType: 'json'
     }).done(function(data){
       localStorage.setItem('jwt', data.jwt)
-      dispatch({type: 'LOGIN_USER', currentUser: data.current_user}) // NOTE: current_user is from the API/Ruby
+      dispatch({type: 'SIGNIN_USER', currentUser: data.current_user}) // NOTE: current_user is from the API/Ruby
       browserHistory.push('/')
     })
   }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { makeUser } from '../../actions/makeUser';
+import { signUp } from '../../actions/signUp';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -9,12 +9,17 @@ class SignUp extends Component {
 
     super(props)
 
+    this.handleName = this.handleName.bind(this)
     this.handleEmail = this.handleEmail.bind(this)
     this.handlePassword = this.handlePassword.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
 
     this.state = {email: "", password: ""}
 
+  }
+
+  handleName(event){
+    this.setState({name: event.target.value})
   }
 
   handleEmail(event){
@@ -27,7 +32,7 @@ class SignUp extends Component {
 
   handleSubmit(event){
     event.preventDefault()
-    this.props.makeUser(this.state)
+    this.props.signUp(this.state)
   }
 
   render(){
@@ -35,6 +40,7 @@ class SignUp extends Component {
     return(
       <div id="sign-up">
         <form onSubmit={this.handleSubmit}>
+          Name: <input onChange={this.handleName} type="text" />
           Email: <input onChange={this.handleEmail} type="text" />
           Password: <input onChange={this.handlePassword} type="password" />
           <input type="submit" value="Dino Danger!" />
@@ -46,7 +52,7 @@ class SignUp extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ makeUser: makeUser }, dispatch)
+  return bindActionCreators({ signUp: signUp }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SignUp)

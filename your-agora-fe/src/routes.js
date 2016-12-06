@@ -9,10 +9,10 @@ import Source from './components/Source'
 
 export default (
   <Route path="/" component={App} >
-    <Route path="articles/:id/teaser" component={MainTeaser} />
-    <Route path="articles/:id/main" component={MainArticle} >
-      <Route path="articles/:id/main/showSource" component={ShowSource} />
-      <Route path="articles/:id/main/source" component={Source} />
+    <Route path="/articles/:id/teaser" component={MainTeaser} />
+    <Route path="/articles/:id/main" component={MainArticle} >
+      <Route path="/articles/:id/main/showSource" component={ShowSource} />
+      <Route path="/articles/:id/main/source" component={Source} />
     </Route>
   </Route>
 );

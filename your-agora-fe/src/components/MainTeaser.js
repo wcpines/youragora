@@ -4,11 +4,14 @@ import {Link} from 'react-router';
 
 
 function MainTeaser(props){
+
+  // let href = `articles/${props.article.id}/main`
+
   return(
     <div>
       <img className="thumbnail" src={props.article.img_url} />
       <h1>{props.article.title}</h1>
-      <Link to="mainarticle" className="button" >Read More</Link>
+      <Link to='main' className="button" >Read More</Link>
     </div>
   )
 }

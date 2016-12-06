@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getNext } from '../actions/getNext'
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
 
 
 function showSource(props){
@@ -16,13 +16,12 @@ function showSource(props){
 
   function handleClick(){
     props.getNext(props.mainArticle, props.articles)
-    browserHistory.push('/mainTeaser')
   }
 
   return(
     <div>
       {test}
-      <button onClick={handleClick.bind(props)}> Next </button>  
+      <button onClick={handleClick.bind(props)}> Next </button>
     </div>
   )
 }
@@ -30,7 +29,7 @@ function showSource(props){
 
 function mapStateToProps(state){
   return {
-    currentUserId: state.currentUser.userId, 
+    currentUserId: state.currentUser.userId,
     mainArticle: state.mainArticle,
     articles: state.articles.fetched
   }

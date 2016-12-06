@@ -1,3 +1,5 @@
+import { browserHistory } from 'react-router'
+
 
 export function getNext(mainArticle, articles){
   let index = articles.indexOf(mainArticle)
@@ -7,5 +9,8 @@ export function getNext(mainArticle, articles){
     index = -1
   }
 
-  return {type: 'GET_NEXT', payload: articles[index + 1]}
+  let nextArticle = articles[index + 1]
+
+  return {type: 'GET_NEXT', payload: nextArticle}
+  browserHistory(`articles/${nextArticle.id}/teaser`)
 }

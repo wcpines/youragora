@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
 =end
 
 
-    #=begin
+# [>
     # NOTE: TEST
 
     random_articles = Article.order('RANDOM()')[0...4]
@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
     end
     render json: rand_objs
 
-    #=end
+# =end
 
   end
 

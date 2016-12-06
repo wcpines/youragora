@@ -14,6 +14,13 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :ratings
-  has_many :articles, through: :ratings
+  # validates_presence_of :password, length: {minimum: 3, maximum: 50}
+  # validates_presence_of :email, length: {minimum: 3, maximum: 50}
+  # validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
+
+  has_many :reactions
+  has_many :articles, through: :reactions
+
+  has_many :stashes
+  has_many :articles, through: :stashes
 end

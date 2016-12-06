@@ -28,12 +28,22 @@ function articles(state = {fetched: [], fetching: false}, action){
   }
 }
 
+function stashes(state = [], action){
+  switch (action.type) {
+    case "STASH_ARTICLE":
+      return state
+    case "FETCH_STASHES":
+      return state
+    default:
+      return state
+  }
+}
 
 function mainArticle(state = {article: {title: "", content: ""}}, action ){
   switch (action.type) {
     case "FETCH_ARTICLES":
       return action.payload[0]
-    case "GET_NEXT":
+    case "NEXT_ARTICLE":
       browserHistory.push(`/articles/random/teaser`)
       return action.payload
     default:
@@ -41,6 +51,6 @@ function mainArticle(state = {article: {title: "", content: ""}}, action ){
   }
 }
 
-const rootReducer = combineReducers({ articles, currentUser, mainArticle })
+const rootReducer = combineReducers({ articles, currentUser, mainArticle, stashes })
 
 export default rootReducer

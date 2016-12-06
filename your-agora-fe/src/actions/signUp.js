@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import { browserHistory } from 'react-router'
 
-export function makeUser(formValues){
+export function signUp(formValues){
   return function(dispatch){
     dispatch({type: 'MAKING_USER'})
     $.ajax({url: `http://localhost:3000/users`,
@@ -11,7 +11,7 @@ export function makeUser(formValues){
       dataType: 'json'
     }).done(function(data){
       localStorage.setItem('jwt', data.jwt)
-      dispatch({type: 'LOGIN_USER', currentUser: data.current_user}) // NOTE: current_user is from the API/Ruby
+      dispatch({type: 'SIGNIN_USER', currentUser: data.current_user}) // NOTE: current_user is from the API/Ruby
       browserHistory.push('/')
     })
   }

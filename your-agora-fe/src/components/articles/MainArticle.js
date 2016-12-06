@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ThumbsButtons from '../reactions/ThumbsButtons'
+import StashButton from '../reactions/StashButton'
 
 
-function MainArticle (props){
+class MainArticle extends Component{
 
-  return (
-    <div id="main-article">
-      <h1>{props.article.title}</h1>
-      <div style={{"textAlign": "left"}} dangerouslySetInnerHTML={{__html: props.article.content}} />
-      <ThumbsButtons />
-      {props.children}
-    </div>
-  )
+  render(){
+
+    return (
+      <div>
+        <h1>{this.props.article.title}</h1>
+        <div style={{"textAlign": "left"}} dangerouslySetInnerHTML={{__html: this.props.article.content}} />
+        <ThumbsButtons />
+        <StashButton />
+        {this.props.children}
+      </div>
+    )
+  }
 }
 
 function mapStateToProps(state){

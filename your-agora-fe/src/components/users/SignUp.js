@@ -9,12 +9,17 @@ class SignUp extends Component {
 
     super(props)
 
+    this.handleName = this.handleName.bind(this)
     this.handleEmail = this.handleEmail.bind(this)
     this.handlePassword = this.handlePassword.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
 
     this.state = {email: "", password: ""}
 
+  }
+
+  handleName(event){
+    this.setState({Name: event.target.value})
   }
 
   handleEmail(event){
@@ -35,6 +40,7 @@ class SignUp extends Component {
     return(
       <div id="sign-up">
         <form onSubmit={this.handleSubmit}>
+          Name: <input onChange={this.handleName} type="text" />
           Email: <input onChange={this.handleEmail} type="text" />
           Password: <input onChange={this.handlePassword} type="password" />
           <input type="submit" value="Dino Danger!" />

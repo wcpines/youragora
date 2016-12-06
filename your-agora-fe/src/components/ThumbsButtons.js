@@ -3,9 +3,9 @@ import {Link} from 'react-router';
 import { connect } from 'react-redux'
 
 
-function thumbsButtons(props){
+export default function thumbsButtons(props){
 
-  let href = `/articles/${props.id}/main/showSource`
+  let href = `/articles/random/main/showSource`
 
   return(
     <div>
@@ -17,8 +17,8 @@ function thumbsButtons(props){
   )
 }
 
-function mapStateToProps(state){
-  return {id: state.mainArticle.article.id}
-}
-
-export default connect(mapStateToProps)(thumbsButtons)
+// function mapStateToProps(state){
+//   return {id: state.mainArticle.article.id}
+// }
+//
+// export default connect(mapStateToProps)(thumbsButtons)

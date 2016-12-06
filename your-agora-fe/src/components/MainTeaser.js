@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 
 function MainTeaser(props){
 
-  let href = `/articles/${props.article.id}/main`
+  let href = '/articles/random/main'
 
   return(
     <div>

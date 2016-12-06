@@ -32,7 +32,7 @@ function mainArticle(state = {article: {title: "", content: ""}}, action ){
     case "FETCH_ARTICLES":
       return action.payload[0]
     case "GET_NEXT":
-      browserHistory.push(`/articles/${action.payload.article.id}/teaser`)
+      browserHistory.push(`/articles/random/teaser`)
       return action.payload
     default:
       return state

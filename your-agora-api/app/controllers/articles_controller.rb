@@ -38,7 +38,13 @@ class ArticlesController < ApplicationController
     # puts sources
 
     # render json: @full_articles
-    render json: [{article: Article.first, source_name: 'Butts'}, {article: Article.last, source_name: 'Butts'}]
+    render json: [
+      {article: Article.order('RANDOM()')[0], source_name: 'Butts1'},
+      {article: Article.order('RANDOM()')[1], source_name: 'Butts2'},
+      {article: Article.order('RANDOM()')[2], source_name: 'Butts3'},
+      {article: Article.order('RANDOM()')[3], source_name: 'Butts4'},
+      {article: Article.order('RANDOM()')[4], source_name: 'Butts5'},
+    ]
   end
 
 end

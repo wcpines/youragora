@@ -8,7 +8,7 @@ import { getNext } from '../actions/getNext'
 
 function showSource(props){
   if( props.currentUserId != null ){
-    let restfulUrl = `/articles/${props.mainArticle.article.id}/main/source`
+    let restfulUrl = `/articles/random/main/source`
     var test = <Link to={restfulUrl} >Show Source</Link>
   }
   else {

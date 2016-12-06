@@ -15,14 +15,15 @@ class Header extends Component {
       loggedIn =
       <div id="sign-links">
         <Link id="sign-in-link" to="/signin" >Sign In</Link>
+        |
         <Link id="sign-up-link" to="/signup" >Sign Up</Link>
       </div>
     }else {
       loggedIn = <div><p> Welcome back user: {this.props.currentUser} </p> <SignOut /></div>
     }
     return (
-      <div className="Header">
-        <h1 id="header-logo">YourAgora</h1>
+      <div className="header-container">
+        <img id="header-logo" src="/images/youragora-logo.png" />
         <div id="login-container">
           {loggedIn}
         </div>

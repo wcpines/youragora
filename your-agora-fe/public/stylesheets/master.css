@@ -1,9 +1,24 @@
-.Header h1 {
-  font-size: 3em;
+body {
+  background-color: #fdfde9;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.header-container {
+  margin: 0px;
+}
+
+#header-logo {
+  width: 20%;
+  padding: 20px;
 }
 
 #login-container {
   text-align: right;
+  font-size: 80%;
 }
 
 #login-container a{
@@ -14,22 +29,27 @@
   text-align: center;
 }
 
+#search-bar-label {
+  font-family: Georgia;
+}
+
 #article-container {
   margin: auto;
   text-align: center;
   width: 75%;
+  font-family: Baskerville;
 }
 
 #article-container img {
   width: 500px;
 }
 
-#reaction-buttons {
-  display: inline;
+#main-teaser h1 {
+  font-family: Georgia;
 }
 
-#reaction-buttons a{
-  text-decoration: none;
+#reaction-buttons {
+  display: inline;
 }
 
 #reaction-buttons img {

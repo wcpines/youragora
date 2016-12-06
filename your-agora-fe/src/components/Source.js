@@ -11,7 +11,7 @@ function Source(props){
     <div>
       <h2>{props.sourceName}</h2>
       <Link to={props.sourceUrl} >Read the original</Link>
-      <GetNextButton />
+      <GetNextButton text="read next" />
     </div>
   )
 }

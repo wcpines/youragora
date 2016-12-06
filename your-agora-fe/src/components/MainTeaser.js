@@ -14,7 +14,7 @@ function MainTeaser(props){
       <img className="thumbnail" src={props.article.img_url} />
       <h1>{props.article.title}</h1>
       <Link to={href} className="button" >Read More</Link>
-      <GetNextButton />
+      <GetNextButton text="skip to next article"/>
     </div>
   )
 }

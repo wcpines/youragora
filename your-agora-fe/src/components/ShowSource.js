@@ -18,7 +18,7 @@ function showSource(props){
   return(
     <div>
       {info}
-      <GetNextButton />
+      <GetNextButton text="read next"/>
     </div>
   )
 }

@@ -13,8 +13,8 @@ function Source(props){
 
 function mapStateToProps(state){
   return {
-    sourceName: state.articles.fetched[0].source_name,
-    sourceUrl: state.articles.fetched[0].article.url
+    sourceName: state.mainArticle.source_name,
+    sourceUrl: state.mainArticle.article.url
     }
 }
 

@@ -6,7 +6,7 @@ export function makeUser(formValues){
     dispatch({type: 'MAKING_USER'})
     $.ajax({url: `http://localhost:3000/users`,
       type: "POST",
-      data: JSON.stringify({auth: {email: formValues.email, password: formValues.password}}),
+      data: JSON.stringify({auth: {email: formValues.email, password: formValues.password, name: formValues.name}}),
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done(function(data){

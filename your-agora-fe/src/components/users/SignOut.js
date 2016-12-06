@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import signOut from '../../actions/signOut'
 
 function SignOut(props){
+	debugger
 
   function handleClick(){
     localStorage.removeItem('jwt')
@@ -22,5 +23,6 @@ function SignOut(props){
 function mapDispatchToProps(dispatch){
   return bindActionCreators({signOut}, dispatch)
 }
+
 
 export default connect(null, mapDispatchToProps)(SignOut)

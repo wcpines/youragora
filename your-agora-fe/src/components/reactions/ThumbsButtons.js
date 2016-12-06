@@ -8,9 +8,9 @@ export default function thumbsButtons(props){
 
   return(
     <div id="reaction-buttons">
-      <Link to={href} > <img src="/images/thumbs-up.png" /> </Link>
-      <Link to={href} > ¯\_(ツ)_/¯ </Link>
-      <Link to={href} > <img src="/images/thumbs-down.png" /> </Link>
+      <Link to={href} > <img role="presentation" src="/images/thumbs-up.png" /> </Link>
+      <Link to={href} > `¯\\_(ツ)_/¯` </Link>
+      <Link to={href} > <img role="presentation" src="/images/thumbs-down.png" /> </Link>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router'
-import SignUp from './users/SignUp'
 import SignOut from './users/SignOut'
 import fetchUserId from '../actions/fetchUserId'
 import {connect} from 'react-redux'
@@ -24,7 +23,7 @@ class Header extends Component {
     }
     return (
       <div className="header-container">
-        <img id="header-logo" src="/images/youragora-logo.png" />
+        <img role="presentation" id="header-logo" src="/images/youragora-logo.png" />
         <div id="login-container">
           {loggedIn}
         </div>

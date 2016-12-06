@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import SignUp from './users/SignUp'
-import SignIn from './users/SignIn'
-import SignOut from './users/SignOut'
+import Header from './Header'
 import fetchUserId from '../actions/fetchUserId'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -19,18 +17,13 @@ class App extends Component {
   }
 
   render() {
-    var loggedIn
-    if (localStorage.jwt === undefined){
-      loggedIn = <div><SignUp /> <br /> <SignIn /></div>
-
-    }else {
-      loggedIn = <div><p> Welcome back user: {this.props.currentUser} </p> <SignOut /></div>
-    }
     return (
       <div className="App">
+        <Header />
         <SearchBar />
-        {loggedIn}
-        {this.props.children}
+        <div id="article-container">
+          {this.props.children}
+        </div>
       </div>
     );
   }

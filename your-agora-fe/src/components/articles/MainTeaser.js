@@ -9,7 +9,7 @@ function MainTeaser(props){
   let href = '/articles/random/main'
 
   return(
-    <div>
+    <div id="main-teaser">
       <img role="presentation" className="thumbnail" src={props.article.img_url} />
       <h1>{props.article.title}</h1>
       <Link to={href} className="button" >Read More</Link><br />

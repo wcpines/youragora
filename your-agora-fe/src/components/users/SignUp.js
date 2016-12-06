@@ -33,11 +33,13 @@ class SignUp extends Component {
   render(){
 
     return(
-      <form onSubmit={this.handleSubmit}>
-        Email: <input onChange={this.handleEmail} type="text" /><br />
-        Password: <input onChange={this.handlePassword} type="password" />
-        <input type="submit" value="Dino Danger!" />
-      </form>
+      <div id="sign-up">
+        <form onSubmit={this.handleSubmit}>
+          Email: <input onChange={this.handleEmail} type="text" />
+          Password: <input onChange={this.handlePassword} type="password" />
+          <input type="submit" value="Dino Danger!" />
+        </form>
+      </div>
     )
   }
 

@@ -6,7 +6,7 @@ import ThumbsButtons from '../reactions/ThumbsButtons'
 function MainArticle (props){
 
   return (
-    <div>
+    <div id="main-article">
       <h1>{props.article.title}</h1>
       <div style={{"textAlign": "left"}} dangerouslySetInnerHTML={{__html: props.article.content}} />
       <ThumbsButtons />

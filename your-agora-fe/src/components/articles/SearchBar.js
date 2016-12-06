@@ -27,11 +27,9 @@ class SearchBar extends Component{
   render(){
 
     return(
-
-      <div >
-
-        <form className='search-bar' onSubmit={this.handleClick}>
-          <label htmlFor='search' className='search-bar'>Search for a topic: </label>
+      <div className='search-bar'>
+        <h3>Search for a topic</h3>
+        <form onSubmit={this.handleClick}>
           <input id='search' type="text" onChange={this.handleSearch}/>
           <input type='submit' disabled={this.props.fetching} className='search-bar' name='submit' value='Search'/>
         </form>

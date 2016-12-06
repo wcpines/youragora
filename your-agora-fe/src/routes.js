@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router';
 import App from './components/App';
 import SignIn from './components/users/SignIn'
+import SignUp from './components/users/SignUp'
 import MainTeaser from './components/articles/MainTeaser'
 import MainArticle from './components/articles/MainArticle'
 import ShowSource from './components/reactions/ShowSource'
@@ -18,5 +19,6 @@ export default (
       </Route>
     </Route>
     <Route path="/signin" component={SignIn} />
+    <Route path="/signup" component={SignUp} />
   </Route>
 );

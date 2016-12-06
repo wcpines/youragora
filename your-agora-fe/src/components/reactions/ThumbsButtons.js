@@ -7,11 +7,11 @@ export default function thumbsButtons(props){
   let href = `/articles/random/main/showSource`
 
   return(
-    <div>
+    <div id="reaction-buttons">
       <h1>How do you feel about this?</h1>
-      <Link to={href} >Thumbs Up</Link> <br />
-      <Link to={href} >Neutral</Link> <br />
-      <Link to={href} >Thumbs Down</Link>
+      <Link to={href} > <img src="/images/thumbs-up.png" /> </Link>
+      <Link to={href} > ¯\_(ツ)_/¯ </Link>
+      <Link to={href} > <img src="/images/thumbs-down.png" /> </Link>
     </div>
   )
 }

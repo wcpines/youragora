@@ -2,8 +2,12 @@
   font-size: 3em;
 }
 
-#sign-up {
+#login-container {
   text-align: right;
+}
+
+#login-container a{
+  margin: 0px 10px;
 }
 
 .search-bar {
@@ -18,4 +22,16 @@
 
 #article-container img {
   width: 500px;
+}
+
+#reaction-buttons {
+  display: inline;
+}
+
+#reaction-buttons a{
+  text-decoration: none;
+}
+
+#reaction-buttons img {
+  width: 50px;
 }

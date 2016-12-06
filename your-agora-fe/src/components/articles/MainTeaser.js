@@ -12,7 +12,7 @@ function MainTeaser(props){
     <div id="main-teaser">
       <img role="presentation" className="thumbnail" src={props.article.img_url} />
       <h1>{props.article.title}</h1>
-      <Link to={href} className="button" >Read More</Link><br />
+      <Link id="read-more-button" to={href} className="button" >Read More</Link>
       <GetNextButton text="Skip to Next Article"/>
     </div>
   )

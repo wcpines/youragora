@@ -35,14 +35,14 @@ class SignIn extends Component {
   render(){
 
     return(
-      <div >
+      <div id="signin-container" >
       <form onSubmit={this.handleSubmit}>
-        LOGIN FORM: <br />
+        LOGIN <br />
         Email: <input onChange={this.handleEmail} type="text" /><br />
-        Password: <input onChange={this.handlePassword} type="password" />
-        <input type="submit" value="Double Dino Danger!" />
+        Password: <input onChange={this.handlePassword} type="password" /><br />
+        <input className="button" type="submit" value="Double Dino Danger!" />
       </form>
-      <Link to='/'>browse as guest</Link>
+      <Link to='/'>Browse as Guest</Link>
       </div>
     )
   }

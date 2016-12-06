@@ -16,7 +16,7 @@ class Header extends Component {
       loggedIn =
       <div id="sign-links">
         <Link id="sign-in-link" to="/signin" >Sign In</Link>
-        |
+        <strong>|</strong>
         <Link id="sign-up-link" to="/signup" >Sign Up</Link>
       </div>
     }else {

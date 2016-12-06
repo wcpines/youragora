@@ -1,11 +1,46 @@
+/**********************
+  ALL
+*********************/
+
 body {
   background-color: #fdfde9;
 }
 
 a {
   text-decoration: none;
+  color: #273e6d;
 }
 
+a:hover {
+  color: #d75241;
+}
+
+.button {
+  margin: 0px 5px 15px 5px;
+  font-family: Baskerville;
+  border: solid 1px #273e6d;
+  color: #273e6d;
+}
+
+.button:hover {
+  border: solid 1px #d75241;
+  color: #d75241;
+}
+
+/***********
+  SIGNIN
+***********/
+
+#signin-container {
+  width: 25%;
+  height: 250px;
+  margin: 10% auto;
+  text-align: center;
+}
+
+/***********
+  HEADER
+***********/
 
 .header-container {
   margin: 0px;
@@ -16,6 +51,12 @@ a {
   padding: 20px;
 }
 
+#sign-links {
+  font-size: 1.5em;
+}
+
+
+
 #login-container {
   text-align: right;
   font-size: 80%;
@@ -25,6 +66,10 @@ a {
   margin: 0px 10px;
 }
 
+/***********
+  SEARCH BAR
+***********/
+
 .search-bar {
   text-align: center;
 }
@@ -32,6 +77,28 @@ a {
 #search-bar-label {
   font-family: Georgia;
 }
+
+#search-input {
+  font-family: Baskerville;
+  border: solid 1px #273e6d;
+}
+
+#search-button {
+  font-family: Baskerville;
+  border: solid 1px #273e6d;
+  color: #273e6d;
+  background-color: white;
+}
+
+#search-button:hover {
+  border: solid 1px #d75241;
+  color: #d75241;
+}
+
+/***********
+  MAIN TEASER
+***********/
+
 
 #article-container {
   margin: auto;

@@ -7,12 +7,14 @@ import { getNext } from '../actions/getNext'
 
 
 function showSource(props){
+  
+  let href = `/articles/random/main/source`
   if( props.currentUserId != null ){
     let restfulUrl = `/articles/random/main/source`
-    var test = <Link to={restfulUrl} >Show Source</Link>
+    var info = <Link to={href} >Show Source</Link>
   }
   else {
-    var test = "Make an account"
+    var info = "Make an account"
   }
 
   function handleClick(){
@@ -21,7 +23,7 @@ function showSource(props){
 
   return(
     <div>
-      {test}
+      {info}
       <button onClick={handleClick.bind(props)}> Next </button>
     </div>
   )

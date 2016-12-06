@@ -38,13 +38,12 @@ class ArticlesController < ApplicationController
     # puts sources
 
     # render json: @full_articles
-    render json: [
-      {article: Article.order('RANDOM()')[0], source_name: 'Butts1'},
-      {article: Article.order('RANDOM()')[1], source_name: 'Butts2'},
-      {article: Article.order('RANDOM()')[2], source_name: 'Butts3'},
-      {article: Article.order('RANDOM()')[3], source_name: 'Butts4'},
-      {article: Article.order('RANDOM()')[4], source_name: 'Butts5'},
-    ]
+    random_articles = Article.order('RANDOM()')[0...4]
+
+        rand_objs = random_articles.map do |article|
+        {article: article, source_name: article.source.name}
+    end
+        render json: rand_objs
   end
 
 end

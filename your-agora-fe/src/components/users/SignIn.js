@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { findUser } from '../../actions/findUser';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import {Link} from 'react-router'
+
 
 class SignIn extends Component {
 
@@ -33,12 +35,15 @@ class SignIn extends Component {
   render(){
 
     return(
+      <div >
       <form onSubmit={this.handleSubmit}>
         LOGIN FORM: <br />
         Email: <input onChange={this.handleEmail} type="text" /><br />
         Password: <input onChange={this.handlePassword} type="password" />
         <input type="submit" value="Double Dino Danger!" />
       </form>
+      <Link to='/'>browse as guest</Link>
+      </div>
     )
   }
 

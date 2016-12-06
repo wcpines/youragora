@@ -1,29 +1,24 @@
 # Opinion and news sources
 
-
 *Note*: The bucketing of the following sources requires some imprecision as we are not rating anything at the author or article level.
-
-
-<!-- http://www.thebestschools.org/features/most-influential-think-tanks/ -->
 
 ### Conservative/Traditional (R)
 
 The American Conservative
-The Imaginative Conservative
+\* The Imaginative Conservative
 American Spectator
 American Thinker
-Front Porch Republic
+\*Front Porch Republic
 National Review
 First Things
 AEI
-Manhattan Institute
-Hoover Institution
+\* Hoover Institution
 
 ### Libertarian/AnarchoCap (A)
 
-Independent Institute
+\*Independent Institute
 Reason
-Mises
+\*Mises
 Cato
 Electronic Frontier Foundation
 
@@ -31,6 +26,7 @@ Electronic Frontier Foundation
 
 Slate
 NPR
+Brookings Institute
 Jacobin
 Huffpo
 The Atlantic
@@ -39,10 +35,9 @@ Vox
 The Daily Beast
 Mother Jones
 CAP
-Guttmacher Institute
-Urban Institute
+\*Guttmacher Institute
+\*Urban Institute
 Vanity Fair
-EPI
+\*EPI
 The Progressive
 The American Prospect
-

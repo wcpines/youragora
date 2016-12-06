@@ -11,7 +11,6 @@ export default function fetchUserId(){
       headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){
       dispatch({type: 'FETCH_USER', currentUserId: data.id}) // NOTE: current_user is from the API/Ruby
-      // browserHistory.push('/')
     })
   }
 }

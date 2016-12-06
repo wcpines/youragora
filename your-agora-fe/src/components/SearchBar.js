@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getArticles } from '../actions/getArticles'
+import { fetchArticles } from '../actions/fetchArticles'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -7,7 +7,7 @@ class SearchBar extends Component{
 
   handleClick(event){
     event.preventDefault()
-    this.props.getArticles(event.target.children[1].value)
+    this.props.fetchArticles(event.target.children[1].value) // TODO: event.target... seems to be wrong approach.  Should probably setState/use that.
   }
 
   render(){
@@ -31,7 +31,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ getArticles }, dispatch)
+  return bindActionCreators({ fetchArticles }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)

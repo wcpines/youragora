@@ -11,7 +11,7 @@ import SearchBar from './SearchBar'
 class App extends Component {
 
   componentWillMount(){
-    if(this.props.currentUser === null && localStorage.getItem('jwt') != null){
+    if (this.props.currentUser === null && localStorage.getItem('jwt') != null){
       this.props.fetchUserId()
     }
     browserHistory.push('/')

@@ -6,11 +6,10 @@ export default function Users(props){
 
   return (
     <div>
-      <ul>
-        Favorites:
-          <li>butts</li>
-      </ul>
+
+      Welcome {user.name}
     </div>
   )
 
 }
+

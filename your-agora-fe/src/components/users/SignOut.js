@@ -8,7 +8,9 @@ function SignOut(props){
 
   function handleClick(){
     localStorage.removeItem('jwt')
-    browserHistory.push('/signin')
+    props.signOut()
+    browserHistory.push('/')
+    location.reload()
   }
 
   return (

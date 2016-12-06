@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { browserHistory } from 'react-router'
 
 function currentUser(state = {making_user: false, userId: null}, action){
   switch (action.type) {
@@ -31,6 +32,7 @@ function mainArticle(state = {article: {title: "", content: ""}}, action ){
     case "FETCH_ARTICLES":
       return action.payload[0]
     case "GET_NEXT":
+      browserHistory.push(`/articles/random/teaser`)
       return action.payload
     default:
       return state

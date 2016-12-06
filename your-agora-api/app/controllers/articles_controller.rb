@@ -3,12 +3,12 @@ class ArticlesController < ApplicationController
 
   def create
 
-    sources = RandomSourceGenerator.new.random_sources
-
+    # sources = RandomSourceGenerator.new.random_sources
+    #
     # articles = []
-
+    #
     # sources.each do |source|
-
+    #
     #   case source.name
     #   when "Mises"
     #     Mises.get_articles(params[:search_term]).each do |article_url|
@@ -19,9 +19,9 @@ class ArticlesController < ApplicationController
     #       articles << {url: article_url, source_id: source.id}
     #     end
     #   end
-
+    #
     # end
-
+    #
     # @full_articles = articles.map do |url_and_source|
     #   article = Article.find_by(url: url_and_source[:url])
     #   if article.nil?
@@ -30,16 +30,21 @@ class ArticlesController < ApplicationController
     #     parser.save
     #     article = parser
     #   end
-
+    #
     #   {article: article, source_name: Source.find(url_and_source[:source_id]).name}
-
+    #
     # end
-
+    #
     # puts sources
 
     # render json: @full_articles
-    render json: [{article: Article.first}, {article: Article.last}]
-  end 
+    random_articles = Article.order('RANDOM()')[0...4]
+
+        rand_objs = random_articles.map do |article|
+        {article: article, source_name: article.source.name}
+    end
+        render json: rand_objs
+  end
 
 end
 

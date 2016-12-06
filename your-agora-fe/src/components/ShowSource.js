@@ -3,26 +3,28 @@ import {Link} from 'react-router';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getNext } from '../actions/getNext'
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
 
 
 function showSource(props){
+  
+  let href = `/articles/random/main/source`
   if( props.currentUserId != null ){
-    var test = <Link to="mainarticle/source" >Show Source</Link>
+    let restfulUrl = `/articles/random/main/source`
+    var info = <Link to={href} >Show Source</Link>
   }
   else {
-    var test = "Make an account"
+    var info = "Make an account"
   }
 
   function handleClick(){
     props.getNext(props.mainArticle, props.articles)
-    browserHistory.push('/mainTeaser')
   }
 
   return(
     <div>
-      {test}
-      <button onClick={handleClick.bind(props)}> Next </button>  
+      {info}
+      <button onClick={handleClick.bind(props)}> Next </button>
     </div>
   )
 }
@@ -30,7 +32,7 @@ function showSource(props){
 
 function mapStateToProps(state){
   return {
-    currentUserId: state.currentUser.userId, 
+    currentUserId: state.currentUser.userId,
     mainArticle: state.mainArticle,
     articles: state.articles.fetched
   }

@@ -16,9 +16,3 @@ export default function thumbsButtons(props){
     </div>
   )
 }
-
-// function mapStateToProps(state){
-//   return {id: state.mainArticle.article.id}
-// }
-//
-// export default connect(mapStateToProps)(thumbsButtons)

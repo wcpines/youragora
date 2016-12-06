@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { findUser } from '../actions/findUser';
+import { findUser } from '../../actions/findUser';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 

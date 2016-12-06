@@ -5,9 +5,12 @@ export default function Users(props){
 
 
   return (
-    <ul>
-      easter butts
-    </ul>
+    <div>
+      <ul>
+        Favorites:
+          <li>butts</li>
+      </ul>
+    </div>
   )
 
 }

@@ -2,15 +2,14 @@ import React from 'react'
 import {Link} from 'react-router';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getNext } from '../actions/getNext'
+import { getNext } from '../../actions/getNext'
 // import { browserHistory } from 'react-router'
 
 
 function showSource(props){
-  
+
   let href = `/articles/random/main/source`
   if( props.currentUserId != null ){
-    let restfulUrl = `/articles/random/main/source`
     var info = <Link to={href} >Show Source</Link>
   }
   else {
@@ -41,6 +40,5 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
   return bindActionCreators({getNext}, dispatch)
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(showSource)

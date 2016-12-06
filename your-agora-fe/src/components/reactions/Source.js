@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router';
-import { getNext } from '../actions/getNext'
+import { getNext } from '../../actions/getNext'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 

@@ -7,11 +7,13 @@ import GetNextButton from './GetNextButton'
 function showSource(props){
 
   let href = `/articles/random/main/source`
+  var info
+
   if( props.currentUserId != null ){
-    var info = <Link to={href} >Show Source</Link>
+    info = <Link to={href} >Show Source</Link>
   }
   else {
-    var info = "Make an account"
+    info = "Make an account"
   }
 
   return(

@@ -9,6 +9,8 @@ function currentUser(state = {making_user: false, userId: null}, action){
       return {...state, userId: action.currentUserId}
     case 'LOGIN_USER':
       return {...state, making_user: false, userId: action.currentUser}
+    case 'SIGN_OUT':
+      return {making_user: false, userId: null}
     default:
       return state
   }

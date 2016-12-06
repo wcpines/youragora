@@ -5,9 +5,23 @@ import { bindActionCreators } from 'redux'
 
 class SearchBar extends Component{
 
+  constructor(props){
+    super(props)
+    this.state = {searchTerm: ""}
+
+
+    this.handleClick = this.handleClick.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
+  }
+
   handleClick(event){
     event.preventDefault()
-    this.props.fetchArticles(event.target.children[1].value) // TODO: event.target... seems to be wrong approach.  Should probably setState/use that.
+    this.props.fetchArticles(this.state.searchTerm)
+  }
+
+
+  handleSearch(event){
+    this.setState({searchTerm: event.target.value})
   }
 
   render(){
@@ -16,9 +30,9 @@ class SearchBar extends Component{
 
       <div >
 
-        <form className='search-bar' onSubmit={this.handleClick.bind(this)}>
+        <form className='search-bar' onSubmit={this.handleClick}>
           <label htmlFor='search' className='search-bar'>Search for a topic: </label>
-          <input id='search' type="text" />
+          <input id='search' type="text" onChange={this.handleSearch}/>
           <input type='submit' disabled={this.props.fetching} className='search-bar' name='submit' value='Search'/>
         </form>
       </div>

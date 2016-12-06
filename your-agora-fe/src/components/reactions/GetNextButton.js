@@ -1,5 +1,5 @@
 import React from 'react'
-import { getNext } from '../actions/getNext'
+import  getNext  from '../../actions/getNext'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router';
 import App from './components/App';
-import MainTeaser from './components/MainTeaser'
-import MainArticle from './components/MainArticle'
-import ShowSource from './components/ShowSource'
-import Source from './components/Source'
+import MainTeaser from './components/articles/MainTeaser'
+import MainArticle from './components/articles/MainArticle'
+import ShowSource from './components/reactions/ShowSource'
+import Source from './components/reactions/Source'
 
 
 export default (

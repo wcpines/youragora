@@ -1,4 +1,4 @@
-export function getNext(mainArticle, articles){
+export default function getNext(mainArticle, articles){
   let index = articles.indexOf(mainArticle)
 
 

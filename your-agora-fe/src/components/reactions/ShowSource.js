@@ -2,9 +2,7 @@ import React from 'react'
 import {Link} from 'react-router';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getNext } from '../../actions/getNext'
-// import { browserHistory } from 'react-router'
-
+import GetNextButton from './GetNextButton'
 
 function showSource(props){
 
@@ -16,14 +14,10 @@ function showSource(props){
     var info = "Make an account"
   }
 
-  function handleClick(){
-    props.getNext(props.mainArticle, props.articles)
-  }
-
   return(
     <div>
       {info}
-      <button onClick={handleClick.bind(props)}> Next </button>
+      <GetNextButton text="read next"/>
     </div>
   )
 }
@@ -31,14 +25,8 @@ function showSource(props){
 
 function mapStateToProps(state){
   return {
-    currentUserId: state.currentUser.userId,
-    mainArticle: state.mainArticle,
-    articles: state.articles.fetched
+    currentUserId: state.currentUser.userId
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({getNext}, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(showSource)
+export default connect(mapStateToProps)(showSource)

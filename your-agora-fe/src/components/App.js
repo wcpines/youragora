@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import SignUp from './users/SignUp'
 import SignIn from './users/SignIn'
-import fetchUserId from '../../actions/fetchUserId'
+import fetchUserId from '../actions/fetchUserId'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { browserHistory } from 'react-router'
-import SearchBar from '../articles/SearchBar'
+import SearchBar from './articles/SearchBar'
 
 
 class App extends Component {

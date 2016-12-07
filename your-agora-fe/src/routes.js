@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router';
+import HomePage from './components/HomePage'
 import App from './components/App';
 import SignIn from './components/users/SignIn'
 import SignUp from './components/users/SignUp'
@@ -11,7 +12,8 @@ import Source from './components/reactions/Source'
 
 export default (
   <Route>
-    <Route path="/" component={App} >
+    <Route path="/" component={HomePage} />
+    <Route component={App} >
       <Route path="/articles/:id/teaser" component={MainTeaser} />
       <Route path="/articles/:id/main" component={MainArticle} >
         <Route path="/articles/:id/main/showSource" component={ShowSource} />

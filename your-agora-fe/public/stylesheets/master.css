@@ -28,29 +28,63 @@ a:hover {
 }
 
 /***********
+  HOMEPAGE
+***********/
+
+.HomePage {
+  text-align: center;
+}
+
+#homepage-logo {
+  margin-top: 200px;
+}
+
+#search-bar-homepage-container {
+  margin-top: 2%;
+}
+
+#search-bar-homepage input[type="text"]{
+  width: 250px;
+}
+
+/***********
+  SEARCH BAR - HOMEPAGE
+***********/
+
+#search-bar-homepage {
+  padding-top: -20px;
+}
+
+/***********
   SIGNIN PAGE
 ***********/
 
 #signin-container {
-  width: 25%;
+  width: 15%;
   height: 250px;
   margin: 10% auto;
-  text-align: center;
+  padding: 5%;
+  background-color: rgba(39,62,109,0.1);
 }
 
+#signin-button {
+  background-color: white;
+}
 
 /***********
   HEADER
 ***********/
 
-.header-container {
-  height: 20%;
+/*.header-container {
+  height: 10%;
+  width: 100%;
   background-color: rgba(39,62,109,0.1);
-}
+  position: fixed;
+}*/
 
 #header-logo {
-  margin: 2% 0 0 2%;
-  width: 10%;
+  margin: 1% 0 0 1%;
+  width: 40%;
 }
 
 #welcome-message {
@@ -75,7 +109,7 @@ a:hover {
 }
 
 /***********
-  SEARCH BAR
+  SEARCH BAR - APP
 ***********/
 
 .search-bar {
@@ -83,7 +117,6 @@ a:hover {
 }
 
 #search-bar-label {
-  margin-top: 5%;
   font-family: Georgia;
 }
 
@@ -120,7 +153,7 @@ a:hover {
 }
 
 #article-container {
-  margin: auto;
+  margin: 50px auto;
   text-align: center;
   width: 75%;
   font-family: Baskerville;
@@ -162,3 +195,16 @@ a:hover {
 /*#source-display {
   color: #d75241;
 }*/
+
+/***********
+  FOOTER
+***********/
+
+#footer-container {
+  text-align: center;
+  bottom : 0;
+  height : 100px;
+  width: 100%;
+  margin-top : 40px;
+  background-color: rgba(39,62,109,0.1);
+}

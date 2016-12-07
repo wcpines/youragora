@@ -12,7 +12,7 @@ export default function fetchArticles(searchTerm){
       dataType: 'json'
     }).done(function(data){
       dispatch({type: 'FETCH_ARTICLES', payload: data})
-      browserHistory.push('articles/random/teaser')
+      browserHistory.push('/articles/random/teaser')
     })
   }
 }

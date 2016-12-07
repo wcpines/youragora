@@ -8,7 +8,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #273e6d;
+  color: #0088cc;
 }
 
 a:hover {
@@ -28,29 +28,77 @@ a:hover {
 }
 
 /***********
+  HOMEPAGE
+***********/
+
+.HomePage {
+  text-align: center;
+}
+
+#homepage-logo {
+  margin-top: 200px;
+}
+
+#search-bar-homepage-container {
+  margin-top: 2%;
+}
+
+#search-bar-homepage input[type="text"]{
+  width: 250px;
+}
+
+.sign-links-homepage {
+  margin: 2% 2% 0 0;
+  text-align: right;
+  vertical-align: baseline;
+}
+
+.sign-links-homepage a{
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0px 10px;
+}
+
+#sign-links-homepage a {
+  margin: 2% 2% 0 0;
+}
+
+/***********
+  SEARCH BAR - HOMEPAGE
+***********/
+
+#search-bar-homepage {
+  padding-top: -20px;
+}
+
+/***********
   SIGNIN PAGE
 ***********/
 
 #signin-container {
-  width: 25%;
+  width: 15%;
   height: 250px;
   margin: 10% auto;
-  text-align: center;
+  padding: 5%;
+  background-color: rgba(39,62,109,0.1);
 }
 
+#signin-button {
+  background-color: white;
+}
 
 /***********
   HEADER
 ***********/
 
 .header-container {
-  height: 20%;
+  width: 100%;
   background-color: rgba(39,62,109,0.1);
 }
 
 #header-logo {
-  margin: 2% 0 0 2%;
-  width: 10%;
+  margin: 1% 0 0 1%;
+  width: 40%;
 }
 
 #welcome-message {
@@ -75,15 +123,15 @@ a:hover {
 }
 
 /***********
-  SEARCH BAR
+  SEARCH BAR - APP
 ***********/
 
 .search-bar {
+  margin-top: 40px;
   text-align: center;
 }
 
 #search-bar-label {
-  margin-top: 5%;
   font-family: Georgia;
 }
 
@@ -120,7 +168,8 @@ a:hover {
 }
 
 #article-container {
-  margin: auto;
+  margin: 0px auto;
+  padding-top: 50px;
   text-align: center;
   width: 75%;
   font-family: Baskerville;
@@ -162,3 +211,16 @@ a:hover {
 /*#source-display {
   color: #d75241;
 }*/
+
+/***********
+  FOOTER
+***********/
+
+#footer-container {
+  text-align: center;
+  bottom : 0;
+  height : 100px;
+  width: 100%;
+  margin-top : 40px;
+  background-color: rgba(39,62,109,0.1);
+}

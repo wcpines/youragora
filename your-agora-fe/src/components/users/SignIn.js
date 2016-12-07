@@ -30,17 +30,18 @@ class SignIn extends Component {
   render(){
 
     return(
-      <div id="signin-container" >
-      <form onSubmit={this.handleSubmit}>
-        LOGIN <br />
-        Email: <input onChange={this.handleEmail} type="text" /><br />
-        Password: <input onChange={this.handlePassword} type="password" /><br />
-        <input className="button" type="submit" value="Double Dino Danger!" />
-      </form>
-      <Link to='/'>Browse as Guest</Link>
+      <div id="signin-container">
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="email-input">Email:</label>
+          <input className="email-input u-full-width" onChange={this.handleEmail} type="text" />
+          <label htmlFor="email-input">Password:</label>
+          <input className="password-input u-full-width" onChange={this.handlePassword} type="password" /><br />
+          <input id="signin-button" className="u-full-width button" type="submit" value="Double Dino Danger!" />
+        </form>
+        <Link to='/'>Browse as Guest</Link>
       </div>
     )
-    
+
   }
 }
 

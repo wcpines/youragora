@@ -49,5 +49,7 @@ function previewContent(content){
 
 function calculateReadTime(word_count){
   let readTime = Math.round(word_count / 200)
-  return readTime.toString() + " minute read"
+  let readTimeReturn;
+  word_count >= 200 ? readTimeReturn = readTime.toString() + " minute read" : readTimeReturn = ""
+  return readTimeReturn
 }

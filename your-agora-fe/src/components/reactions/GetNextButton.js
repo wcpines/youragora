@@ -6,6 +6,7 @@ import  getNext  from '../../actions/getNext'
 function GetNextButton(props){
 
   function handleClick(){
+    window.scrollTo(0,0)
     props.getNext(props.mainArticle, props.articles)
   }
 

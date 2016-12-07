@@ -7,7 +7,7 @@ function currentUser(state = {making_user: false, userId: null}, action){
       return {...state, making_user: true}
     case 'FETCH_USER':
       return {...state, userId: action.currentUserId, userName: action.currentUserName}
-    case 'LOGIN_USER':
+    case 'SIGNIN_USER':
       return {...state, making_user: false, userId: action.currentUser.user_id, userName: action.currentUser.user_name}
     case 'SIGN_OUT':
       return {making_user: false, userId: null}

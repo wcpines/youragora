@@ -7,7 +7,7 @@ import StashButton from '../reactions/StashButton'
 
 function MainTeaser(props){
 
-  let href = '/articles/random/main'
+  let href = `/articles/${props.article.id}/main`
 
   let preview = previewContent(props.article.content)
 
@@ -29,7 +29,7 @@ function MainTeaser(props){
 
 
 function mapStateToProps(state){
-  return state.mainArticle
+  return (articles: state.articles.fetched)
 }
 
 export default connect(mapStateToProps)(MainTeaser)

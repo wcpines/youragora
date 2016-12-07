@@ -17,12 +17,6 @@ class App extends Component {
     }
   }
 
-  // componentDidMount(){
-  //   if(this.props.mainArticle.article.content === ""){
-  //     this.props.fetchArticles('')
-  //   }
-  // }
-
   render() {
     return (
       <div className="App">

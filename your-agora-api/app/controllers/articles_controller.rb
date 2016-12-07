@@ -3,8 +3,7 @@ class ArticlesController < ApplicationController
 
   def create
 
-# =begin
-# NOTE: PROD
+    # NOTE: PROD
     sources = RandomSourceGenerator.new.random_sources
 
     articles = []
@@ -40,17 +39,15 @@ class ArticlesController < ApplicationController
     puts sources
 
     render json: @full_articles
-# =end
 
-
-
-    # NOTE: TEST
+    # # NOTE: TEST
 
     # random_articles = Article.order('RANDOM()')[0...4]
-    #
+
     # rand_objs = random_articles.map do |article|
     #   {article: article, source_name: article.source.name}
     # end
+
     # render json: rand_objs
 
 

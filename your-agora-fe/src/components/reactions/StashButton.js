@@ -1,7 +1,7 @@
 import React from 'react'
-import  stashArticle  from '../../actions/stashArticle'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import  stashArticle  from '../../actions/stashArticle'
 
 function StashButton(props){
 
@@ -10,8 +10,7 @@ function StashButton(props){
   }
 
   return (
-
-    <button onClick={handleClick.bind(props)}>Stash</button> 
+    <button className="button" onClick={handleClick.bind(props)}>Stash</button>
   )
 }
 

@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
-import { fetchArticles } from '../../actions/fetchArticles'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import fetchArticles from '../../actions/fetchArticles'
 
 class SearchBar extends Component{
 
   constructor(props){
     super(props)
     this.state = {searchTerm: ""}
-
-
     this.handleClick = this.handleClick.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
   }
@@ -19,13 +17,11 @@ class SearchBar extends Component{
     this.props.fetchArticles(this.state.searchTerm)
   }
 
-
   handleSearch(event){
     this.setState({searchTerm: event.target.value})
   }
 
   render(){
-
     return(
       <div className='search-bar'>
         <h3 id="search-bar-label">Search for a topic</h3>

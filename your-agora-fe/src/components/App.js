@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Header from './Header'
-import fetchUserId from '../actions/fetchUserId'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { browserHistory } from 'react-router'
+import Header from './Header'
 import SearchBar from './articles/SearchBar'
+import fetchUserId from '../actions/fetchUserId'
 
 
 class App extends Component {

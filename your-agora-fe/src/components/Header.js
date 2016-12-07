@@ -15,22 +15,19 @@ class Header extends Component {
 
     if (localStorage.jwt === undefined){
       loggedIn =
-      <div id="sign-links">
+      <div className="sign-links">
         <Link id="sign-in-link" to="/signin" >Sign In</Link>
         <strong>|</strong>
         <Link id="sign-up-link" to="/signup" >Sign Up</Link>
       </div>
     } else {
-      loggedIn = <div> <span id="welcome-message"> Welcome back {this.props.currentUser}! </span> <br /> <SignOut /> </div>
+      loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back {this.props.currentUser}! </span> <br /> <SignOut /> </div>
     }
 
     return (
       <div className="header-container row">
         <img role="presentation" id="header-logo" src="/images/youragora-logo.png" />
-        <div id="login-container" >
-          {loggedIn}
-        </div>
-
+        {loggedIn}
       </div>
     )
 

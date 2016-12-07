@@ -44,29 +44,34 @@ a:hover {
 ***********/
 
 .header-container {
-  text-align: center;
+  height: 20%;
   background-color: rgba(39,62,109,0.1);
 }
 
 #header-logo {
-  margin-top: 2%;
-  width: 20%;
-}
-
-
-#login-container {
-  text-align: right;
-}
-
-#login-container a{
-  font-size: 1.5em;
-  font-weight: 600;
-  margin: 0px 10px;
+  margin: 2% 0 0 2%;
+  width: 10%;
 }
 
 #welcome-message {
   font-size: 1.5em;
   font-family: Baskerville;
+}
+
+.sign-links {
+  text-align: right;
+  vertical-align: baseline;
+}
+
+.sign-links a{
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0px 10px;
+}
+
+#sign-out-link {
+  font-size: 1em;
+  cursor: pointer;
 }
 
 /***********
@@ -119,6 +124,7 @@ a:hover {
   text-align: center;
   width: 75%;
   font-family: Baskerville;
+  font-size: 1.2em;
 }
 
 #article-container img {
@@ -129,6 +135,10 @@ a:hover {
   font-family: Georgia;
 }
 
+/***********
+  MAIN ARTICLE
+***********/
+
 #reaction-buttons {
   display: inline;
 }
@@ -137,10 +147,18 @@ a:hover {
   width: 50px;
 }
 
+#reaction-buttons img:hover {
+  opacity: 0.5;
+}
+
 /***********
   SOURCE
 ***********/
 
-#source-display {
-  color: #d75241;
+#source-link {
+  text-decoration: underline;
 }
+
+/*#source-display {
+  color: #d75241;
+}*/

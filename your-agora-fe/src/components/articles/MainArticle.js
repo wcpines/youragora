@@ -7,7 +7,6 @@ import StashButton from '../reactions/StashButton'
 class MainArticle extends Component{
 
   render(){
-
     return (
       <div>
         <h1>{this.props.article.title}</h1>

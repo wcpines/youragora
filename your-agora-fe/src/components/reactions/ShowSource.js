@@ -6,12 +6,11 @@ import GetNextButton from './GetNextButton'
 function showSource(props){
 
   let href = `/articles/random/main/source`
-  var info
+  var info;
 
   if( props.currentUserId != null ){
     info = <Link to={href} className="button">Show Source</Link>
-  }
-  else {
+  } else {
     info = "Make an account"
   }
 
@@ -22,7 +21,6 @@ function showSource(props){
     </div>
   )
 }
-
 
 function mapStateToProps(state){
   return {

@@ -6,16 +6,12 @@ import { connect } from 'react-redux'
 class SignUp extends Component {
 
   constructor(props){
-
     super(props)
-
     this.handleName = this.handleName.bind(this)
     this.handleEmail = this.handleEmail.bind(this)
     this.handlePassword = this.handlePassword.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-
     this.state = {email: "", password: ""}
-
   }
 
   handleName(event){
@@ -47,8 +43,8 @@ class SignUp extends Component {
         </form>
       </div>
     )
-  }
 
+  }
 }
 
 function mapDispatchToProps(dispatch){

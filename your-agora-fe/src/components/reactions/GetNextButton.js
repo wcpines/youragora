@@ -1,7 +1,7 @@
 import React from 'react'
-import  getNext  from '../../actions/getNext'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import  getNext  from '../../actions/getNext'
 
 function GetNextButton(props){
 
@@ -9,8 +9,9 @@ function GetNextButton(props){
     props.getNext(props.mainArticle, props.articles)
   }
 
-  return <button className="button" onClick={handleClick.bind(props)}>{props.text}</button>
-
+  return (
+    <button className="button" onClick={handleClick.bind(props)}>{props.text}</button>
+  )
 }
 
 function mapStateToProps(state){

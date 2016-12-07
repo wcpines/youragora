@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import { browserHistory } from 'react-router'
 
-export function fetchArticles(searchTerm){
+export default function fetchArticles(searchTerm){
   return function(dispatch){
     dispatch({type: 'FETCHING_ARTICLES'})
     $.ajax({

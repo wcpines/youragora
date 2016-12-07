@@ -1,8 +1,6 @@
 import $ from 'jquery'
-// import { browserHistory } from 'react-router'
 
 export default function fetchUserId(){
-
   return function(dispatch){
     dispatch({type: 'FETCHING_USER'})
     $.ajax({

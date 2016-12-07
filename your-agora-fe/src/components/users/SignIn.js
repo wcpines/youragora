@@ -1,22 +1,17 @@
 import React, { Component } from 'react'
-import { signIn } from '../../actions/signIn';
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import {Link} from 'react-router'
-
+import { bindActionCreators } from 'redux'
+import { Link } from 'react-router'
+import { signIn } from '../../actions/signIn';
 
 class SignIn extends Component {
 
   constructor(props){
-
     super(props)
-
     this.handleEmail = this.handleEmail.bind(this)
     this.handlePassword = this.handlePassword.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-
     this.state = {email: "", password: ""}
-
   }
 
   handleEmail(event){
@@ -45,8 +40,8 @@ class SignIn extends Component {
       <Link to='/'>Browse as Guest</Link>
       </div>
     )
+    
   }
-
 }
 
 function mapDispatchToProps(dispatch){

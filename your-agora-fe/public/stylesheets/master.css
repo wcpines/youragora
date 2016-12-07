@@ -8,7 +8,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #273e6d;
+  color: #0088cc;
 }
 
 a:hover {
@@ -47,6 +47,22 @@ a:hover {
   width: 250px;
 }
 
+.sign-links-homepage {
+  margin: 2% 2% 0 0;
+  text-align: right;
+  vertical-align: baseline;
+}
+
+.sign-links-homepage a{
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0px 10px;
+}
+
+#sign-links-homepage a {
+  margin: 2% 2% 0 0;
+}
+
 /***********
   SEARCH BAR - HOMEPAGE
 ***********/
@@ -75,12 +91,10 @@ a:hover {
   HEADER
 ***********/
 
-/*.header-container {
-  height: 10%;
+.header-container {
   width: 100%;
   background-color: rgba(39,62,109,0.1);
-  position: fixed;
-}*/
+}
 
 #header-logo {
   margin: 1% 0 0 1%;
@@ -113,6 +127,7 @@ a:hover {
 ***********/
 
 .search-bar {
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -153,7 +168,8 @@ a:hover {
 }
 
 #article-container {
-  margin: 50px auto;
+  margin: 0px auto;
+  padding-top: 50px;
   text-align: center;
   width: 75%;
   font-family: Baskerville;

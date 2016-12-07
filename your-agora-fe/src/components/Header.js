@@ -26,13 +26,10 @@ class Header extends Component {
     return (
       <div className="header-container">
         <div className="row">
-          <div className="five columns">
+          <div className="six columns">
           <img role="presentation" id="header-logo" src="/images/youragora-inline-logo.png" />
           </div>
-          <div id="search-bar-homepage" className="three columns">
-          <SearchBar />
-          </div>
-          <div className="four columns">
+          <div className="six columns">
           {loggedIn}
           </div>
         </div>

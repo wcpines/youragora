@@ -23,7 +23,7 @@ class SearchBar extends Component{
 
   render(){
     return(
-      <div id={this.props.idProps} >
+      <div className='search-bar'>
         <form onSubmit={this.handleClick}>
           <input id='search-input' type="text" onChange={this.handleSearch}/>
           <input id="search-button" type='submit' disabled={this.props.fetching} className='search-bar' name='submit' value='Search'/>

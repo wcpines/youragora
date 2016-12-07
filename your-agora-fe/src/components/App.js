@@ -27,7 +27,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <div id="article-container">
+        <SearchBar />
+        <div id="article-container" >
           {this.props.children}
         </div>
         <Footer />

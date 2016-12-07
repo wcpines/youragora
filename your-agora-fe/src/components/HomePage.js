@@ -1,21 +1,22 @@
 import React from 'react'
-import {Link} from 'react-router'
+import { Link } from 'react-router'
+import { connect } from 'react-redux'
 import SearchBar from './articles/SearchBar'
 import SignOut from './users/SignOut'
 
-export default function HomePage(props) {
+function HomePage(props) {
 
   var loggedIn;
 
   if (localStorage.jwt === undefined){
     loggedIn =
-    <div className="sign-links">
+    <div className="sign-links-homepage">
       <Link id="sign-in-link" to="/signin" >Sign In</Link>
       <strong>|</strong>
       <Link id="sign-up-link" to="/signup" >Sign Up</Link>
     </div>
   } else {
-    loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back! </span> <br /> <SignOut /> </div>
+    loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back {props.userName}! </span> <br /> <SignOut /> </div>
   }
 
   return (
@@ -30,3 +31,9 @@ export default function HomePage(props) {
     </div>
   )
 }
+
+function mapStateToProps(state){
+  return {userName: state.currentUser.userName}
+}
+
+export default connect(mapStateToProps)(HomePage)

@@ -9,9 +9,9 @@ function Source(props){
 
   return(
     <div>
-      <h2>{props.sourceName}</h2>
-      <Link to={props.sourceUrl} >Read the original</Link>
-      <GetNextButton text="read next" />
+      <h2 id="source-display">{props.sourceName}</h2>
+      <a className="button" href={props.sourceUrl} target="_blank">Read the original</a>
+      <GetNextButton text="Next Article" />
     </div>
   )
 }

@@ -9,7 +9,7 @@ function showSource(props){
   var info
 
   if( props.currentUserId != null ){
-    info = <Link to={href} >Show Source</Link>
+    info = <Link to={href} className="button">Show Source</Link>
   }
   else {
     info = "Make an account"
@@ -18,7 +18,7 @@ function showSource(props){
   return(
     <div>
       {info}
-      <GetNextButton text="read next"/>
+      <GetNextButton text="Next Article"/>
     </div>
   )
 }

@@ -28,7 +28,7 @@ a:hover {
 }
 
 /***********
-  SIGNIN
+  SIGNIN PAGE
 ***********/
 
 #signin-container {
@@ -38,33 +38,35 @@ a:hover {
   text-align: center;
 }
 
+
 /***********
   HEADER
 ***********/
 
 .header-container {
-  margin: 0px;
-  padding: 20px;
+  text-align: center;
+  background-color: rgba(39,62,109,0.1);
 }
 
 #header-logo {
+  margin-top: 2%;
   width: 20%;
-  padding: 20px;
 }
-
-#sign-links {
-  font-size: 1.5em;
-}
-
 
 
 #login-container {
   text-align: right;
-  font-size: 80%;
 }
 
 #login-container a{
+  font-size: 1.5em;
+  font-weight: 600;
   margin: 0px 10px;
+}
+
+#welcome-message {
+  font-size: 1.5em;
+  font-family: Baskerville;
 }
 
 /***********
@@ -76,6 +78,7 @@ a:hover {
 }
 
 #search-bar-label {
+  margin-top: 5%;
   font-family: Georgia;
 }
 
@@ -132,4 +135,12 @@ a:hover {
 
 #reaction-buttons img {
   width: 50px;
+}
+
+/***********
+  SOURCE
+***********/
+
+#source-display {
+  color: #d75241;
 }

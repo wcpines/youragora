@@ -10,7 +10,9 @@ import { bindActionCreators } from 'redux'
 class Header extends Component {
 
   render() {
+
     var loggedIn
+
     if (localStorage.jwt === undefined){
       loggedIn =
       <div id="sign-links">
@@ -18,17 +20,20 @@ class Header extends Component {
         <strong>|</strong>
         <Link id="sign-up-link" to="/signup" >Sign Up</Link>
       </div>
-    }else {
-      loggedIn = <div><p> Welcome back {this.props.currentUser} </p> <SignOut /></div>
+    } else {
+      loggedIn = <div> <span id="welcome-message"> Welcome back {this.props.currentUser}! </span> <br /> <SignOut /> </div>
     }
+
     return (
-      <div className="header-container">
+      <div className="header-container row">
         <img role="presentation" id="header-logo" src="/images/youragora-logo.png" />
-        <div id="login-container">
+        <div id="login-container" >
           {loggedIn}
         </div>
+
       </div>
-    );
+    )
+
   }
 }
 

@@ -5,6 +5,7 @@ import { browserHistory } from 'react-router'
 import Header from './Header'
 import SearchBar from './articles/SearchBar'
 import fetchUserId from '../actions/fetchUserId'
+import fetchStashes from '../actions/fetchStashes'
 
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
   componentWillMount(){
     if (this.props.currentUser === null && localStorage.getItem('jwt') != null){
       this.props.fetchUserId()
+      this.props.fetchStashes()
     }
     browserHistory.push('/')
   }
@@ -34,7 +36,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchUserId }, dispatch)
+  return bindActionCreators({ fetchUserId, fetchStashes }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

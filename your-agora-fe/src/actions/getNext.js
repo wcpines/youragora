@@ -8,5 +8,5 @@ export default function getNext(mainArticle, articles){
 
   let nextArticle = articles[index + 1]
 
-  return {type: 'NEXT_ARTICLE', payload: nextArticle}
+  return {type: 'NEXT_ARTICLE', payload: nextArticle} // Returns an article object
 }

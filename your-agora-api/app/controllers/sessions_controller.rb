@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
     user = User.find_by(email: user_params[:email])
     if user.authenticate(user_params[:password])
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, current_user: {user_id: user.id, user_name: user.name}}
+      render json: {jwt: jwt, current_user: user}
     end
   end
 
-private
+  private
 
   def user_params
     params.require(:auth).permit(:email, :password)

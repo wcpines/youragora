@@ -12,14 +12,16 @@ class ApplicationController < ActionController::API
 
     unless request.env["HTTP_AUTHORIZATION"].empty?
 
-      if request.env["REQUEST_METHOD"] == "POST"
-        auth_string = Auth.decode(request.env["HTTP_AUTHORIZATION"])[0] # dafuq
-      else
-        auth_string = Auth.decode(request.env["HTTP_AUTHORIZATION"])
-      end
+      # if request.env["REQUEST_METHOD"] == "POST"
+      #   auth_string = Auth.decode(request.env["HTTP_AUTHORIZATION"])[0] # dafuq
+      # else
+      #   auth_string = Auth.decode(request.env["HTTP_AUTHORIZATION"])
+      # end
 
-      user = User.find(auth_string["user_id"])
-      render json: user
+      auth_string = Auth.decode(request.env["HTTP_AUTHORIZATION"])[0] # 
+
+      @user = User.find(auth_string["user_id"])
+
     end
 
   end

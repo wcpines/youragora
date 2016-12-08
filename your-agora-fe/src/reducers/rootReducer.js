@@ -16,12 +16,14 @@ function currentUser(state = {making_user: false, userId: null}, action){
   }
 }
 
-function articles(state = {fetched: [], fetching: false}, action){
+function articles(state = {fetched: [], fetching: false, fetching_first_article: false}, action){
   switch (action.type) {
     case 'FETCHING_ARTICLES':
-      return {...state, fetching: true}
+      return {...state, fetching: true, fetching_first_article: true}
     case 'FETCH_FIRST_ARTICLE':
-      return {...state, fetched: [...state.fetched, ...action.payload]}
+      return {...state, fetched: action.payload}
+    case 'FETCHED_FIRST_ARTICLE':
+      return {...state, fetching_first_article: false}
     case "FETCH_ARTICLES":
       return {...state, fetched: [...state.fetched, ...action.payload], fetching: false}
     default:

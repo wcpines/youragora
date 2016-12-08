@@ -19,7 +19,6 @@ class HomePage extends Component{
   }
 
   render(){
-    debugger
     var loggedIn;
   
     if (localStorage.jwt === undefined){

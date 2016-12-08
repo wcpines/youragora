@@ -1,16 +1,14 @@
 import $ from 'jquery'
 
-export default function stashArticle(stash){
+export default function fetchStashes(){
   return function(dispatch){
     $.ajax({
       url: `http://localhost:3000/stashes`,
-      type: "POST",
+      type: "GET",
       headers: {authorization: localStorage.getItem('jwt')},
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify({stash: stash}),
-      dataType: 'json'
     }).done(function(data){
-      dispatch({type: 'STASH_ARTICLE', payload: data}) 
+      dispatch({type: 'FETCH_STASHES', payload: data})
     })
   }
 }

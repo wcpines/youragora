@@ -24,7 +24,8 @@ class ArticlesController < ApplicationController
     # end
     #
     # @full_articles = articles.map do |url_and_source|
-    #   article = Article.find_by(url: url_and_source[:url])
+      # article = Article.find_by(url: url_and_source[:url])
+      # unless Stash.find_by(user_id: @user.id, article_id: article.id) 
     #   if article.nil?
     #     parser = ArticleParser.get_article_html(url_and_source[:url])
     #     parser.assign_attributes(url_and_source)
@@ -33,6 +34,7 @@ class ArticlesController < ApplicationController
     #   end
     #
     #   {article: article, source_name: Source.find(url_and_source[:source_id]).name}
+    # end
     #
     # end
     #

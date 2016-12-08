@@ -1,15 +1,23 @@
 class StashesController < ApplicationController
 
-  skip_before_action :authenticate_user
-
   # list users stashes
   def index
+    # Article.joins(? 
+
+
+    # NOTE: Not as good: 
+    # stashes = Stash.where(user_id: @user.id).pluck(:article_id)
+    # Article.where("id in (?)", stashes) 
+
+    render json: Article.joins(:stashes).where("#{@user.id} = stashes.user_id")  # NTS: second half of this is raw sql not ruby, hence no interpolation
+
 
   end
 
   # stash an article
   def create
-    Stash.find_or_create_by(stash_params)
+    stash = Stash.find_or_create_by(stash_params)
+    render json: Article.find(stash.article_id)
   end
 
   # see a stashed article
@@ -25,6 +33,7 @@ class StashesController < ApplicationController
   private
 
   def stash_params
-    params.require(:stash).permit(:article_id, :user_id)
-  end
+    params.require(:stash).permit(:user_id, :article_id)
+  end 
+
 end

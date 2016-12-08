@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authenticate_user
+  skip_before_action :authenticate_user, only: :create
 
   def index
-    user_id = Auth.decode(request.env["HTTP_AUTHORIZATION"]).first['user_id']
-    @user = User.find(user_id)
+    # @user defined in ApplicationController. You are signed in when you have a jwt
+    # Pretty sure you don't use users/show to signin a user, because you don't have their id 
+    # until you hit the server and decode their JWT. --cp 
     render json: @user
   end
 
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.persisted?
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, current_user: {user_id: user.id, user_name: user.name}}
+      render json: {jwt: jwt, current_user: {user_id: user.id, user_name: user.name, user_email: user.email}}
     else
       render json: {error: "Something is wrong"}, status: 404
     end

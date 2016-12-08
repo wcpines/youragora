@@ -7,6 +7,8 @@ import Footer from './Footer'
 import SearchBar from './articles/SearchBar'
 import fetchUserId from '../actions/fetchUserId'
 import fetchArticles from '../actions/fetchArticles'
+import fetchStashes from '../actions/fetchStashes'
+
 
 
 class App extends Component {
@@ -14,6 +16,7 @@ class App extends Component {
   componentWillMount(){
     if (this.props.currentUser === null && localStorage.getItem('jwt') != null){
       this.props.fetchUserId()
+      this.props.fetchStashes()
     }
   }
 
@@ -45,7 +48,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchUserId, fetchArticles }, dispatch)
+  return bindActionCreators({ fetchUserId, fetchStashes, fetchArticles }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

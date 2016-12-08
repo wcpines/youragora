@@ -12,7 +12,9 @@ export function signIn(formValues){
       dataType: 'json'
     }).done(function(data){
       localStorage.setItem('jwt', data.jwt)
-      dispatch({type: 'SIGNIN_USER', currentUser: data.current_user}) // NOTE: current_user is from the API/Ruby
+
+      // NOTE: current_user is from SessionsController; render json: {jwt: jwt, current_user: user}
+      dispatch({type: 'SIGNIN_USER', currentUser: data.current_user}) 
       browserHistory.push('/')
     })
   }

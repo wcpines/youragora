@@ -7,7 +7,7 @@ function GetNextButton(props){
 
   function handleClick(){
     window.scrollTo(0,0)
-    props.getNext(props.mainArticle, props.articles)
+    props.getNext(props.mainArticle, props.articles, props.stashes)
   }
 
   return (
@@ -18,7 +18,8 @@ function GetNextButton(props){
 function mapStateToProps(state){
   return {
     mainArticle: state.mainArticle,
-    articles: state.articles.fetched
+    articles: state.articles.fetched,
+    stashes: state.stashes
   }
 }
 

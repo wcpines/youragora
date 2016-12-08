@@ -1,4 +1,4 @@
-export default function getNext(mainArticle, articles){
+export default function getNext(mainArticle, articles, stashes){
 
   let index = articles.indexOf(mainArticle)
 
@@ -8,5 +8,16 @@ export default function getNext(mainArticle, articles){
 
   let nextArticle = articles[index + 1]
 
-  return {type: 'NEXT_ARTICLE', payload: nextArticle}
+  var alreadyStashed = stashes.map(stash => stash.id ).includes(mainArticle.article.id)
+
+  var must;
+  if(alreadyStashed){
+    must = "Stashed"
+  } else {
+    must = "Stash"
+  }
+
+
+
+  return {type: 'NEXT_ARTICLE', payload: {nextArticle: nextArticle, stashes: must }}
 }

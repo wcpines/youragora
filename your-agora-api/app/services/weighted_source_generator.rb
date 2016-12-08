@@ -17,7 +17,7 @@ class WeightedSourceGenerator
     # => {:r_lean=>0.3889, :l_lean=>0.16665, :a_lean=>0.44445}
 
 
-    source_distribution = weights.map do |label, weight| 
+    source_distribution = weights.map do |label, weight|
       [label.to_sym, (weight * DESIRED_ARTICLE_COUNT).ceil]
     end.to_h
 
@@ -38,11 +38,11 @@ class WeightedSourceGenerator
 
       counter = 0
 
-      Source.order("RANDOM()").where("leaning = #{source_lean}").cycle do |source|
+      Source.order("RANDOM()").where("leaning = #{source_lean}").pluck(:domain).cycle do |source|
         sources_list << source
         break if counter == source_quant
         counter += 1
-      end 
+      end
     end
     sources_list
   end
@@ -59,7 +59,7 @@ class WeightedSourceGenerator
     # user.l_lean: 6
     # user.a_lean: 1
 
-    # OPTIMIZE mapping over the hashes and converting to a nested array then back to hash is a bit slower than each_with_object 
+    # OPTIMIZE mapping over the hashes and converting to a nested array then back to hash is a bit slower than each_with_object
 
 
     # Lean scores as percent of total points.
@@ -71,16 +71,16 @@ class WeightedSourceGenerator
     # => 9
 
 
-    initial_weights = user_leaning.map do |label,current_lean| 
-      [label.to_sym, get_percent_dec(current_lean, total).round(4)] 
+    initial_weights = user_leaning.map do |label,current_lean|
+      [label.to_sym, get_percent_dec(current_lean, total).round(4)]
     end.to_h
     # => {:r_lean=>0.2222, :l_lean=>0.6667, :a_lean=>0.1111}
 
     # set of weights found as inverse current weight  div by 2 (to make within 100%)
-    inverse_weights = initial_weights.map do |label, weight| 
+    inverse_weights = initial_weights.map do |label, weight|
       [label.to_sym, ((1 - weight).round(4) / 2)] # rounding to deal with subtracting irrational numbers
-    end.to_h  
-    # => {:r_lean=>0.3889, :l_lean=>0.16665, :a_lean=>0.44445} 
+    end.to_h
+    # => {:r_lean=>0.3889, :l_lean=>0.16665, :a_lean=>0.44445}
 
   end
 

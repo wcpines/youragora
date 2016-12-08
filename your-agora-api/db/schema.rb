@@ -27,16 +27,6 @@ ActiveRecord::Schema.define(version: 20161208052346) do
     t.string   "img_url"
   end
 
-  create_table "leanings", force: :cascade do |t|
-    t.integer  "con"
-    t.integer  "prog"
-    t.integer  "lib"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_leanings_on_user_id", using: :btree
-  end
-
   create_table "reactions", force: :cascade do |t|
     t.string   "user_id"
     t.string   "article_id"
@@ -73,7 +63,6 @@ ActiveRecord::Schema.define(version: 20161208052346) do
     t.integer  "a_lean"
   end
 
-  add_foreign_key "leanings", "users"
   add_foreign_key "stashes", "articles"
   add_foreign_key "stashes", "users"
 end

@@ -27,7 +27,11 @@ class StashesController < ApplicationController
 
   # un-stash an article
   def delete
-
+    
+    stash = Stash.find_by(stash_params)
+    byebug
+    Stash.destroy(stash.id)
+    render json: Article.find(stash.article_id)
   end
 
   private

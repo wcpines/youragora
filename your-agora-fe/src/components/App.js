@@ -14,9 +14,7 @@ import fetchStashes from '../actions/fetchStashes'
 class App extends Component {
 
   componentWillMount(){
-    if (this.props.currentUser === null && localStorage.getItem('jwt') != null){
-      this.props.fetchUserId()
-      this.props.fetchStashes()
+    if (this.props.userId === null && localStorage.getItem('jwt') != null){
     }
   }
 
@@ -36,7 +34,7 @@ class App extends Component {
 
 function mapStateToProps(state){
   return {
-    currentUser: state.currentUser.userId,
+    userId: state.currentUser.userId,
     mainArticle: state.mainArticle
   }
 }

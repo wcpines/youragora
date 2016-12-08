@@ -13,7 +13,7 @@ class HomePage extends Component{
   }
 
   componentWillMount(){
-    if(this.props.id === undefined && localStorage.getItem('jwt') != null){
+    if(this.props.userId === null && localStorage.getItem('jwt') != null){
       this.props.fetchUserId()
     }
   }
@@ -48,7 +48,7 @@ class HomePage extends Component{
 
 function mapStateToProps(state){
   return {userName: state.currentUser.userName,
-          id: state.currentUser.UserId}
+          userId: state.currentUser.userId}
 }
 
 function mapDispatchToProps(dispatch){

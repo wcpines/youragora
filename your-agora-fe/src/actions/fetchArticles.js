@@ -12,6 +12,7 @@ export default function fetchArticles(searchTerm){
       dataType: 'json'
     }).done(function(data){
       dispatch({type: 'FETCH_FIRST_ARTICLE', payload: data})
+      dispatch({type: 'FETCHED_FIRST_ARTICLE'})
       browserHistory.push('/articles/random/teaser')
       $.ajax({
         url: `http://localhost:3000/articles`,

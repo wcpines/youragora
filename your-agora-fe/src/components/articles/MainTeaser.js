@@ -10,7 +10,8 @@ function MainTeaser(props){
 
   let href = '/articles/random/main'
 
-  let preview = previewContent(props.article.content)
+  let preview = "<p> Here come duh butts </p>"
+  // let preview = previewContent(props.article.content)
 
   let readTime = calculateReadTime(props.article.word_count)
 
@@ -36,18 +37,18 @@ function mapStateToProps(state){
 
 export default connect(mapStateToProps)(MainTeaser)
 
-function previewContent(content){
-  var pattern = /(<p>)(.*?)(<\/p>)/g
-  var content = content
+// function previewContent(content){
+//   var pattern = /(<p>)(.*?)(<\/p>)/g
+//   var content = content
 
-  // TODO: Can we loop this more elegantly?
-  var par1 = pattern.exec(content)[0]
-  var par2 = pattern.exec(content)[0]
-  var par3 = pattern.exec(content)[0]
-  var par4 = pattern.exec(content)[0]
+//   // TODO: Can we loop this more elegantly?
+//   var par1 = pattern.exec(content)[0]
+//   var par2 = pattern.exec(content)[0]
+//   var par3 = pattern.exec(content)[0]
+//   var par4 = pattern.exec(content)[0]
 
-  return [par1, par2, par3, par4].join(" ")
-}
+//   return [par1, par2, par3, par4].join(" ")
+// }
 
 function calculateReadTime(word_count){
   let readTime = Math.round(word_count / 200)

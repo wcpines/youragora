@@ -1,7 +1,7 @@
 class ArticleParser
 
   def self.get_article_html(url)
-    url = "https://www.aei.org/publication/why-we-need-the-electoral-college"
+    # url = "https://www.aei.org/publication/why-we-need-the-electoral-college" # NOTE: Bad link for testing 12/8/2016
     # url = "http://mises.org"
 
     client = MercuryParser::Client.new(api_key: Rails.application.secrets[:mercury_api_key])
@@ -31,7 +31,7 @@ class ArticleParser
 
       Article.new(article_attributes_hash)
     else
-      Article.new(title: "Article Not Found", author: "Mr. Dino", content: "<p>Error</p>", word_count: 1, img_url: "https://cdn.drawception.com/images/panels/2015/3-22/6DCA2LqgT1-6.png")
+      "Article not found"
     end
 
   end

@@ -5,19 +5,20 @@ class ArticlesController < ApplicationController
 
     # if @user
     #
-    #   sources = WeightedSourceGenerator.new(user).get_weighted_sources
+    #   sources = WeightedSourceGenerator.new(@user).get_weighted_sources
     #   # => [ full of source objects ]
     #   source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
     #   # => {Mises: 2, Huff: 3, ...}
     #
     # else
     #
-    #   source_domains = RandomSourceGenerator.random_sources
+    #   sources = RandomSourceGenerator.random_sources
+    #
+    #   source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
     #
     # end
     #
     #   articles = []
-    #
     #
     #   source_domains.each do |domain, num_of_articles|
     #     case domain
@@ -26,8 +27,8 @@ class ArticlesController < ApplicationController
     #         articles << {url: article_url, source_id: 6}
     #       end
     #     else
-    #       GoogleNews.get_articles(num_of_articles, params[:search_term], source.name, source.domain).each do |article_url|
-    #         articles << {url: article_url, source_id: source.id}
+    #       GoogleNews.get_articles(num_of_articles, params[:search_term], domain).each do |article_url|
+    #         articles << {url: article_url, source_id: Source.find_by(domain: domain).id}
     #       end
     #     end
     #   end
@@ -63,29 +64,30 @@ class ArticlesController < ApplicationController
 
       if @user
 
-        sources = WeightedSourceGenerator.new(user).get_weighted_sources
+        sources = WeightedSourceGenerator.new(@user).get_weighted_sources
         # => [ full of source objects ]
         source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
         # => {Mises: 2, Huff: 3, ...}
 
       else
 
-        source_domains = RandomSourceGenerator.random_sources
+        sources = RandomSourceGenerator.random_sources
+
+        source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
 
       end
 
         articles = []
 
-
         source_domains.each do |domain, num_of_articles|
           case domain
           when "mises.org"
             Mises.get_articles(num_of_articles, params[:search_term]).each do |article_url|
-              articles << {url: article_url, source_id: 6}
+              articles << {url: article_url, source_id: Source.find_by(domain: domain).id}
             end
           else
-            GoogleNews.get_articles(num_of_articles, params[:search_term], source.name, source.domain).each do |article_url|
-              articles << {url: article_url, source_id: source.id}
+            GoogleNews.get_articles(num_of_articles, params[:search_term], domain).each do |article_url|
+              articles << {url: article_url, source_id: Source.find_by(domain: domain).id}
             end
           end
         end

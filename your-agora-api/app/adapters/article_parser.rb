@@ -1,26 +1,38 @@
 class ArticleParser
 
   def self.get_article_html(url)
-    # url = 'https://mises.org/library/free-markets-property-rights-and-climate-change-how-privatize-climate-policy'
-    client = MercuryParser::Client.new(api_key: Rails.application.secrets[:mercury_api_key])
-    html = client.parse(url)
+    url = "https://www.aei.org/publication/why-we-need-the-electoral-college"
+    # url = "http://mises.org"
 
-    if html.author
-      author = html.author.split[0...2].join(" ")
-    else
-      author = "No Author Found"
+    client = MercuryParser::Client.new(api_key: Rails.application.secrets[:mercury_api_key])
+
+    # PRETTY DOPE
+    # When Mercury Parser barfs on url ignore error and return nil
+    html = suppress(Exception) do
+      client.parse(url)
     end
 
-    # add lead image url
-    article_attributes_hash = {
-      title: html.title,
-      author: author,
-      content: html.content,
-      word_count: html.word_count,
-      img_url: html.lead_image_url
-    }
+    unless html.nil?
 
-    Article.new(article_attributes_hash)
+      if html.author
+        author = html.author.split[0...2].join(" ")
+      else
+        author = "No Author Found"
+      end
+
+      # add lead image url
+      article_attributes_hash = {
+        title: html.title,
+        author: author,
+        content: html.content,
+        word_count: html.word_count,
+        img_url: html.lead_image_url
+      }
+
+      Article.new(article_attributes_hash)
+    else
+      Article.new(title: "Article Not Found", author: "Mr. Dino", content: "<p>Error</p>", word_count: 1, img_url: "https://cdn.drawception.com/images/panels/2015/3-22/6DCA2LqgT1-6.png")
+    end
 
   end
 

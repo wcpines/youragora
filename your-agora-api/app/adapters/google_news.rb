@@ -4,7 +4,7 @@ require 'uri'
 
 class GoogleNews
 
-  def self.get_articles(num_of_articles, search_term, publication, domain)
+  def self.get_articles(num_of_articles, search_term, domain)
     news = Nokogiri::HTML(open("https://www.google.com/search?q=#{search_term}+#{domain}&tbm=nws"), 'html')
     publications = news.css('.g') # each article displayed by GN
     correct_publications = publications.select { |publication| publication.css('.r').children.map(&:attributes)[0]["href"].value =~ (/#{domain}/) }  # make sure the href contains the publication name
@@ -13,3 +13,6 @@ class GoogleNews
   end
 
 end
+
+
+news = Nokogiri::HTML(open("https://www.google.com/search?q=climate change+vox.com&tbm=nws"), 'html')

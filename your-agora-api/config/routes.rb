@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :reactions
   resources :stashes
 
+  post '/fetch_first_article' , to: 'articles#fetch_first_article'
+
 end

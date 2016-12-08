@@ -5,11 +5,12 @@
 #  id              :integer          not null, primary key
 #  name            :string
 #  email           :string
-#  leaning         :integer
 #  password_digest :string
+#  r_lean          :integer
+#  l_lean          :integer
+#  a_lean          :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#
 
 class User < ApplicationRecord
   has_secure_password

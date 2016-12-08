@@ -25,7 +25,7 @@ class SearchBar extends Component{
 
     var fetching_first_article_spinner;
     if(this.props.fetching_first_article){
-      fetching_first_article_spinner = <h5>A Dinosaur is fetching your articles...</h5>
+      fetching_first_article_spinner = <img src="/images/dinosaur-skateboard.gif" />
     }
 
     return(

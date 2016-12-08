@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
     #
     # render json: @full_articles
 
+    binding.pry
 
     @articles = Article.order("RANDOM()")[0...1].map do |article|
       {article: article, source_name: Source.find(article.source_id).name}

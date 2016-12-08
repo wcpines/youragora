@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router';
 import GetNextButton from '../reactions/GetNextButton'
 import StashButton from '../reactions/StashButton'
+import DeleteStashButton from '../reactions/DeleteStashButton'
 
 
 function MainTeaser(props){
@@ -19,6 +20,7 @@ function MainTeaser(props){
       <h1>{props.article.title}</h1>
       <p>{readTime}</p>
       <StashButton /> <br />
+      <DeleteStashButton /> <br />      
       <p>//</p>
       <div id="teaser-preview" style={{"textAlign": "left"}} dangerouslySetInnerHTML={{__html:preview}} />
       <Link to={href} className="button" >Read More</Link>

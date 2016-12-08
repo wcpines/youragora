@@ -2,7 +2,9 @@ import $ from 'jquery'
 
 export default function deleteStash(stash){
   return function(dispatch){
-    $.ajax({
+    
+    $.ajax(
+    {
       url: `http://localhost:3000/stashes/delete`,
       type: "DELETE",
       headers: {authorization: localStorage.getItem('jwt')},

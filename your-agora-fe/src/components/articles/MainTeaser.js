@@ -19,7 +19,7 @@ function MainTeaser(props){
       <h1>{props.article.title}</h1>
       <p>{readTime}</p>
       <StashButton /> <br />
-      //
+      <p>//</p>
       <div id="teaser-preview" style={{"textAlign": "left"}} dangerouslySetInnerHTML={{__html:preview}} />
       <Link to={href} className="button" >Read More</Link>
       <GetNextButton text="Next Article"/>

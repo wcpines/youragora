@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206184950) do
+ActiveRecord::Schema.define(version: 20161208052346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20161206184950) do
     t.string   "content"
     t.integer  "word_count"
     t.string   "img_url"
+  end
+
+  create_table "leanings", force: :cascade do |t|
+    t.integer  "con"
+    t.integer  "prog"
+    t.integer  "lib"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_leanings_on_user_id", using: :btree
   end
 
   create_table "reactions", force: :cascade do |t|
@@ -55,12 +65,15 @@ ActiveRecord::Schema.define(version: 20161206184950) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "leaning"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "r_lean"
+    t.integer  "l_lean"
+    t.integer  "a_lean"
   end
 
+  add_foreign_key "leanings", "users"
   add_foreign_key "stashes", "articles"
   add_foreign_key "stashes", "users"
 end

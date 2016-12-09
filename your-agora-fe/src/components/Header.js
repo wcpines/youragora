@@ -20,7 +20,9 @@ class Header extends Component {
         <Link id="sign-up-link" to="/signup" >Sign Up</Link>
       </div>
     } else {
-      loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back {this.props.currentUser}! </span> <br /> <SignOut /> </div>
+      loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back {this.props.currentUser}! </span> <br /> <SignOut /> <br />
+                <button><Link id="StashIndex-link" to="/stashes" >See Stashed Articles</Link></button>
+                </div>
     }
 
     return (

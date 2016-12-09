@@ -10,6 +10,7 @@ function MainTeaser(props){
 
   let href = '/articles/random/main'
 
+  let preview = "<p> Here come duh butts </p>"
   // let preview = previewContent(props.article.content)
 
   let readTime = calculateReadTime(props.article.word_count)
@@ -44,7 +45,7 @@ function mapStateToProps(state){
 export default connect(mapStateToProps)(MainTeaser)
 
 // function previewContent(content){
-  
+
 //   var pattern = /(<p>)(.*?)(<\/p>)/g
 //   var content = content
 

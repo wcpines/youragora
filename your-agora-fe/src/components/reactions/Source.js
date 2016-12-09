@@ -19,8 +19,8 @@ function Source(props){
 
 function mapStateToProps(state){
   return {
-    sourceName: state.mainArticle.source_name,
-    sourceUrl: state.mainArticle.article.url
+    sourceName: state.mainArticle.sourceName,
+    sourceUrl: state.mainArticle.url
     }
 }
 

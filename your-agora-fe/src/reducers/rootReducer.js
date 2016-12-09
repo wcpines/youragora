@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-import { browserHistory } from 'react-router'
 
 function currentUser(state = {making_user: false, userId: null}, action){
   switch (action.type) {
@@ -35,36 +34,30 @@ function stashes(state = [], action){
       return [...state, action.payload]
     case "FETCH_STASHES":
       return action.payload
+    case 'UNSTASH_ARTICLE':
+      return action.payload 
     default:
       return state
   }
 }
 
-function mustStash(state = "Stash", action){
-  switch (action.type) {
-    case 'STASH_ARTICLE':
-      return "Stashed"
-    case 'NEXT_ARTICLE':
-      return action.payload.stashes
-    case 'FETCH_ARTICLES':
-      return 'Stash'
-    default:
-      return state
-  }
-}
 
-function mainArticle(state = {article: {title: "", content: ""}}, action ){
+//NOTE: mainArticle is an article object, whereas articles in fetched articles are each an object with one key of 'article' and a key of 'sourceName'
+function mainArticle(state = {title: "", content: "", sourceName: "", stashState: false}, action ){
   switch (action.type) {
     case "FETCH_FIRST_ARTICLE":
-      return action.payload[0]
+      return Object.assign({}, action.payload[0].article, {sourceName: action.payload[0].source_name, stashState: false})
     case "NEXT_ARTICLE":
-      browserHistory.push(`/articles/random/teaser`)
-      return action.payload.nextArticle
+      return Object.assign({}, action.payload.articleObj.article, {sourceName: action.payload.articleObj.source_name, stashState: action.payload.stashState})
+    case "STASH_ARTICLE":
+      return {...state, stashState: true}
+    case 'UNSTASH_ARTICLE':
+      return {...state, stashState: false}
     default:
       return state
   }
 }
 
-const rootReducer = combineReducers({ articles, currentUser, mainArticle, stashes, mustStash })
+const rootReducer = combineReducers({ articles, currentUser, mainArticle, stashes })
 
 export default rootReducer

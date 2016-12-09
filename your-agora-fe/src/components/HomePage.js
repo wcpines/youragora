@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import SearchBar from './articles/SearchBar'
 import SignOut from './users/SignOut'
 import fetchUserId from '../actions/fetchUserId'
+import fetchStashes from '../actions/fetchStashes'
 import { bindActionCreators } from 'redux'
 
 
@@ -15,6 +16,7 @@ class HomePage extends Component{
   componentWillMount(){
     if(this.props.userId === null && localStorage.getItem('jwt') != null){
       this.props.fetchUserId()
+      this.props.fetchStashes()
     }
   }
 
@@ -51,7 +53,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchUserId }, dispatch)
+  return bindActionCreators({ fetchUserId, fetchStashes }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

@@ -11,6 +11,7 @@ export default function fetchArticles(searchTerm){
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done(function(data){
+  //NOTE: data is an array of objects where each object has the keys of 'article' with the value being the article Ruby object, and 'source_name'
       dispatch({type: 'FETCH_FIRST_ARTICLE', payload: data})
       browserHistory.push('/articles/random/teaser')
       $.ajax({

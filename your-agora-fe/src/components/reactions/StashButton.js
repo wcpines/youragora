@@ -16,7 +16,7 @@ class StashButton extends Component {
 
   render(){
     return (
-      <button className="button" onClick={this.handleClick}>{this.props.must}</button>
+      <button className="button" onClick={this.handleClick}>stash</button>
     )
   }
 }
@@ -27,7 +27,7 @@ function mapDispatchToProps(dispatch){
 
 function mapStateToProps(state){
   return {
-    stash: {article_id: state.mainArticle.article.id, user_id: state.currentUser.userId},
+    stash: {article_id: state.mainArticle.id, user_id: state.currentUser.userId},
     must: state.mustStash
   }
 }

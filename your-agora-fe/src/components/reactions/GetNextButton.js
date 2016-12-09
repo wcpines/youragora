@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { browserHistory } from 'react-router'
 import  getNext  from '../../actions/getNext'
 
 function GetNextButton(props){
@@ -8,6 +9,7 @@ function GetNextButton(props){
   function handleClick(){
     window.scrollTo(0,0)
     props.getNext(props.mainArticle, props.articles, props.stashes)
+    browserHistory.push(`/articles/random/teaser`)
   }
 
   return (

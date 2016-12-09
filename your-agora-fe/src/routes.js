@@ -13,7 +13,7 @@ import Source from './components/reactions/Source'
 export default (
   <Route>
     <Route path="/" component={HomePage} />
-    <Route component={App} >
+    <Route path="/search" component={App} >
       <Route path="/articles/:id/teaser" component={MainTeaser} />
       <Route path="/articles/:id/main" component={MainArticle} >
         <Route path="/articles/:id/main/showSource" component={ShowSource} />

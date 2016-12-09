@@ -42,6 +42,7 @@ class HomePage extends Component{
           <div id="search-bar-homepage-container">
             <SearchBar idProps={'search-bar-homepage'}/>
           </div>
+          {this.props.children}
         </div>
       )
   }

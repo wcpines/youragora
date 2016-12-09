@@ -3,11 +3,16 @@ import { connect } from 'react-redux'
 import ThumbsButtons from '../reactions/ThumbsButtons'
 import StashButton from '../reactions/StashButton'
 import UnstashArticleButton from '../reactions/UnstashArticleButton'
+import { browserHistory } from 'react-router'
+
 
 
 class MainArticle extends Component{
 
   render(){
+    // if(this.props.article.id === undefined){
+    //       browserHistory.push('/')}
+
     var stashOrDeleteButton;
     if(this.props.stashState === false){
           stashOrDeleteButton = <StashButton />

@@ -4,15 +4,21 @@ import { Link } from 'react-router';
 import GetNextButton from '../reactions/GetNextButton'
 import StashButton from '../reactions/StashButton'
 import UnstashArticleButton from '../reactions/UnstashArticleButton'
+import { browserHistory } from 'react-router'
+
 
 
 function MainTeaser(props){
+
+  // if(props.article.id === undefined){
+  //         browserHistory.push('/')}
 
   let href = '/articles/random/main'
 
   // let preview = previewContent(props.article.content)
 
   let readTime = calculateReadTime(props.article.word_count)
+
 
   var stashOrDeleteButton;
   if(props.stashState === false){

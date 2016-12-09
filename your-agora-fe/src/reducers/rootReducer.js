@@ -33,7 +33,7 @@ function articles(state = {fetched: [], fetching: false, fetching_first_article:
 function stashes(state = [], action){
   switch (action.type) {
     case "STASH_ARTICLE":
-      return [...state, action.payload]
+      return action.payload
     case "FETCH_STASHES":
       return action.payload
     case 'UNSTASH_ARTICLE':
@@ -48,9 +48,9 @@ function stashes(state = [], action){
 function mainArticle(state = {title: "", content: "", sourceName: "", stashState: false}, action ){
   switch (action.type) {
     case "FETCH_FIRST_ARTICLE":
-      return Object.assign({}, action.payload[0].article, {sourceName: action.payload[0].source_name, stashState: false})
+      return Object.assign({}, action.payload[0], {stashState: false})
     case "NEXT_ARTICLE":
-      return Object.assign({}, action.payload.articleObj.article, {sourceName: action.payload.articleObj.source_name, stashState: action.payload.stashState})
+      return Object.assign({}, action.payload.article, {stashState: action.payload.stashState})
     case "STASH_ARTICLE":
       return {...state, stashState: true}
     case 'UNSTASH_ARTICLE':

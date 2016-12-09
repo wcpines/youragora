@@ -11,7 +11,7 @@ export default function fetchArticles(searchTerm){
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done(function(data){
-  //NOTE: data is an array of objects where each object has the keys of 'article' with the value being the article Ruby object, and 'source_name'
+  //NOTE: DATA IS NOW AN ARRAY OF ARTICLES OBJECTS! NO NEED ANYMORE TO CALL .article ON ANYTHING OTHER THAN STASHES
       dispatch({type: 'FETCH_FIRST_ARTICLE', payload: data})
       dispatch({type: 'FETCHED_FIRST_ARTICLE'})
       browserHistory.push('/articles/random/teaser')

@@ -42,8 +42,8 @@ class ArticlesController < ApplicationController
     #       parser.save
     #       article = parser
     #     end
-
-    #     {article: article, source_name: Source.find(url_and_source[:source_id]).name}
+    #     article.attributes.merge({"sourceName" => article.source.name})
+                      # !!Note Source Name camel case because it's going to JS
 
     #   end
 
@@ -51,9 +51,9 @@ class ArticlesController < ApplicationController
 
 # !!!!TEST ARTICLES WITH NO GOOGLE SEARCH OR SCRAPING 
     @articles = Article.order("RANDOM()")[0...2].map do |article|
-      {article: article, source_name: Source.find(article.source_id).name}
+      article.attributes.merge({"sourceName" => article.source.name})
+                      # !!Note Source Name camel case because it's going to JS
     end
-
     render json: @articles
 
   end
@@ -100,15 +100,16 @@ class ArticlesController < ApplicationController
         #     article = parser
         #   end
 
-        #   {article: article, source_name: Source.find(url_and_source[:source_id]).name}
-
+        #     article.attributes.merge({"sourceName" => article.source.name})
+                      # !!Note Source Name camel case because it's going to JS
         # end
 
 
       # render json: @full_articles
 # !!!!TEST ARTICLES WITH NO GOOGLE SEARCH OR SCRAPING 
       @articles = Article.order("RANDOM()")[0...2].map do |article|
-      {article: article, source_name: Source.find(article.source_id).name}
+      article.attributes.merge({"sourceName" => article.source.name})
+                      # !!Note Source Name camel case because it's going to JS
       end
 
       render json: @articles

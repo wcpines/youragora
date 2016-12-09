@@ -13,6 +13,7 @@ export default function fetchArticles(searchTerm){
     }).done(function(data){
   //NOTE: data is an array of objects where each object has the keys of 'article' with the value being the article Ruby object, and 'source_name'
       dispatch({type: 'FETCH_FIRST_ARTICLE', payload: data})
+      dispatch({type: 'FETCHED_FIRST_ARTICLE'})
       browserHistory.push('/articles/random/teaser')
       $.ajax({
         url: `http://localhost:3000/articles`,

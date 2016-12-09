@@ -22,19 +22,29 @@ class SearchBar extends Component{
   }
 
   render(){
+
+    var fetching_first_article_spinner;
+    if(this.props.fetching_first_article){
+      fetching_first_article_spinner = <img src="/images/dinosaur-skateboard.gif" />
+    }
+
     return(
       <div className='search-bar'>
         <form onSubmit={this.handleClick}>
           <input id='search-input' type="text" onChange={this.handleSearch}/>
           <input id="search-button" type='submit' disabled={this.props.fetching} className='search-bar' name='submit' value='Search'/>
         </form>
+        {fetching_first_article_spinner}
       </div>
     )
   }
 }
 
 function mapStateToProps(state){
-  return {fetching: state.articles.fetching}
+  return {
+    fetching: state.articles.fetching,
+    fetching_first_article: state.articles.fetching_first_article
+  }
 }
 
 function mapDispatchToProps(dispatch){

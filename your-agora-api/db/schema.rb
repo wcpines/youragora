@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208052346) do
+ActiveRecord::Schema.define(version: 20161209195203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,19 @@ ActiveRecord::Schema.define(version: 20161208052346) do
     t.string   "img_url"
   end
 
+  create_table "leanings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "prog_lean",  default: 1
+    t.integer  "cons_lean",  default: 1
+    t.integer  "libr_lean",  default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["user_id"], name: "index_leanings_on_user_id", using: :btree
+  end
+
   create_table "reactions", force: :cascade do |t|
-    t.string   "user_id"
-    t.string   "article_id"
+    t.integer  "user_id"
+    t.integer  "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "rating"
@@ -63,6 +73,7 @@ ActiveRecord::Schema.define(version: 20161208052346) do
     t.integer  "a_lean"
   end
 
+  add_foreign_key "leanings", "users"
   add_foreign_key "stashes", "articles"
   add_foreign_key "stashes", "users"
 end

@@ -20,7 +20,7 @@ function MainTeaser(props){
 
   let readTime = calculateReadTime(props.article.word_count)
 
-
+if(localStorage.jwt !== undefined){
   var stashOrDeleteButton;
   if(props.stashState === false){
         stashOrDeleteButton = <StashButton />
@@ -28,6 +28,7 @@ function MainTeaser(props){
   if(props.stashState === true){
         stashOrDeleteButton = <UnstashArticleButton />
   }
+}
   return(
     <div id="main-teaser">
       <img role="presentation" className="thumbnail" src={props.article.img_url} />

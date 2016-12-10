@@ -12,14 +12,15 @@ class MainArticle extends Component{
   render(){
     // if(this.props.article.id === undefined){
     //       browserHistory.push('/')}
-
-    var stashOrDeleteButton;
-    if(this.props.stashState === false){
-          stashOrDeleteButton = <StashButton />
+    if (localStorage.jwt !== undefined){
+        var stashOrDeleteButton;
+        if(this.props.stashState === false){
+              stashOrDeleteButton = <StashButton />
+            }
+        if(this.props.stashState === true){
+              stashOrDeleteButton = <UnstashArticleButton />
         }
-    if(this.props.stashState === true){
-          stashOrDeleteButton = <UnstashArticleButton />
-    }
+      }
     return (
       <div>
         <h1>{this.props.article.title}</h1>

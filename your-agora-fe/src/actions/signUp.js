@@ -12,7 +12,6 @@ export function signUp(formValues){
       localStorage.setItem('jwt', data.jwt)
       // NOTE: current_user is from SessionsController; render json: {jwt: jwt, current_user: user}
       dispatch({type: 'SIGNIN_USER', payload: {currentUser: data.current_user, leaningId: data.leaning_id}})
-      debugger
       browserHistory.push('/')
     })
   }

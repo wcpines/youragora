@@ -3,8 +3,8 @@
 # Table name: reactions
 #
 #  id         :integer          not null, primary key
-#  user_id    :string
-#  article_id :string
+#  user_id    :integer
+#  article_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  rating     :integer

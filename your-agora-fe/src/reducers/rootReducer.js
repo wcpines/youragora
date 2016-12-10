@@ -5,7 +5,6 @@ function currentUser(state = {making_user: false, userId: null}, action){
     case 'MAKING_USER':
       return {...state, making_user: true}
     case 'FETCH_USER':
-      debugger
       return {...state, userId: action.payload.currentUser.id, userName: action.payload.currentUser.name, userEmail: action.payload.currentUser.email, leaningId: action.payload.leaningId}
     case 'SIGNIN_USER':
       return {userId: action.payload.currentUser.id, userName: action.payload.currentUser.name, userEmail: action.payload.currentUser.email, leaningId: action.payload.leaningId, making_user: false,}

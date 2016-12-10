@@ -1,29 +1,30 @@
 class LeaningsController < ApplicationController
 
   def update
-    binding.pry
     leaning = Leaning.find(params[:leaning][:leaning_id])
     rating = params[:leaning][:rating]
     source_lean = Article.find(params[:leaning][:article_id]).source.leaning
+    # => prog_lean (e.g.)
+
+    #@user.leaning:
+    # => #<Leaning:0x007f8a42d455c0 id: 1, user_id: 1, prog_lean: 1, cons_lean: 1, libr_lean: 1, created_at: Fri, 09 Dec 2016 22:51:01 UTC +00:00, updated_at: Fri, 09 Dec 2016 22:51:01 UTC +00:00>
 
 
-    if rating == -1 && @user.leaning[source.leaning.to_sym] < 2
+    # source
+    unless rating == -1 && @user.leaning[source_lean] < 2
 
-      # @user.leaning[:cons_lean]
-
-
-    else
       case source_lean
-      when 1
+      when "prog_lean"
         leaning.prog_lean += rating
-      when 2
+      when "libr_lean"
         leaning.libr_lean += rating
-      when 3
-        leaning.anar_lean += rating
+      when "cons_lean"
+        leaning.cons_lean += rating
       end
-    end
 
-    leaning.save
+      leaning.save
+
+    end
 
   end
 

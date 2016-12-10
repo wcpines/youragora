@@ -34,12 +34,16 @@ class SignUp extends Component {
   render(){
 
     return(
-      <div id="sign-up">
+      <div id="signup-container">
+        <h3>Sign Up</h3>
         <form onSubmit={this.handleSubmit}>
-          Name: <input onChange={this.handleName} type="text" />
-          Email: <input onChange={this.handleEmail} type="text" />
-          Password: <input onChange={this.handlePassword} type="password" />
-          <input type="submit" value="Dino Danger!" />
+          <label htmlFor="name-input">Name:</label>
+          <input className="u-full-width" onChange={this.handleName} type="text" />
+          <label htmlFor="email-input">Email:</label>
+          <input className="u-full-width" onChange={this.handleEmail} type="text" />
+          <label htmlFor="password-input">Password:</label>
+          <input className="u-full-width" onChange={this.handlePassword} type="password" />
+          <input className="u-full-width button" id="signup-button" type="submit" value="Dino Danger!" />
         </form>
       </div>
     )

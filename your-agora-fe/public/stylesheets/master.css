@@ -95,8 +95,7 @@ a:hover {
   background-color: white;
 }
 
-/* SIGN IN */
-#browse-as-guest {
+#browse-as-guest, #already-a-member {
   font-family: Baskerville;
   font-size: 1.2em;
   text-align: center;

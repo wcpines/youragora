@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { signUp } from '../../actions/signUp';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 class SignUp extends Component {
 
@@ -45,6 +46,7 @@ class SignUp extends Component {
           <input className="u-full-width" onChange={this.handlePassword} type="password" />
           <input className="u-full-width button" id="signup-button" type="submit" value="Dino Danger!" />
         </form>
+        <Link id="already-a-member" to='/sigin'><p>Already a member? Sign In</p></Link>
       </div>
     )
 

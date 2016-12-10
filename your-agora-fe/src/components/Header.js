@@ -29,7 +29,7 @@ class Header extends Component {
       <div className="header-container">
         <div className="row">
           <div className="six columns">
-          <img role="presentation" id="header-logo" src="/images/youragora-inline-logo.png" />
+          <Link to="/" ><img role="presentation" id="header-logo" src="/images/youragora-inline-logo.png" /></Link>
           </div>
           <div className="six columns">
           {loggedIn}

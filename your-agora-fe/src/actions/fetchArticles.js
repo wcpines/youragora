@@ -1,13 +1,14 @@
 import $ from 'jquery'
 import { browserHistory } from 'react-router'
 
-export default function fetchArticles(searchTerm){
+export default function fetchArticles(searchTerm, currentUserId){
+
   return function(dispatch){
     dispatch({type: 'FETCHING_ARTICLES'})
     $.ajax({
       url: `http://localhost:3000/fetch_first_article`,
       type: 'POST',
-      data: JSON.stringify({search_term: searchTerm }),
+      data: JSON.stringify({search_term: searchTerm, current_user_id: currentUserId }),
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
     }).done(function(data){
@@ -18,7 +19,7 @@ export default function fetchArticles(searchTerm){
       $.ajax({
         url: `http://localhost:3000/articles`,
         type: 'POST',
-        data: JSON.stringify({search_term: searchTerm }),
+        data: JSON.stringify({search_term: searchTerm, current_user_id: currentUserId }),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json'
       }).done(function(data){

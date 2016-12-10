@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :reactions
   resources :stashes
+  resources :leanings
 
   post '/fetch_first_article' , to: 'articles#fetch_first_article'
 

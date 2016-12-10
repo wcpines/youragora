@@ -1,11 +1,12 @@
 class SessionsController < ApplicationController
+
   skip_before_action :authenticate_user
 
   def create
     user = User.find_by(email: user_params[:email])
     if user.authenticate(user_params[:password])
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, current_user: user}
+      render json: {jwt: jwt, current_user: user, leaning_id: user.leaning.id}
     end
   end
 

@@ -11,8 +11,6 @@ import { connect } from 'react-redux'
 
 class App extends Component {
 
-
-
   render() {
         if(this.props.article.id === undefined){
           browserHistory.push('/')
@@ -31,7 +29,6 @@ class App extends Component {
 }
 
 function mapStateToProps(state){
-  
   return {article: state.mainArticle}
 }
 

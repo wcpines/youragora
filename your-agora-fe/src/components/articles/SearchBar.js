@@ -14,7 +14,7 @@ class SearchBar extends Component{
 
   handleClick(event){
     event.preventDefault()
-    this.props.fetchArticles(this.state.searchTerm)
+    this.props.fetchArticles(this.state.searchTerm, this.props.currentUserId)
   }
 
   handleSearch(event){
@@ -43,7 +43,8 @@ class SearchBar extends Component{
 function mapStateToProps(state){
   return {
     fetching: state.articles.fetching,
-    fetching_first_article: state.articles.fetching_first_article
+    fetching_first_article: state.articles.fetching_first_article,
+    currentUserId: state.currentUser.userId
   }
 }
 

@@ -5,9 +5,9 @@ function currentUser(state = {making_user: false, userId: null}, action){
     case 'MAKING_USER':
       return {...state, making_user: true}
     case 'FETCH_USER':
-      return {...state, userId: action.currentUser.id, userName: action.currentUser.name, userEmail: action.currentUser.email}
+      return {...state, userId: action.payload.currentUser.id, userName: action.payload.currentUser.name, userEmail: action.payload.currentUser.email, leaningId: action.payload.leaningId}
     case 'SIGNIN_USER':
-      return {...state, userId: action.currentUser.id, userName: action.currentUser.name, userEmail: action.currentUser.email, making_user: false,}
+      return {userId: action.payload.currentUser.id, userName: action.payload.currentUser.name, userEmail: action.payload.currentUser.email, leaningId: action.payload.leaningId, making_user: false,}
     case 'SIGN_OUT':
       return {making_user: false, userId: null}
     default:
@@ -37,7 +37,7 @@ function stashes(state = [], action){
     case "FETCH_STASHES":
       return action.payload
     case 'UNSTASH_ARTICLE':
-      return action.payload 
+      return action.payload
     default:
       return state
   }

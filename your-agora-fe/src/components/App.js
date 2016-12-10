@@ -12,7 +12,7 @@ import { connect } from 'react-redux'
 class App extends Component {
 
   render() {
-      if(this.props.router.location.pathname !== "/stashes"){
+      if(this.props.router.location.pathname !== ("/stashes" || "/users/:id")){
           if(this.props.article.id === undefined){
             browserHistory.push('/')
             location.reload()}

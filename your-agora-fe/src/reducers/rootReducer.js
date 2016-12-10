@@ -30,6 +30,7 @@ function articles(state = {fetched: [], fetching: false, fetching_first_article:
   }
 }
 
+//stashes are an object with the keys of 'article' (points to an article object) and 'id' (points to the stash id)
 function stashes(state = [], action){
   switch (action.type) {
     case "STASH_ARTICLE":
@@ -44,12 +45,13 @@ function stashes(state = [], action){
 }
 
 
-//NOTE: mainArticle is an article object, whereas articles in fetched articles are each an object with one key of 'article' and a key of 'sourceName'
 function mainArticle(state = {title: "", content: "", sourceName: "", stashState: false}, action ){
   switch (action.type) {
     case "FETCH_FIRST_ARTICLE":
       return Object.assign({}, action.payload[0], {stashState: false})
     case "NEXT_ARTICLE":
+      return Object.assign({}, action.payload.article, {stashState: action.payload.stashState})
+    case 'READ_STASHED_ARTICLE':
       return Object.assign({}, action.payload.article, {stashState: action.payload.stashState})
     case "STASH_ARTICLE":
       return {...state, stashState: true}

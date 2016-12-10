@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import ThumbsButtons from '../reactions/ThumbsButtons'
 import StashButton from '../reactions/StashButton'
 import UnstashArticleButton from '../reactions/UnstashArticleButton'
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
 
 
 

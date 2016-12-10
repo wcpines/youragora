@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import GetNextButton from '../reactions/GetNextButton'
 import StashButton from '../reactions/StashButton'
 import UnstashArticleButton from '../reactions/UnstashArticleButton'
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
 
 
 
@@ -15,7 +15,7 @@ function MainTeaser(props){
 
   let href = '/articles/random/main'
 
-  let preview = "<p> Here come duh butts </p>"
+  // let preview = "<p> Teaser Test </p>"
   // let preview = previewContent(props.article.content)
 
   let readTime = calculateReadTime(props.article.word_count)

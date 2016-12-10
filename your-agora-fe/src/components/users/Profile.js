@@ -1,31 +1,23 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
+import React from 'react'
 import { connect } from 'react-redux'
 // import EditProfileButton from  '../
 
-class Profile extends Component {
-
-  constructor(props){
-    super (props)
-
-  }
+function Profile(props) {
 
 
 
-  render(){
+  return(
 
-    return(
+    <div id="profile-page">
 
-      <div>
-        <ul>
-          <li>this.props.userId</li>
-          <li>this.props.userName</li>
-          <li>this.props.userEmail</li>
-        </ul>
+      <div id="user-info">
+        <li>{props.userName}</li>
+        <li>{props.userEmail}</li>
       </div>
-    )
 
-  }
+    </div>
+  )
+
 }
 
 function mapStateToProps(state){
@@ -37,14 +29,4 @@ function mapStateToProps(state){
   }
 }
 
-  export default connect(mapStateToProps)(Profile)
-
-  // <h1>Welcome {user.name}</h1>
-  // <p>Your email: {user.email}</p>
-
-
-  // 1. Create the actual component and what it displays
-  //    a. Any data can/should be gotten from the state via mapStateToProps
-  //    b. Any actions must be performed using mapDispatchToProps and bindActionCreators
-  // 2. Create a route to that component
-  // 3. Create a link to the given route
+export default connect(mapStateToProps)(Profile)

@@ -72,6 +72,27 @@ a:hover {
 }
 
 /***********
+  PROFILE
+***********/
+
+#profile-page {
+  margin-left: 20px;
+}
+
+.reaction-list {
+  font-family: Baskerville;
+  font-size: 1.2em;
+}
+
+.reaction-list img {
+  width: 15px;
+}
+
+.reaction-list ul {
+  list-style-type: none;
+}
+
+/***********
   SEARCH BAR - HOMEPAGE
 ***********/
 
@@ -126,13 +147,13 @@ a:hover {
 }
 
 .sign-links a{
-  font-size: 1.5em;
+  font-family: Georgia;
+  font-size: 1em;
   font-weight: 600;
   margin: 0px 10px;
 }
 
 #sign-out-link {
-  font-size: 1em;
   cursor: pointer;
 }
 
@@ -208,9 +229,10 @@ a:hover {
 
 #reaction-buttons img {
   width: 50px;
+  margin: 10px 20px;
 }
 
-#reaction-buttons img:hover {
+#reaction-buttons a:hover {
   opacity: 0.5;
 }
 

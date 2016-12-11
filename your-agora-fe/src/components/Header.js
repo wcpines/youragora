@@ -28,9 +28,11 @@ class Header extends Component {
           <Link id="sign-up-link" to="/signup" >Sign Up</Link>
         </div>
     } else {
-      loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back {this.props.userName}! </span> <br /> <SignOut /> <br />
-        <button><Link id="StashIndex-link" to="/stashes" >See Stashed Articles</Link></button> <br />
-        <button><Link id="Profile-link" to={href} >My Profile</Link></button>
+      loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back {this.props.userName}! </span> <br />
+        <Link to="/" >Home</Link><br />
+        <Link id="Profile-link" to={href} >My Profile</Link><br />
+        <Link id="StashIndex-link" to="/stashes" >Stashed Articles</Link> <br />
+        <SignOut />
       </div>
     }
 
@@ -62,4 +64,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)
-

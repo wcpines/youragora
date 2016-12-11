@@ -4,19 +4,19 @@ class ArticlesController < ApplicationController
 
   def fetch_first_article
 
-    source_domains = {Source.where("leaning = 'prog_lean'").order("RANDOM()").limit(1)[0].domain => 1,
-      Source.where("leaning = 'cons_lean'").order("RANDOM()").limit(1)[0].domain => 1,
-      Source.where("leaning = 'libr_lean'").order("RANDOM()").limit(1)[0].domain => 1}
-
-    articles = get_articles_from_domains(source_domains)
-
-    @full_articles = run_parser(articles)
+    # source_domains = {Source.where("leaning = 'prog_lean'").order("RANDOM()").limit(1)[0].domain => 1,
+    #   Source.where("leaning = 'cons_lean'").order("RANDOM()").limit(1)[0].domain => 1,
+    #   Source.where("leaning = 'libr_lean'").order("RANDOM()").limit(1)[0].domain => 1}
+    #
+    # articles = get_articles_from_domains(source_domains)
+    #
+    # @full_articles = run_parser(articles)
 
     ###### FOR TESTING ######
-    # @full_articles = Article.order("RANDOM()")[0...2].map do |article|
-    #   article.attributes.merge({"sourceName" => article.source.name})
-    #   # !!Note Source Name camel case because it's going to JS
-    # end
+    @full_articles = Article.order("RANDOM()")[0...2].map do |article|
+      article.attributes.merge({"sourceName" => article.source.name})
+      # !!Note Source Name camel case because it's going to JS
+    end
     #########
 
     # If the parser breaks it will return back nil so
@@ -27,29 +27,29 @@ class ArticlesController < ApplicationController
 
   def create
 
-    unless params[:current_user_id].nil?
-
-      @user = User.find params[:current_user_id]
-      sources = WeightedSourceGenerator.new(@user).get_weighted_sources
-      # => [ full of source objects ]
-      source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
-      # => {Mises: 2, Huff: 3, ...}
-    else
-
-      sources = RandomSourceGenerator.random_sources
-      source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
-
-    end
-
-    articles = get_articles_from_domains(source_domains)
-
-    @full_articles = run_parser(articles)
+    # unless params[:current_user_id].nil?
+    #
+    #   @user = User.find params[:current_user_id]
+    #   sources = WeightedSourceGenerator.new(@user).get_weighted_sources
+    #   # => [ full of source objects ]
+    #   source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
+    #   # => {Mises: 2, Huff: 3, ...}
+    # else
+    #
+    #   sources = RandomSourceGenerator.random_sources
+    #   source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
+    #
+    # end
+    #
+    # articles = get_articles_from_domains(source_domains)
+    #
+    # @full_articles = run_parser(articles)
 
     ###### FOR TESTING ######
-    # @full_articles = Article.order("RANDOM()")[0...2].map do |article|
-    #   article.attributes.merge({"sourceName" => article.source.name})
-    #   # !!Note Source Name camel case because it's going to JS
-    # end
+    @full_articles = Article.order("RANDOM()")[0...2].map do |article|
+      article.attributes.merge({"sourceName" => article.source.name})
+      # !!Note Source Name camel case because it's going to JS
+    end
     #########
 
     # If the parser breaks it will return back nil so

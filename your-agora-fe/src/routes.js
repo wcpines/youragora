@@ -17,8 +17,8 @@ export default (
   <Route>
     <Route path="/" component={HomePage} />
     <Route path="/users/:id" component={Profile} />
-    <Route component={App} >
     <Route path="/stashes" component={StashIndex} />
+    <Route component={App} >
       <Route path="/articles/:id/teaser" component={MainTeaser} />
       <Route path="/articles/:id/main" component={MainArticle} >
         <Route path="/articles/:id/main/showSource" component={ShowSource} />

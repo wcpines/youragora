@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router'
-import SearchBar from './articles/SearchBar'
+// import SearchBar from './articles/SearchBar'
 import SignOut from './users/SignOut'
 import fetchUserId from '../actions/fetchUserId'
 import {connect} from 'react-redux'
@@ -8,31 +8,40 @@ import { bindActionCreators } from 'redux'
 
 class Header extends Component {
 
+  // About Us
+    // Motivation/history of the ssite
+    // three sections for each contributor
+  // My Profile
+  // My Stashed Articles
+
   render() {
 
     var loggedIn
 
+    var href = `/users/${this.props.userId}`
+
     if (localStorage.jwt === undefined){
       loggedIn =
-      <div className="sign-links">
-        <Link id="sign-in-link" to="/signin" >Sign In</Link>
-        <strong>|</strong>
-        <Link id="sign-up-link" to="/signup" >Sign Up</Link>
-      </div>
+        <div className="sign-links">
+          <Link id="sign-in-link" to="/signin" >Sign In</Link>
+          <strong>|</strong>
+          <Link id="sign-up-link" to="/signup" >Sign Up</Link>
+        </div>
     } else {
-      loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back {this.props.currentUser}! </span> <br /> <SignOut /> <br />
-                <button><Link id="StashIndex-link" to="/stashes" >See Stashed Articles</Link></button>
-                </div>
+      loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back {this.props.userName}! </span> <br /> <SignOut /> <br />
+        <button><Link id="StashIndex-link" to="/stashes" >See Stashed Articles</Link></button> <br />
+        <button><Link id="Profile-link" to={href} >My Profile</Link></button>
+      </div>
     }
 
     return (
       <div className="header-container">
         <div className="row">
           <div className="six columns">
-          <Link to="/" ><img role="presentation" id="header-logo" src="/images/youragora-inline-logo.png" /></Link>
+            <Link to="/" ><img role="presentation" id="header-logo" src="/images/youragora-inline-logo.png" /></Link>
           </div>
           <div className="six columns">
-          {loggedIn}
+            {loggedIn}
           </div>
         </div>
       </div>
@@ -42,7 +51,10 @@ class Header extends Component {
 }
 
 function mapStateToProps(state){
-  return {currentUser: state.currentUser.userName}
+  return {
+    userName: state.currentUser.userName,
+    userId: state.currentUser.userId
+  }
 }
 
 function mapDispatchToProps(dispatch){
@@ -50,3 +62,4 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)
+

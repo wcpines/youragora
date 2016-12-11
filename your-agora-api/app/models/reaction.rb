@@ -15,5 +15,7 @@ class Reaction < ApplicationRecord
   belongs_to :article
   belongs_to :user
 
+  # User should not be able to react to an article more than 1x
+  validates_uniqueness_of :article_id, scope: :user_id
 
 end

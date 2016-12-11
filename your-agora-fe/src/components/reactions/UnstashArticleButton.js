@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import unstashArticle from '../../actions/unstashArticle'
+// import resetStash from '../../actions/resetStash'
 
 class UnstashArticleButton extends Component {
   constructor(props){

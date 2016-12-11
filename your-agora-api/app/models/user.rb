@@ -17,6 +17,7 @@ class User < ApplicationRecord
   # validates_presence_of :email, length: {minimum: 3, maximum: 50}
   # validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
   # validates_uniqueness_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
+
   validates_uniqueness_of :email
   after_create :add_leaning
 

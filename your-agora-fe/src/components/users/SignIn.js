@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router'
 import { signIn } from '../../actions/signIn';
+import ErrorMessage from '../reactions/ErrorMessage'
 
 class SignIn extends Component {
 
@@ -41,6 +42,7 @@ class SignIn extends Component {
               <label htmlFor="password-input">Password:</label>
               <input className="password-input u-full-width" onChange={this.handlePassword} type="password" /><br />
               <input id="signin-button" className="u-full-width button" type="submit" value="Double Dino Danger!" />
+              <ErrorMessage />
             </form>
             <Link id="browse-as-guest" to='/'><p>Browse as Guest</p></Link>
           </div>

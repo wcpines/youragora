@@ -18,7 +18,6 @@ function Profile(props) {
     { return <li> {reaction.article_author}:<a href={reaction.article_url}>{reaction.article_title}</a>; {reaction.rating}</li>
   })
 
-debugger
 return(
 
   <div id="profile-page">

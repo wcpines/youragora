@@ -19,13 +19,12 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.persisted?
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, current_user: user, leaning_id: user.leaning.id}
+      render json: {jwt: jwt, current_user: user, leaning_id: user.leaning.id}, status => 200
     else
-      render json: {error: "Something is wrong"}, status: 404
+      render :json => { :errors => user.errors.full_messages }, :status => 422
     end
-
-
   end
+
 
   private
 

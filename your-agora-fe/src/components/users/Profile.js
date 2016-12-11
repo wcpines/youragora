@@ -14,37 +14,36 @@ function Profile(props) {
   //  article_author: "Lee Moran"}article_author:
   // }
 
+    var reactions = props.userReactions.map( reaction => {
 
-  var reactions = props.userReactions.map( reaction => {
+      let thumb;
+      if(reaction.rating === -1){
+        thumb = <img src="/images/thumbs-down.png" />
+      } else if (reaction.rating === 1){
+        thumb = <img src="/images/thumbs-up.png" />
+      } else {
+        thumb = <img src="/images/neutral.png" />
+      }
 
-    let thumb;
-    if(reaction.rating === -1){
-      thumb = <img src="/images/thumbs-down.png" />
-    } else if (reaction.rating === 1){
-      thumb = <img src="/images/thumbs-up.png" />
-    } else {
-      thumb = <img src="/images/neutral.png" />
-    }
+      return <li> {reaction.article_author}: <a target="_blank" href={reaction.article_url}>{reaction.article_title}</a> {thumb}</li>
+    })
 
-    return <li> {reaction.article_author}: <a target="_blank" href={reaction.article_url}>{reaction.article_title}</a> {thumb}</li>
-  })
+    return(
 
-return(
-
-  <div>
-    <Header />
-    <div id="profile-page">
-      <div id="user-info">
-        <h3><b>Name</b>: {props.userName}</h3>
-        <h3><b>Email</b>: {props.userEmail}</h3>
+      <div>
+        <Header />
+        <div id="profile-page">
+          <div id="user-info">
+            <h3><b>Name</b>: {props.userName}</h3>
+            <h3><b>Email</b>: {props.userEmail}</h3>
+          </div>
+          <div className="reaction-list">
+            <b>Recent Reactions</b>
+            <ul>{reactions}</ul>
+          </div>
+        </div>
       </div>
-      <div className="reaction-list">
-        <b>Recent Reactions</b>
-        <ul>{reactions}</ul>
-      </div>
-    </div>
-  </div>
-)
+    )
 
 }
 

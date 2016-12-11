@@ -11,14 +11,16 @@ import ShowSource from './components/reactions/ShowSource'
 import Source from './components/reactions/Source'
 import StashIndex from './components/StashIndex'
 import NotFound from './components/NotFound'
+import About from './components/About'
 
 
 export default (
   <Route>
     <Route path="/" component={HomePage} />
     <Route path="/users/:id" component={Profile} />
-    <Route path="/stashes" component={StashIndex} />
+    <Route path="/about" component={About} />
     <Route component={App} >
+      <Route path="/stashes" component={StashIndex} />
       <Route path="/articles/:id/teaser" component={MainTeaser} />
       <Route path="/articles/:id/main" component={MainArticle} >
         <Route path="/articles/:id/main/showSource" component={ShowSource} />

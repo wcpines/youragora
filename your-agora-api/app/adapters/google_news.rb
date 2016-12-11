@@ -13,6 +13,3 @@ class GoogleNews
   end
 
 end
-
-
-news = Nokogiri::HTML(open("https://www.google.com/search?q=climate change+vox.com&tbm=nws"), 'html')

@@ -4,9 +4,15 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: user_params[:email])
-    if user.authenticate(user_params[:password])
-      jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, current_user: user, leaning_id: user.leaning.id}
+    if user
+      if user.authenticate(user_params[:password])
+        jwt = Auth.issue({user_id: user.id})
+        render json: {jwt: jwt, current_user: user, leaning_id: user.leaning.id}, status => 200
+      else
+        render :json => { :errors => "please check your password" }, :status => 422
+      end
+    else 
+        render :json => { :errors => "email not found" }, :status => 422
     end
   end
 

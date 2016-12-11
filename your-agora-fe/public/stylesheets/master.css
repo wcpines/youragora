@@ -238,3 +238,12 @@ a:hover {
   margin-top : 40px;
   background-color: rgba(39,62,109,0.1);
 }
+
+/***********
+  NOT FOUND
+***********/
+
+#not-found {
+  font-family: Baskerville;
+  text-align: center;
+}

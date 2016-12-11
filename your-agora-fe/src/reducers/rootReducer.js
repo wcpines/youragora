@@ -1,5 +1,8 @@
 import { combineReducers } from 'redux'
 
+// TBD: In general I think we're mixing in snake case where it should probably be
+// camelCase.  Curse of doing rails/js at the same time? :/ -- CP
+
 function currentUser(state = {making_user: false, userId: null}, action){
   switch (action.type) {
     case 'MAKING_USER':
@@ -15,6 +18,9 @@ function currentUser(state = {making_user: false, userId: null}, action){
   }
 }
 
+// TODO: Why is fetching_first_article in snake_case?   -- CP
+// TODO: Why is the naming sceme FETCHING_ARTICLES/FETCH_ARTICLES,
+// but FETCH_FIRST_ARTICLE/FETCHED_FIRST_ARTICLE for the other one? --CP
 function articles(state = {fetched: [], fetching: false, fetching_first_article: false}, action){
   switch (action.type) {
     case 'FETCHING_ARTICLES':
@@ -45,6 +51,19 @@ function stashes(state = [], action){
 }
 
 
+function reactions(state = {fetched_reactions: [], fetching_reactions: false}, action){
+  switch (action.type) {
+    case 'FETCHING_REACTIONS':
+      return {...state, fetching_reactions: true, }
+    case "FETCH_REACTIONS":
+      return {...state, fetched_reactions: [...state.fetched_reactions, ...action.payload], fetching_reactions: false}
+    default:
+      return state
+  }
+}
+
+
+//NOTE: mainArticle is an article object, whereas articles in fetched articles are each an object with one key of 'article' and a key of 'sourceName'
 function mainArticle(state = {title: "", content: "", sourceName: "", stashState: false}, action ){
   switch (action.type) {
     case "FETCH_FIRST_ARTICLE":
@@ -62,6 +81,6 @@ function mainArticle(state = {title: "", content: "", sourceName: "", stashState
   }
 }
 
-const rootReducer = combineReducers({ articles, currentUser, mainArticle, stashes })
+const rootReducer = combineReducers({ articles, currentUser, mainArticle, stashes, reactions })
 
 export default rootReducer

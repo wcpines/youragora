@@ -12,11 +12,8 @@ function StashIndex(props){
 	</div>)
 }
 
-
-
-
 function mapStateToProps(state){
-	return {stashes: state.stashes}
+  return {stashes: state.stashes}
 }
 
 export default connect(mapStateToProps)(StashIndex)

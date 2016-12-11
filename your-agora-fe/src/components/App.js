@@ -8,15 +8,19 @@ import { connect } from 'react-redux'
 
 
 
+// if (this.props.router.location.pathname !== ("/stashes" || "/users/:id") &&
+//     this.props.article.id === undefined)
+
+// TBD: Better than nested `if` ^
 
 class App extends Component {
 
   render() {
-      if(this.props.router.location.pathname !== ("/stashes" || "/users/:id")){
-          if(this.props.article.id === undefined){
-            browserHistory.push('/')
-            location.reload()}
-            }
+    if(this.props.router.location.pathname !== ("/stashes" || "/users/:id")){
+      if(this.props.article.id === undefined){
+        browserHistory.push('/')
+        location.reload()}
+    }
     return (
       <div className="App">
         <Header />

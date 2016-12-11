@@ -8,6 +8,11 @@ import { bindActionCreators } from 'redux'
 
 class Header extends Component {
 
+  // About Us
+    // Motivation/history of the ssite
+    // three sections for each contributor
+  // My Profile
+  // My Stashed Articles
 
   render() {
 
@@ -24,7 +29,7 @@ class Header extends Component {
         </div>
     } else {
       loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back {this.props.userName}! </span> <br /> <SignOut /> <br />
-        <button><Link id="StashIndex-link" to="/stashes" >See Stashed Articles</Link></button> <br /> 
+        <button><Link id="StashIndex-link" to="/stashes" >See Stashed Articles</Link></button> <br />
         <button><Link id="Profile-link" to={href} >My Profile</Link></button>
       </div>
     }

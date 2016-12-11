@@ -28,7 +28,7 @@ function mapDispatchToProps(dispatch){
 function mapStateToProps(state){
   return {
     stash: {article_id: state.mainArticle.id, user_id: state.currentUser.userId},
-    must: state.mustStash
+    must: state.mustStash // TODO:  Does this still get used at all?
   }
 }
 

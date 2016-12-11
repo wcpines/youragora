@@ -27,7 +27,7 @@ class MainArticle extends Component{
         <div style={{"textAlign": "left"}} dangerouslySetInnerHTML={{__html: this.props.article.content}} />
         {stashOrDeleteButton}
         <ThumbsButtons />
-        
+
         {this.props.children}
       </div>
     )
@@ -35,7 +35,10 @@ class MainArticle extends Component{
 }
 
 function mapStateToProps(state){
-    return {article: state.mainArticle, stashState: state.mainArticle.stashState}
+  return {
+    article: state.mainArticle,
+    stashState: state.mainArticle.stashState
+  }
 }
 
 export default connect(mapStateToProps)(MainArticle)

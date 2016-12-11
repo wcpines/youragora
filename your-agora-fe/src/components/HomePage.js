@@ -5,6 +5,7 @@ import SearchBar from './articles/SearchBar'
 import SignOut from './users/SignOut'
 import fetchUserId from '../actions/fetchUserId'
 import fetchStashes from '../actions/fetchStashes'
+import fetchReactions from '../actions/fetchReactions'
 import { bindActionCreators } from 'redux'
 
 
@@ -15,6 +16,7 @@ class HomePage extends Component{
     if(this.props.userId === null && localStorage.getItem('jwt') != null){
       this.props.fetchUserId()
       this.props.fetchStashes()
+      this.props.fetchReactions() // TBD: do this just in Profile component instead?
     }
   }
 
@@ -32,7 +34,7 @@ class HomePage extends Component{
         </div>
     } else {
       loggedIn = <div className="sign-links"> <span id="welcome-message"> Welcome back {this.props.userName}! </span> <br /> <SignOut /> <br />
-        <button><Link id="StashIndex-link" to="/stashes" >See Stashed Articles</Link></button> <br /> 
+        <button><Link id="StashIndex-link" to="/stashes" >See Stashed Articles</Link></button> <br />
         <button><Link id="Profile-link" to={href} >My Profile</Link></button>
       </div>
     }
@@ -59,7 +61,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ fetchUserId, fetchStashes }, dispatch)
+  return bindActionCreators({ fetchUserId, fetchStashes, fetchReactions }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

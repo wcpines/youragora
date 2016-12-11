@@ -14,28 +14,35 @@ function Profile(props) {
   //  article_author: "Lee Moran"}article_author:
   // }
 
-  var reactions = props.userReactions.map( reaction =>
-    { return <li> {reaction.article_author}:<a href={reaction.article_url}>{reaction.article_title}</a>; {reaction.rating}</li>
+
+  var reactions = props.userReactions.map( reaction => {
+
+    let thumb;
+    if(reaction.rating === -1){
+      thumb = <img src="/images/thumbs-down.png" />
+    } else if (reaction.rating === 1){
+      thumb = <img src="/images/thumbs-up.png" />
+    } else {
+      thumb = <img src="/images/neutral.png" />
+    }
+
+    return <li> {reaction.article_author}: <a href={reaction.article_url}>{reaction.article_title}</a> {thumb}</li>
   })
 
 return(
 
-  <div id="profile-page">
-
+  <div>
     <Header />
-
-    <div id="user-info">
-      <h3><b>Name</b>: {props.userName}</h3> <br />
-      <h3><b>Email</b>: {props.userEmail}</h3>
+    <div id="profile-page">
+      <div id="user-info">
+        <h3><b>Name</b>: {props.userName}</h3>
+        <h3><b>Email</b>: {props.userEmail}</h3>
+      </div>
+      <div className="reaction-list">
+        <b>Recent Reactions</b>
+        <ul>{reactions}</ul>
+      </div>
     </div>
-
-    <div className="reaction-list">
-      <b>Recent Reactions</b>
-
-      <ul>{reactions}</ul>
-
-    </div>
-
   </div>
 )
 

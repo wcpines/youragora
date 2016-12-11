@@ -25,7 +25,7 @@ class MainArticle extends Component{
       <div>
         <h1>{this.props.article.title}</h1>
         <div style={{"textAlign": "left"}} dangerouslySetInnerHTML={{__html: this.props.article.content}} />
-        {stashOrDeleteButton}
+        {stashOrDeleteButton} <br />
         <ThumbsButtons />
 
         {this.props.children}

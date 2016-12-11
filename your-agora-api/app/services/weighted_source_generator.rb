@@ -1,6 +1,6 @@
 class WeightedSourceGenerator
 
-  DESIRED_ARTICLE_COUNT = 20
+  DESIRED_ARTICLE_COUNT = 10
 
   attr_accessor :user
 
@@ -16,26 +16,24 @@ class WeightedSourceGenerator
     weights = get_source_weights(user)
       # => {:cons_lean=>0.3889, :prog_lean=>0.16665, :libr_lean=>0.44445}
 
-
     source_distribution = weights.map do |label, weight|
       [label.to_sym, (weight * DESIRED_ARTICLE_COUNT).ceil]
     end.to_h
-
       # => {:cons_lean=>39, :prog_lean=>17, :libr_lean=>45}
 
     sources_list = []
 
     source_distribution.each do |label,source_quant|
-
       counter = 0
-
       Source.order("RANDOM()").where(leaning: label).pluck(:domain).cycle do |source|
         sources_list << source
         break if counter == source_quant
         counter += 1
       end
     end
+
     sources_list
+
   end
 
   private
@@ -52,8 +50,7 @@ class WeightedSourceGenerator
 
     # OPTIMIZE mapping over the hashes and converting to a nested array then back to hash is a bit slower than each_with_object
 
-      # => [{"id"=>nil, "sum"=>2, "leaning"=>1}, {"id"=>nil, "sum"=>-1, "leaning"=>3}]
-
+    # => [{"id"=>nil, "sum"=>2, "leaning"=>1}, {"id"=>nil, "sum"=>-1, "leaning"=>3}]
 
     # Lean scores as percent of total points.
     user_leaning = {prog_lean: @user.prog_lean, libr_lean: @user.libr_lean, cons_lean: @user.cons_lean}
@@ -62,7 +59,6 @@ class WeightedSourceGenerator
     # total lean 'points' on the user
     total = (user.cons_lean + user.prog_lean + user.libr_lean)
       # => 9
-
 
     initial_weights = user_leaning.map do |label,current_lean|
       [label.to_sym, get_percent_dec(current_lean, total).round(4)]

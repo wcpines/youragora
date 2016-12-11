@@ -2,7 +2,6 @@ class ArticleParser
 
   def self.get_article_html(url)
     # url = "https://www.aei.org/publication/why-we-need-the-electoral-college" # NOTE: Bad link for testing 12/8/2016
-    # url = "http://mises.org"
 
     client = MercuryParser::Client.new(api_key: Rails.application.secrets[:mercury_api_key])
 
@@ -20,7 +19,6 @@ class ArticleParser
         author = "No Author Found"
       end
 
-      # add lead image url
       article_attributes_hash = {
         title: html.title,
         author: author,

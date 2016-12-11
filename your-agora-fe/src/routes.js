@@ -9,6 +9,7 @@ import MainArticle from './components/articles/MainArticle'
 import ShowSource from './components/reactions/ShowSource'
 import Source from './components/reactions/Source'
 import StashIndex from './components/StashIndex'
+import NotFound from './components/NotFound'
 
 
 export default (
@@ -24,5 +25,6 @@ export default (
     </Route>
     <Route path="/signin" component={SignIn} />
     <Route path="/signup" component={SignUp} />
+    <Route path='*' component={NotFound} />
   </Route>
 );

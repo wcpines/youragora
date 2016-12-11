@@ -26,7 +26,7 @@ function Profile(props) {
       thumb = <img src="/images/neutral.png" />
     }
 
-    return <li> {reaction.article_author}: <a href={reaction.article_url}>{reaction.article_title}</a> {thumb}</li>
+    return <li> {reaction.article_author}: <a target="_blank" href={reaction.article_url}>{reaction.article_title}</a> {thumb}</li>
   })
 
 return(

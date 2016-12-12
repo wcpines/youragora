@@ -50,7 +50,6 @@ function stashes(state = [], action){
   }
 }
 
-
 function reactions(state = {fetched_reactions: [], fetching_reactions: false}, action){
   switch (action.type) {
     case 'FETCHING_REACTIONS':
@@ -63,7 +62,6 @@ function reactions(state = {fetched_reactions: [], fetching_reactions: false}, a
 }
 
 
-//NOTE: mainArticle is an article object, whereas articles in fetched articles are each an object with one key of 'article' and a key of 'sourceName'
 function mainArticle(state = {title: "", content: "", sourceName: "", stashState: false}, action ){
   switch (action.type) {
     case "FETCH_FIRST_ARTICLE":
@@ -81,6 +79,17 @@ function mainArticle(state = {title: "", content: "", sourceName: "", stashState
   }
 }
 
-const rootReducer = combineReducers({ articles, currentUser, mainArticle, stashes, reactions })
+function errorMessage(state = "", action){
+  switch (action.type){
+    case "ERROR_MESSAGE":
+      return action.payload
+    case "RESET_ERROR_MESSAGE":
+      
+      return action.payload
+    default:
+      return state
+  }
+}
+const rootReducer = combineReducers({ articles, currentUser, mainArticle, stashes, reactions, errorMessage })
 
 export default rootReducer

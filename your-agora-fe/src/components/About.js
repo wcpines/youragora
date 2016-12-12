@@ -57,9 +57,7 @@ export default function About(props) {
             <b> Kevin Evans </b>
             <em><a href="https://github.com/MKevinEvans" target="_blank">@mkevinevans</a></em>
             <p>
-              Elen sila lumenn omentilmo, Nae saian luume'. Cormamin lindua ele lle. Saesa omentien lle,
-              vanya sulie Namaarie. Aa' lasser en lle coia orn n' omenta gurtha. Aa' i'sul nora lanne'lle.
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed.
+              Kevin taught Music Technology at Santa Barbara City College where he became enthralled by the idea that         technology can provide new, dynamic ways to communicate, engage, and educate. He is a great fan of learning, and loves new ways to tell old stories.
             </p>
           </div>
 

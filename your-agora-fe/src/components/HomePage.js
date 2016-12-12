@@ -37,7 +37,7 @@ class HomePage extends Component{
         <Link to="/" >Home</Link><br />
         <Link id="Profile-link" to={href} >My Profile</Link><br />
         <Link id="StashIndex-link" to="/stashes" >Stashed Articles</Link> <br />
-        <Link id="About-link" to="/about" >About</Link>
+        <Link id="About-link" to="/about" >About</Link><br />
         <SignOut />
       </div>
     }

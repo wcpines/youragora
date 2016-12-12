@@ -1,1 +1,0 @@
-stashed_articles.rb

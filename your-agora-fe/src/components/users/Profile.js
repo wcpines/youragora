@@ -18,13 +18,12 @@ function Profile(props) {
 
       let thumb;
       if(reaction.rating === -1){
-        thumb = <img src="/images/thumbs-down.png" />
+        thumb = <img role="presentation" src="/images/thumbs-down.png" />
       } else if (reaction.rating === 1){
-        thumb = <img src="/images/thumbs-up.png" />
+        thumb = <img role="presentation" src="/images/thumbs-up.png" />
       } else {
-        thumb = <img src="/images/neutral.png" />
+        thumb = <img role="presentation" src="/images/neutral.png" />
       }
-
       return <li> {reaction.article_author}: <a target="_blank" href={reaction.article_url}>{reaction.article_title}</a> {thumb}</li>
     })
 

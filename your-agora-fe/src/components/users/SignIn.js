@@ -47,7 +47,7 @@ class SignIn extends Component {
               <input className="email-input u-full-width" onChange={this.handleEmail} type="text" />
               <label htmlFor="password-input">Password:</label>
               <input className="password-input u-full-width" onChange={this.handlePassword} type="password" /><br />
-              <input id="signin-button" className="u-full-width button" type="submit" value="Double Dino Danger!" />
+              <input id="signin-button" className="u-full-width button" type="submit" value="Sign In!" />
               <ErrorMessage />
             </form>
             <Link id="browse-as-guest" to='/'><p>Browse as Guest</p></Link>

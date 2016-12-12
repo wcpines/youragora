@@ -49,7 +49,7 @@ class SignUp extends Component {
               <input className="u-full-width" onChange={this.handleEmail} type="text" />
               <label htmlFor="password-input">Password:</label>
               <input className="u-full-width" onChange={this.handlePassword} type="password" />
-              <input className="u-full-width button" id="signup-button" type="submit" value="Dino Danger!" />
+              <input className="u-full-width button" id="signup-button" type="submit" value="Sign Up!" />
               <ErrorMessage />
             </form>
             <Link id="already-a-member" to='/signin'><p>Already a member? Sign In</p></Link>

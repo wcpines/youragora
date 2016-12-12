@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import NavBar from '../NavBar'
 import { signUp } from '../../actions/signUp';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -35,18 +36,21 @@ class SignUp extends Component {
   render(){
 
     return(
-      <div id="signup-container">
-        <h3>Sign Up</h3>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name-input">Name:</label>
-          <input className="u-full-width" onChange={this.handleName} type="text" />
-          <label htmlFor="email-input">Email:</label>
-          <input className="u-full-width" onChange={this.handleEmail} type="text" />
-          <label htmlFor="password-input">Password:</label>
-          <input className="u-full-width" onChange={this.handlePassword} type="password" />
-          <input className="u-full-width button" id="signup-button" type="submit" value="Dino Danger!" />
-        </form>
-        <Link id="already-a-member" to='/signin'><p>Already a member? Sign In</p></Link>
+      <div>
+        <NavBar />
+          <div id="signup-container">
+            <h3>Sign Up</h3>
+            <form onSubmit={this.handleSubmit}>
+              <label htmlFor="name-input">Name:</label>
+              <input className="u-full-width" onChange={this.handleName} type="text" />
+              <label htmlFor="email-input">Email:</label>
+              <input className="u-full-width" onChange={this.handleEmail} type="text" />
+              <label htmlFor="password-input">Password:</label>
+              <input className="u-full-width" onChange={this.handlePassword} type="password" />
+              <input className="u-full-width button" id="signup-button" type="submit" value="Dino Danger!" />
+            </form>
+            <Link id="already-a-member" to='/signin'><p>Already a member? Sign In</p></Link>
+          </div>
       </div>
     )
 

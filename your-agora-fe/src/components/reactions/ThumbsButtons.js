@@ -22,16 +22,17 @@ class thumbsButtons extends Component {
     return(
       <div id="reaction-buttons">
         <Link to={href} id="disagree" onClick={this.handleReaction}>
-          <img src="/images/thumbs-down.png" />
+          <img role="presentation" src="/images/thumbs-down.png" />
         </Link>
         <Link to={href} id="neutral" onClick={this.handleReaction} >
-          <img src="/images/neutral.png" />
+          <img role="presentation" src="/images/neutral.png" />
         </Link>
         <Link to={href} id="agree" onClick={this.handleReaction}>
-          <img src="/images/thumbs-up.png" />
+          <img role="presentation" src="/images/thumbs-up.png" />
         </Link>
       </div>
     )
+    
   }
 }
 
@@ -48,8 +49,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(thumbsButtons)
-
-
-// <Link to={href}><button id="disagree" onClick={this.handleReaction}><img role="presentation" src="/images/thumbs-down.png" /></button></Link>
-// <Link to={href}><button id="neutral" onClick={this.handleReaction}>`¯\\_(ツ)_/¯`</button></Link>
-// <Link to={href} ><button id="agree" onClick={this.handleReaction}><img role="presentation" src="/images/thumbs-up.png" /></button></Link>

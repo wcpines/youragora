@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router'
 import { signIn } from '../../actions/signIn';
 import ErrorMessage from '../reactions/ErrorMessage'
+import resetErrorMessage from '../../actions/resetErrorMessage'
+
 
 class SignIn extends Component {
 
@@ -27,6 +29,10 @@ class SignIn extends Component {
   handleSubmit(event){
     event.preventDefault()
     this.props.signIn(this.state)
+  }
+
+  componentWillUnmount(){
+    this.props.resetErrorMessage()
   }
 
   render(){
@@ -53,7 +59,7 @@ class SignIn extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ signIn }, dispatch)
+  return bindActionCreators({ signIn: signIn, resetErrorMessage: resetErrorMessage }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SignIn)

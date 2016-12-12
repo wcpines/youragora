@@ -84,6 +84,7 @@ function errorMessage(state = "", action){
     case "ERROR_MESSAGE":
       return action.payload
     case "RESET_ERROR_MESSAGE":
+      
       return action.payload
     default:
       return state

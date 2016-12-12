@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router'
 import { signIn } from '../../actions/signIn';
+import ErrorMessage from '../reactions/ErrorMessage'
+import resetErrorMessage from '../../actions/resetErrorMessage'
+
 
 class SignIn extends Component {
 
@@ -28,6 +31,10 @@ class SignIn extends Component {
     this.props.signIn(this.state)
   }
 
+  componentWillUnmount(){
+    this.props.resetErrorMessage()
+  }
+
   render(){
 
     return(
@@ -40,7 +47,8 @@ class SignIn extends Component {
               <input className="email-input u-full-width" onChange={this.handleEmail} type="text" />
               <label htmlFor="password-input">Password:</label>
               <input className="password-input u-full-width" onChange={this.handlePassword} type="password" /><br />
-              <input id="signin-button" className="u-full-width button" type="submit" value="Double Dino Danger!" />
+              <input id="signin-button" className="u-full-width button" type="submit" value="Sign In!" />
+              <ErrorMessage />
             </form>
             <Link id="browse-as-guest" to='/'><p>Browse as Guest</p></Link>
           </div>
@@ -51,7 +59,7 @@ class SignIn extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ signIn }, dispatch)
+  return bindActionCreators({ signIn: signIn, resetErrorMessage: resetErrorMessage }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SignIn)

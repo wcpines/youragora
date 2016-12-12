@@ -4,6 +4,8 @@ import { signUp } from '../../actions/signUp';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import ErrorMessage from '../reactions/ErrorMessage'
+import resetErrorMessage from '../../actions/resetErrorMessage'
 
 class SignUp extends Component {
 
@@ -47,7 +49,8 @@ class SignUp extends Component {
               <input className="u-full-width" onChange={this.handleEmail} type="text" />
               <label htmlFor="password-input">Password:</label>
               <input className="u-full-width" onChange={this.handlePassword} type="password" />
-              <input className="u-full-width button" id="signup-button" type="submit" value="Dino Danger!" />
+              <input className="u-full-width button" id="signup-button" type="submit" value="Sign Up!" />
+              <ErrorMessage />
             </form>
             <Link id="already-a-member" to='/signin'><p>Already a member? Sign In</p></Link>
           </div>
@@ -58,7 +61,7 @@ class SignUp extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ signUp: signUp }, dispatch)
+  return bindActionCreators({ signUp: signUp, resetErrorMessage: resetErrorMessage }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SignUp)

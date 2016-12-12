@@ -29,7 +29,7 @@ export function signIn(formValues){
       }
       , error: function(xhr){
           var errors = $.parseJSON(xhr.responseText).errors
-          alert(errors)
+      dispatch({type: 'ERROR_MESSAGE', payload: errors})
       }
     })
   }

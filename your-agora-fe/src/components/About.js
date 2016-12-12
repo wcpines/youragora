@@ -46,7 +46,7 @@ export default function About(props) {
 
           <div className="three columns" id="info-colby">
             <b> Colby Pines </b>
-            <em>@wcpines</em>
+            <em><a href="https://github.com/wcpines/" target="_blank">@wcpines</a></em>
             <p>
               Former philosophy major turned technologist.  When not hacking around with the latest web technologies,
               Colby enjoys running, rock climbing, and jazz.  He also has a growing interest in dev-ops and security.
@@ -55,7 +55,7 @@ export default function About(props) {
 
           <div className="three columns" id="info-kevin">
             <b> Kevin Evans </b>
-            <em>@mkevinevans</em>
+            <em><a href="https://github.com/MKevinEvans" target="_blank">@mkevinevans</a></em>
             <p>
               Elen sila lumenn omentilmo, Nae saian luume'. Cormamin lindua ele lle. Saesa omentien lle,
               vanya sulie Namaarie. Aa' lasser en lle coia orn n' omenta gurtha. Aa' i'sul nora lanne'lle.
@@ -65,7 +65,7 @@ export default function About(props) {
 
           <div className="three columns" id="info-tom">
             <b> Tom Marren </b>
-            <em>@tommarren</em>
+            <em><a href="https://github.com/torvalds" target="_blank">@thomasmarren</a></em>
             <p>
               Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
               vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum

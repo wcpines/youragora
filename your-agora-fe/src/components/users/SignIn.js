@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NavBar from '../NavBar'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router'
@@ -30,16 +31,19 @@ class SignIn extends Component {
   render(){
 
     return(
-      <div id="signin-container">
-        <form onSubmit={this.handleSubmit}>
-          <h3>Sign In</h3>
-          <label htmlFor="email-input">Email:</label>
-          <input className="email-input u-full-width" onChange={this.handleEmail} type="text" />
-          <label htmlFor="password-input">Password:</label>
-          <input className="password-input u-full-width" onChange={this.handlePassword} type="password" /><br />
-          <input id="signin-button" className="u-full-width button" type="submit" value="Double Dino Danger!" />
-        </form>
-        <Link id="browse-as-guest" to='/'><p>Browse as Guest</p></Link>
+      <div>
+        <NavBar />
+          <div id="signin-container">
+            <form onSubmit={this.handleSubmit}>
+              <h3>Sign In</h3>
+              <label htmlFor="email-input">Email:</label>
+              <input className="email-input u-full-width" onChange={this.handleEmail} type="text" />
+              <label htmlFor="password-input">Password:</label>
+              <input className="password-input u-full-width" onChange={this.handlePassword} type="password" /><br />
+              <input id="signin-button" className="u-full-width button" type="submit" value="Double Dino Danger!" />
+            </form>
+            <Link id="browse-as-guest" to='/'><p>Browse as Guest</p></Link>
+          </div>
       </div>
     )
 
@@ -47,7 +51,7 @@ class SignIn extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ signIn: signIn }, dispatch)
+  return bindActionCreators({ signIn }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SignIn)

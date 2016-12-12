@@ -36,7 +36,7 @@ a:hover {
 }
 
 /**********
- ABOUTPAGE
+ ABOUT PAGE
 **********/
 
 .AboutPage {
@@ -52,8 +52,6 @@ a:hover {
 
 }
 
-
-
 /***********
   HOMEPAGE
 ***********/
@@ -64,11 +62,7 @@ a:hover {
 }
 
 #homepage-logo {
-  margin-top: 200px;
-}
-
-#search-bar-homepage-container {
-  margin-top: 2%;
+  margin-top: 125px;
 }
 
 #search-bar-homepage input[type="text"]{
@@ -161,12 +155,12 @@ a:hover {
   font-family: Baskerville;
 }
 
-.sign-links {
+.signed-in-links, .signed-out-links {
   text-align: right;
   vertical-align: baseline;
 }
 
-.sign-links a{
+.nav-bar-container a{
   font-family: Georgia;
   font-size: 1em;
   font-weight: 600;

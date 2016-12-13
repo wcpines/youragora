@@ -27,6 +27,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = current_user
+    unless @user.update_attributes(user_params)
+      render :json => { :errors => @user.errors.full_messages }, :status => 422
+    end
+  end
+
+  def destroy
+    Leaning.find_by(user_id: current_user.id).destroy
+    current_user.destroy
+  end
+
 
   private
 

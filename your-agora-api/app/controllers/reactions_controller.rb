@@ -3,7 +3,7 @@ class ReactionsController < ApplicationController
 
   def index
 
-    articles = Article.joins(:reactions).where("#{@user.id} = reactions.user_id")
+    articles = Article.joins(:reactions).where("#{@user.id} = reactions.user_id and reactions.created_at > now() - interval '14 days'")
     article_reactions = articles.map do |article|
       reaction = Reaction.find_by(article_id: article.id, user_id: @user.id)
 

@@ -57,7 +57,7 @@ export default connect(mapStateToProps)(MainTeaser)
 function previewContent(content){
 
   var pattern = /(<p>)(.*?)(<\/p>)/g
-  var content = content
+  var content
 
   // TODO: Can we loop this more elegantly?
   var par1 = pattern.exec(content)[0]

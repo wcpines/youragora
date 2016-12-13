@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import reactToArticle from '../../actions/reactToArticle'
 
-class thumbsButtons extends Component {
+class ThumbsButtons extends Component {
 
   constructor(props){
     super(props)
@@ -32,7 +32,7 @@ class thumbsButtons extends Component {
         </Link>
       </div>
     )
-    
+
   }
 }
 
@@ -48,4 +48,4 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({ reactToArticle }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(thumbsButtons)
+export default connect(mapStateToProps, mapDispatchToProps)(ThumbsButtons)

@@ -47,9 +47,23 @@ a:hover {
   font-size: 1.2em;
 }
 
-#about-authors{
+#about-authors {
   margin: 2%;
+}
 
+
+
+/************
+ STASH INDEX
+************/
+
+.stash-list {
+  margin: 20px;
+}
+
+.stash-list img {
+  width: 20px;
+  margin-left: 10px;
 }
 
 /***********
@@ -85,7 +99,7 @@ a:hover {
   margin: 2% 2% 0 0;
 }
 
-/***********
+/**********
   PROFILE
 ***********/
 
@@ -106,17 +120,17 @@ a:hover {
   list-style-type: none;
 }
 
-/***********
+/***********************
   SEARCH BAR - HOMEPAGE
-***********/
+***********************/
 
 #search-bar-homepage {
   padding-top: -20px;
 }
 
-/***********
+/********************
   SIGNIN/SIGNUP PAGE
-***********/
+********************/
 
 #signin-container, #signup-container{
   width: 15%;

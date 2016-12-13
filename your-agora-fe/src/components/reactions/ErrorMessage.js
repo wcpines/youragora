@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import resetErrorMessage from '../../actions/resetErrorMessage'
-import { bindActionCreators } from 'redux'
-
-
 
 class ErrorMessage extends Component{
 

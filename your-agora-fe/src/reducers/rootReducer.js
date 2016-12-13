@@ -55,7 +55,7 @@ function reactions(state = {fetched_reactions: [], fetching_reactions: false}, a
     case 'FETCHING_REACTIONS':
       return {...state, fetching_reactions: true, }
     case "FETCH_REACTIONS":
-      return {...state, fetched_reactions: [...state.fetched_reactions, ...action.payload], fetching_reactions: false}
+      return {...state, fetched_reactions: action.payload, fetching_reactions: false}
     default:
       return state
   }
@@ -84,12 +84,12 @@ function errorMessage(state = "", action){
     case "ERROR_MESSAGE":
       return action.payload
     case "RESET_ERROR_MESSAGE":
-      
       return action.payload
     default:
       return state
   }
 }
+
 const rootReducer = combineReducers({ articles, currentUser, mainArticle, stashes, reactions, errorMessage })
 
 export default rootReducer

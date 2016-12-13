@@ -15,4 +15,12 @@ class SearchTerm < ApplicationRecord
   has_many :articles, through: :article_searches
 
   validates_uniqueness_of :name
+
+  after_create :normalize_input
+
+  def normalize_input
+    self.name.downcase.strip
+  end
+
+
 end

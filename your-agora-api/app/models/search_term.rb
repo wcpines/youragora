@@ -16,7 +16,7 @@ class SearchTerm < ApplicationRecord
 
   validates_uniqueness_of :name
 
-  before_validation :normalize_input
+  before_save :normalize_input
 
 
   def normalize_input

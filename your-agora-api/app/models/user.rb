@@ -19,7 +19,7 @@ class User < ApplicationRecord
   # validates_uniqueness_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
 
   after_create :add_leaning
-  before_validation :strip_whitespace
+  before_save :strip_whitespace
 
   validates_uniqueness_of :email
 
@@ -51,8 +51,8 @@ class User < ApplicationRecord
 
 
   def strip_whitespace
-    self.email = self.email.strip!
-    self.name = self.name.strip!
+    self.email = self.email.strip unless self.email.nil?
+    self.name = self.name.strip unless self.name.nil?
   end
 
 end

@@ -4,18 +4,11 @@ import { Link } from 'react-router';
 import GetNextButton from '../reactions/GetNextButton'
 import StashButton from '../reactions/StashButton'
 import UnstashArticleButton from '../reactions/UnstashArticleButton'
-// import { browserHistory } from 'react-router'
-
-
 
 function MainTeaser(props){
 
-  // if(props.article.id === undefined){
-  //         browserHistory.push('/')}
-
   let href = '/articles/random/main'
 
-  // let preview = "<p> Teaser Test </p>"
   let preview = previewContent(props.article.content)
 
   let readTime = calculateReadTime(props.article.word_count)
@@ -45,7 +38,6 @@ if(localStorage.jwt !== undefined){
 
 
 function mapStateToProps(state){
-
   return {
     article: state.mainArticle,
     stashState: state.mainArticle.stashState
@@ -56,16 +48,19 @@ export default connect(mapStateToProps)(MainTeaser)
 
 function previewContent(content){
 
-  var pattern = /(<p>)(.*?)(<\/p>)/g
-  var content
-
-  // TODO: Can we loop this more elegantly?
-  var par1 = pattern.exec(content)[0]
-  var par2 = pattern.exec(content)[0]
-  var par3 = pattern.exec(content)[0]
-  var par4 = pattern.exec(content)[0]
-
-  return [par1, par2, par3, par4].join(" ")
+  if(content.match(/<p>/g).length > 2){
+    var content = content.replace(/(<img)(.*?)(>)/g, '')
+    var pattern = /(<p>)(.*?)(<\/p>)/g
+    // TODO: Can we loop this more elegantly?
+    var par1 = pattern.exec(content)[0]
+    var par2 = pattern.exec(content)[0]
+    var par3 = pattern.exec(content)[0]
+    var par4 = pattern.exec(content)[0]
+    return [par1, par2, par3, par4].join(" ")
+  } else {
+    return ''
+  }
+  
 }
 
 function calculateReadTime(word_count){

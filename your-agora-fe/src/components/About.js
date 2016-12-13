@@ -48,8 +48,8 @@ export default function About(props) {
             <b> Colby Pines </b>
             <em><a href="https://github.com/wcpines/" target="_blank">@wcpines</a></em>
             <p>
-              Former philosophy major turned technologist.  When not honing his development skills,
-              Colby enjoys running, rock climbing, and jazz.  He also has a growing interest in dev-ops and lowering his regex golf handicap.
+              Former philosophy major turned technologist.  In his increasingly fictional 'spare time',
+              Colby enjoys running, rock climbing, and jazz.  He also has a growing interest in DevOps and lowering his regex golf handicap.
             </p>
           </div>
 
@@ -57,7 +57,9 @@ export default function About(props) {
             <b> Kevin Evans </b>
             <em><a href="https://github.com/MKevinEvans" target="_blank">@mkevinevans</a></em>
             <p>
-              Kevin taught Music Technology at Santa Barbara City College where he became enthralled by the idea that technology can provide new ways to communicate, engage, and educate. He is a great fan of learning, and loves new ways of telling old stories.
+              Kevin taught Music Technology at Santa Barbara City College where he became enthralled by the idea that
+              technology can provide new ways to communicate, engage, and educate.
+              He is a great fan of learning, and loves new ways of telling old stories.
             </p>
           </div>
 

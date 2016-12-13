@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209223611) do
+ActiveRecord::Schema.define(version: 20161213212827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "article_searches", force: :cascade do |t|
+    t.integer  "article_id"
+    t.integer  "search_term_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["article_id"], name: "index_article_searches_on_article_id", using: :btree
+    t.index ["search_term_id"], name: "index_article_searches_on_search_term_id", using: :btree
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -45,6 +54,13 @@ ActiveRecord::Schema.define(version: 20161209223611) do
     t.integer  "rating"
   end
 
+  create_table "search_terms", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "search_count", default: 0
+  end
+
   create_table "sources", force: :cascade do |t|
     t.string   "name"
     t.string   "leaning"
@@ -70,6 +86,8 @@ ActiveRecord::Schema.define(version: 20161209223611) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "article_searches", "articles"
+  add_foreign_key "article_searches", "search_terms"
   add_foreign_key "leanings", "users"
   add_foreign_key "stashes", "articles"
   add_foreign_key "stashes", "users"

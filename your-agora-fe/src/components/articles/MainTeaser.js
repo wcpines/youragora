@@ -60,7 +60,7 @@ function previewContent(content){
   } else {
     return ''
   }
-  
+
 }
 
 function calculateReadTime(word_count){

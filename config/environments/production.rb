@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.secret_key_base = ENV["secret_key_base"]
+  config.mercury_api_key = ENV["mercury_api_key"]
   # Code is not reloaded between requests.
   config.cache_classes = true
 

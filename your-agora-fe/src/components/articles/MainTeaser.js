@@ -48,6 +48,7 @@ export default connect(mapStateToProps)(MainTeaser)
 
 function previewContent(content){
 
+if(content.includes("<p>")){
   if(content.match(/<p>/g).length > 2){
     var content = content.replace(/(<img)(.*?)(>)/g, '')
     var pattern = /(<p>)(.*?)(<\/p>)/g
@@ -57,6 +58,8 @@ function previewContent(content){
     var par3 = pattern.exec(content)[0]
     var par4 = pattern.exec(content)[0]
     return [par1, par2, par3, par4].join(" ")
+  } else {
+    return '';}
   } else {
     return ''
   }

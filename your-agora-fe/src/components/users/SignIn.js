@@ -44,7 +44,7 @@ class SignIn extends Component {
             <form onSubmit={this.handleSubmit}>
               <h3>Sign In</h3>
               <label htmlFor="email-input">Email:</label>
-              <input className="email-input u-full-width" onChange={this.handleEmail} type="text" />
+              <input className="email-input u-full-width" onChange={this.handleEmail} type="email" />
               <label htmlFor="password-input">Password:</label>
               <input className="password-input u-full-width" onChange={this.handlePassword} type="password" /><br />
               <input id="signin-button" className="u-full-width button" type="submit" value="Sign In!" />

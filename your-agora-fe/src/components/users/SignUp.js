@@ -46,7 +46,7 @@ class SignUp extends Component {
               <label htmlFor="name-input">Name:</label>
               <input className="u-full-width" onChange={this.handleName} type="text" />
               <label htmlFor="email-input">Email:</label>
-              <input className="u-full-width" onChange={this.handleEmail} type="text" />
+              <input className="u-full-width" onChange={this.handleEmail} type="email" />
               <label htmlFor="password-input">Password:</label>
               <input className="u-full-width" onChange={this.handlePassword} type="password" />
               <input className="u-full-width button" id="signup-button" type="submit" value="Sign Up!" />

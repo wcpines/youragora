@@ -36,24 +36,31 @@ class StashIndex extends Component {
   }
 
   render(){
+    var align = {textAlign: "center"}
+    if(this.props.stashes.length === 0){
 
-
-    return(
-      <div>
+      return(<div style={align}>
         <Header />
-        <div className="stash-list">
-
-          <ol>
-            {this.props.stashes.map((stash)=>{ return (
-              <li key={stash.id}><ReadStashedButton article={stash.article} title={stash.article.title} />
-                <img onClick={this.handleClick} id={stash.id}src="/images//trashcan.png" />
-              </li>)}
-            )}
-          </ol>
-
-        </div>
-      </div>
-    )
+              <h3>Go store some articles!</h3>
+              </div>)
+    } else { 
+        return(
+          <div>
+            <Header />
+            <div className="stash-list">
+    
+              <ol>
+                {this.props.stashes.map((stash)=>{ return (
+                  <li key={stash.id}><ReadStashedButton article={stash.article} title={stash.article.title} />
+                    <img onClick={this.handleClick} id={stash.id}src="/images//trashcan.png" />
+                  </li>)}
+                )}
+              </ol>
+    
+            </div>
+          </div>
+        )
+      }
   }
 
 }

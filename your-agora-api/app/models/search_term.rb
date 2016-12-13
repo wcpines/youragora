@@ -9,4 +9,9 @@
 #
 
 class SearchTerm < ApplicationRecord
+
+  has_many :article_searches
+  has_many :articles, through: :article_searches
+
+  validates_uniqueness_of :name
 end

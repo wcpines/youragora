@@ -22,6 +22,11 @@ class Article < ApplicationRecord
   has_many :stashes
   has_many :users, through: :stashes
 
+
+
+  has_many :article_searches
+  has_many :search_terms, through: :article_searches
+
   belongs_to :source
 
 end

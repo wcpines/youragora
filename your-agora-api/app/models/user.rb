@@ -18,8 +18,11 @@ class User < ApplicationRecord
   # validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
   # validates_uniqueness_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
 
-  validates_uniqueness_of :email
   after_create :add_leaning
+  before_validation :strip_whitespace
+
+  validates_uniqueness_of :email
+
 
   has_many :reactions
   has_many :articles, through: :reactions
@@ -46,5 +49,10 @@ class User < ApplicationRecord
     Leaning.create(user_id: self.id)
   end
 
+
+  def strip_whitespace
+    self.email = self.email.strip!
+    self.name = self.name.strip!
+  end
 
 end

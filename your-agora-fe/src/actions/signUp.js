@@ -5,7 +5,7 @@ export function signUp(formValues){
   return function(dispatch){
     $.ajax({url: `http://localhost:3000/users`,
       type: "POST",
-      data: JSON.stringify({auth: {email: formValues.email, password: formValues.password, name: formValues.name}}),
+      data: JSON.stringify({auth: {email: formValues.email.toLowerCase().trim(), password: formValues.password, name: formValues.name.toLowerCase().trim()}}),
       contentType: 'application/json; charset=utf-8',
       dataType: 'json'
 //     }).done(function(data){

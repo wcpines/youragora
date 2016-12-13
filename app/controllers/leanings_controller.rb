@@ -28,4 +28,8 @@ class LeaningsController < ApplicationController
 
   end
 
+  def reset
+    @user.leaning.update_attributes!(prog_lean: 5, cons_lean: 5, libr_lean: 5)
+  end
+
 end

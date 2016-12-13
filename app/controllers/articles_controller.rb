@@ -4,20 +4,25 @@ class ArticlesController < ApplicationController
 
   def fetch_first_article
 
-    # source_domains = {Source.where("leaning = 'prog_lean'").order("RANDOM()").limit(1)[0].domain => 1,
-    #   Source.where("leaning = 'cons_lean'").order("RANDOM()").limit(1)[0].domain => 1,
-    #   Source.where("leaning = 'libr_lean'").order("RANDOM()").limit(1)[0].domain => 1}
-    #
-    # articles = get_articles_from_domains(source_domains)
-    #
-    # @full_articles = run_parser(articles)
 
-    ###### FOR TESTING ######
-    @full_articles = Article.order("RANDOM()")[0...2].map do |article|
-      article.attributes.merge({"sourceName" => article.source.name})
-      # !!Note Source Name camel case because it's going to JS
-    end
-    #########
+    ###### PRODUCTION ######
+
+    source_domains = {Source.where("leaning = 'prog_lean'").order("RANDOM()").limit(1)[0].domain => 1,
+      Source.where("leaning = 'cons_lean'").order("RANDOM()").limit(1)[0].domain => 1,
+      Source.where("leaning = 'libr_lean'").order("RANDOM()").limit(1)[0].domain => 1}
+
+    articles = get_articles_from_domains(source_domains)
+
+    @full_articles = run_parser(articles)
+
+    ###### PRODUCTION END ######
+
+    ###### TESTING ######
+    # @full_articles = Article.order("RANDOM()")[0...2].map do |article|
+    #   article.attributes.merge({"sourceName" => article.source.name})
+    #   # !!Note Source Name camel case because it's going to JS
+    # end
+    ###### TESTING  END ######
 
     # If the parser breaks it will return back nil so
     # we need to remove those before sending the data back
@@ -27,30 +32,33 @@ class ArticlesController < ApplicationController
 
   def create
 
-    # unless params[:current_user_id].nil?
-    #
-    #   @user = User.find params[:current_user_id]
-    #   sources = WeightedSourceGenerator.new(@user).get_weighted_sources
-    #   # => [ full of source objects ]
-    #   source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
-    #   # => {Mises: 2, Huff: 3, ...}
-    # else
-    #
-    #   sources = RandomSourceGenerator.random_sources
-    #   source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
-    #
-    # end
-    #
-    # articles = get_articles_from_domains(source_domains)
-    #
-    # @full_articles = run_parser(articles)
+    ###### PRODUCTION ######
+    unless params[:current_user_id].nil?
 
-    ###### FOR TESTING ######
-    @full_articles = Article.order("RANDOM()")[0...2].map do |article|
-      article.attributes.merge({"sourceName" => article.source.name})
-      # !!Note Source Name camel case because it's going to JS
+      @user = User.find params[:current_user_id]
+      sources = WeightedSourceGenerator.new(@user).get_weighted_sources
+      # => [ full of source objects ]
+      source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
+      # => {mises.org: 2, huffingtonpost.com: 3, ...}
+    else
+
+      sources = RandomSourceGenerator.random_sources
+      source_domains = sources.reduce(Hash.new(0)) {|source_domain, quantity| source_domain[quantity] += 1; source_domain}
+
     end
-    #########
+
+    articles = get_articles_from_domains(source_domains)
+
+    @full_articles = run_parser(articles)
+
+    ###### PRODUCTION END ######
+
+    ###### TESTING ######
+    # @full_articles = Article.order("RANDOM()")[0...2].map do |article|
+    #   article.attributes.merge({"sourceName" => article.source.name})
+    #   # !!Note Source Name camel case because it's going to JS
+    # end
+    ###### TESTING  END ######
 
     # If the parser breaks it will return back nil so
     # we need to remove those before sending the data back
@@ -60,8 +68,11 @@ class ArticlesController < ApplicationController
 
   private
 
+  # TODO: Put `get_articles_from_domains` and `run_parser` in a separate file as a service object
+
   def get_articles_from_domains(sources_hash)
 
+    # OPTIMIZE change `each` to map, and you can just use the return values instead of storing/returning an array --Tom
     articles = []
 
     sources_hash.each do |domain, num_of_articles|

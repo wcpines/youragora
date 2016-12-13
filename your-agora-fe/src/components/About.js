@@ -65,8 +65,8 @@ export default function About(props) {
             <b> Tom Marren </b>
             <em><a href="https://github.com/thomasmarren" target="_blank">@thomasmarren</a></em>
             <p>
-              Returned Peace Corps volunteer who turned his love of languages from Spanish to programming.
-              When he's not advocating for object oriented design, you can find Tom homebrewing,
+              Returned Peace Corps volunteer who turned his love of languages from human to programming.
+              When he's not questioning the pursuit of learning Vim, you can find Tom homebrewing,
               playing soccer, or listening to hip hop.
 
             </p>

@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class ErrorMessage extends Component{
-
-
-
+	
 	render(){
-		return(<p> {this.props.errorMessage} </p>)
+		return(<p id="error-message"> {this.props.errorMessage} </p>)
 	}
 }
 

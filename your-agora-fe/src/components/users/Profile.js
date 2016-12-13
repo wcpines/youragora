@@ -1,32 +1,37 @@
 import React, {Component}from 'react'
 import { connect } from 'react-redux'
 import Header from '../Header'
+import { Link } from 'react-router';
 import { bindActionCreators } from 'redux'
+import ErrorMessage from  '../reactions/ErrorMessage'
 import fetchReactions from '../../actions/fetchReactions'
 import fetchUserId from '../../actions/fetchUserId'
 import resetUserLean from  '../../actions/resetUserLean'
+import deleteUser from  '../../actions/deleteUser'
 
 class Profile extends Component {
   constructor(props){
     super(props)
     this.state = {success: ""}
     this.handleClick = this.handleClick.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentWillMount(){
-    if(this.props.userId === null && localStorage.getItem('jwt') != null){
-      this.props.fetchUserId()
-    }
+    this.props.fetchUserId()
   }
 
   componentDidMount(){
     this.props.fetchReactions()
   }
 
-
   handleClick(){
     this.props.resetUserLean()
     this.setState({success: "LEANING RESET!"})
+  }
+
+  handleDelete(){
+    this.props.deleteUser(this.props.userId)
   }
 
 
@@ -45,6 +50,8 @@ class Profile extends Component {
       return <li key={reaction.id}> {reaction.article_author}: <a target="_blank" href={reaction.article_url}>{reaction.article_title}</a> {thumb}</li>
     })
 
+    let href = `/users/${this.props.userId}/edit`
+
     return(
 
       <div>
@@ -53,7 +60,11 @@ class Profile extends Component {
           <div id="user-info">
             <h3><b>Name</b>: {this.props.userName}</h3>
             <h3><b>Email</b>: {this.props.userEmail}</h3>
-            <p><button className="button" onClick={this.handleClick}>Reset my Leaning </button> <span style={{"fontFamily":"baskerville"}}>{this.state.success}</span></p>
+            <ErrorMessage />
+            <button className="button" onClick={this.handleClick}>Reset my Leaning </button> <span>{this.state.success}</span><br />
+            <Link to={href} ><span>Edit Account Details</span></Link> <strong>|</strong> <a onClick={this.handleDelete}id="delete-account" href="#"><span>Delete Account</span></a>
+            <br />
+            <br />
           </div>
           <div className="reaction-list">
             <b>Recent Reactions</b>
@@ -77,7 +88,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators( {resetUserLean, fetchReactions, fetchUserId }, dispatch)
+  return bindActionCreators( {resetUserLean, fetchReactions, fetchUserId, deleteUser }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

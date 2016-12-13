@@ -12,12 +12,14 @@ import Source from './components/reactions/Source'
 import StashIndex from './components/StashIndex'
 import NotFound from './components/NotFound'
 import About from './components/About'
+import EditUser from './components/users/EditUser'
 
 
 export default (
   <Route>
     <Route path="/" component={HomePage} />
     <Route path="/users/:id" component={Profile} />
+    <Route path="/users/:id/edit" component={EditUser} />
     <Route path="/about" component={About} />
     <Route path="/stashes" component={StashIndex} />
     <Route component={App} >

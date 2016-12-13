@@ -13,18 +13,23 @@ class MainArticle extends Component{
     // if(this.props.article.id === undefined){
     //       browserHistory.push('/')}
     if (localStorage.jwt !== undefined){
-        var stashOrDeleteButton;
-        if(this.props.stashState === false){
-              stashOrDeleteButton = <StashButton />
-            }
-        if(this.props.stashState === true){
-              stashOrDeleteButton = <UnstashArticleButton />
-        }
+      var stashOrDeleteButton;
+      if(this.props.stashState === false){
+        stashOrDeleteButton = <StashButton />
       }
+      if(this.props.stashState === true){
+        stashOrDeleteButton = <UnstashArticleButton />
+      }
+    }
+
+    var regex = new RegExp(this.props.article.sourceName, 'g', 'i')
+    var redactedContent = this.props.article.content.replace(regex, "[REDACTED BY YOURAGORA]")
+
+
     return (
       <div>
         <h1>{this.props.article.title}</h1>
-        <div style={{"textAlign": "left"}} dangerouslySetInnerHTML={{__html: this.props.article.content}} />
+        <div style={{"textAlign": "left"}} dangerouslySetInnerHTML={{__html: redactedContent}} />
         {stashOrDeleteButton} <br />
         <ThumbsButtons />
 

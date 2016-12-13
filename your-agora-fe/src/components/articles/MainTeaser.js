@@ -9,19 +9,19 @@ function MainTeaser(props){
 
   let href = '/articles/random/main'
 
-  let preview = previewContent(props.article.content)
+  let preview = previewContent(props.article.content, props.article)
 
   let readTime = calculateReadTime(props.article.word_count)
 
-if(localStorage.jwt !== undefined){
-  var stashOrDeleteButton;
-  if(props.stashState === false){
-    stashOrDeleteButton = <StashButton />
+  if(localStorage.jwt !== undefined){
+    var stashOrDeleteButton;
+    if(props.stashState === false){
+      stashOrDeleteButton = <StashButton />
+    }
+    if(props.stashState === true){
+      stashOrDeleteButton = <UnstashArticleButton />
+    }
   }
-  if(props.stashState === true){
-    stashOrDeleteButton = <UnstashArticleButton />
-  }
-}
   return(
     <div id="main-teaser">
       <img role="presentation" className="thumbnail" src={props.article.img_url} />
@@ -46,20 +46,23 @@ function mapStateToProps(state){
 
 export default connect(mapStateToProps)(MainTeaser)
 
-function previewContent(content){
+function previewContent(content, article){
 
-if(content.includes("<p>")){
-  if(content.match(/<p>/g).length > 2){
-    var content = content.replace(/(<img)(.*?)(>)/g, '')
-    var pattern = /(<p>)(.*?)(<\/p>)/g
-    // TODO: Can we loop this more elegantly?
-    var par1 = pattern.exec(content)[0]
-    var par2 = pattern.exec(content)[0]
-    var par3 = pattern.exec(content)[0]
-    var par4 = pattern.exec(content)[0]
-    return [par1, par2, par3, par4].join(" ")
-  } else {
-    return '';}
+  var regex = new RegExp(article.sourceName, 'g', 'i')
+  var redactedContent = content.replace(regex, "[REDACTED BY YOURAGORA]")
+
+  if(redactedContent.includes("<p>")){
+    if(redactedContent.match(/<p>/g).length > 2){
+      var content = redactedContent.replace(/(<img)(.*?)(>)/g, '')
+      var pattern = /(<p>)(.*?)(<\/p>)/g
+      // TODO: Can we loop this more elegantly?
+      var par1 = pattern.exec(content)[0]
+      var par2 = pattern.exec(content)[0]
+      var par3 = pattern.exec(content)[0]
+      var par4 = pattern.exec(content)[0]
+      return [par1, par2, par3, par4].join(" ")
+    } else {
+      return '';}
   } else {
     return ''
   }

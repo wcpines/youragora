@@ -13,7 +13,7 @@ function ReadStashedButton(props){
   }
 
   return (
-    <button className="button" onClick={handleClick.bind(props)}>{props.title}</button>
+    <a href='#' onClick={handleClick.bind(props)}>{props.title}</a>
   )
 }
 

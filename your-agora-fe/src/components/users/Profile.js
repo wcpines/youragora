@@ -1,20 +1,38 @@
-import React from 'react'
+import React, {Component}from 'react'
 import { connect } from 'react-redux'
 import Header from '../Header'
-// import EditProfileButton from  '../
+import { bindActionCreators } from 'redux'
+import fetchReactions from '../../actions/fetchReactions'
+import fetchUserId from '../../actions/fetchUserId'
+import resetUserLean from  '../../actions/resetUserLean'
 
-function Profile(props) {
+class Profile extends Component {
+  constructor(props){
+    super(props)
+    this.state = {success: ""}
+    this.handleClick = this.handleClick.bind(this)
+  }
 
-  // > props.userReactions[0]
-  // < {
-  //  id: 1,
-  //  rating: -1,
-  //  article_title: "Hooded Thieves Swarm San Francisco Apple Store, Swipe Gadgets",
-  //  article_url: "http://www.huffingtonpost.com/entry/apple-store-theft-san-francisco_us_584a8b88e4b04c8e2baf477d",
-  //  article_author: "Lee Moran"}article_author:
-  // }
+  componentWillMount(){
+    if(this.props.userId === null && localStorage.getItem('jwt') != null){
+      this.props.fetchUserId()
+    }
+  }
 
-    var reactions = props.userReactions.map( reaction => {
+  componentDidMount(){
+    this.props.fetchReactions()
+  }
+
+
+  handleClick(){
+    this.props.resetUserLean()
+    this.setState({success: "LEANING RESET!"})
+  }
+
+
+  render(){
+
+    var reactions = this.props.userReactions.map( reaction => {
 
       let thumb;
       if(reaction.rating === -1){
@@ -24,7 +42,7 @@ function Profile(props) {
       } else {
         thumb = <img role="presentation" src="/images/neutral.png" />
       }
-      return <li> {reaction.article_author}: <a target="_blank" href={reaction.article_url}>{reaction.article_title}</a> {thumb}</li>
+      return <li key={reaction.id}> {reaction.article_author}: <a target="_blank" href={reaction.article_url}>{reaction.article_title}</a> {thumb}</li>
     })
 
     return(
@@ -33,8 +51,9 @@ function Profile(props) {
         <Header />
         <div id="profile-page">
           <div id="user-info">
-            <h3><b>Name</b>: {props.userName}</h3>
-            <h3><b>Email</b>: {props.userEmail}</h3>
+            <h3><b>Name</b>: {this.props.userName}</h3>
+            <h3><b>Email</b>: {this.props.userEmail}</h3>
+            <p><button className="button" onClick={this.handleClick}>Reset my Leaning </button> <span style={{"fontFamily":"baskerville"}}>{this.state.success}</span></p>
           </div>
           <div className="reaction-list">
             <b>Recent Reactions</b>
@@ -43,6 +62,8 @@ function Profile(props) {
         </div>
       </div>
     )
+
+  }
 
 }
 
@@ -55,4 +76,8 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(Profile)
+function mapDispatchToProps(dispatch){
+  return bindActionCreators( {resetUserLean, fetchReactions, fetchUserId }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

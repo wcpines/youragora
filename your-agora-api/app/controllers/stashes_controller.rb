@@ -31,6 +31,7 @@ class StashesController < ApplicationController
 
   end
 
+  # OPTIMIZE: Can probably make a method for the recycled code here. (See index action)
   # un-stash an article
   def destroy
     stash = Stash.find(params[:id])
@@ -48,6 +49,6 @@ class StashesController < ApplicationController
 
   def stash_params
     params.require(:stash).permit(:user_id, :article_id)
-  end 
+  end
 
 end

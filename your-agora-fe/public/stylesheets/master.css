@@ -15,6 +15,7 @@ label {
 }
 
 a {
+  font-family: Baskerville;
   text-decoration: none;
   color: #0088cc;
 }
@@ -33,6 +34,11 @@ a:hover {
 .button:hover {
   border: solid 1px #d75241;
   color: #d75241;
+}
+
+#error-message {
+  font-family: Baskerville;
+  color: red;
 }
 
 /**********
@@ -107,6 +113,22 @@ a:hover {
   margin-left: 20px;
 }
 
+#user-info a {
+  font-size: 1.2em;
+  margin: 0px 2px;
+}
+
+#delete-account {
+  color: red;
+  padding: 2px;
+}
+
+#delete-account:hover {
+  color: red;
+  text-decoration: underline;
+  padding: 2px;
+}
+
 .reaction-list {
   font-family: Baskerville;
   font-size: 1.2em;
@@ -132,7 +154,7 @@ a:hover {
   SIGNIN/SIGNUP PAGE
 ********************/
 
-#signin-container, #signup-container{
+#signin-container, #signup-container, #edit-user-container{
   width: 15%;
   height: 100%;
   margin: 10% auto;
@@ -140,7 +162,7 @@ a:hover {
   background-color: rgba(39,62,109,0.1);
 }
 
-#signin-button, #signup-button {
+#signin-button, #signup-button, #edit-user-button {
   background-color: white;
 }
 

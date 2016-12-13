@@ -1,4 +1,4 @@
-# require 'auth'
+require 'auth'
 
 class UsersController < ApplicationController
 

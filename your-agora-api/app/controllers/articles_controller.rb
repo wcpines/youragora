@@ -8,6 +8,8 @@ class ArticlesController < ApplicationController
     ###### PRODUCTION ######
 
     search_term = SearchTerm.find_by(name: params[:search_term])
+    search_term.search_count += 1
+    search_term.save
 
     source_domains_hash = {
       Source.where("leaning = 'prog_lean'").order("RANDOM()").limit(1)[0].domain => 1,

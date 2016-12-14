@@ -1,4 +1,4 @@
-import React from 'react'
+iimport React from 'react'
 import Header from './Header'
 // import EditProfileButton from  '../
 
@@ -58,7 +58,7 @@ export default function About(props) {
             <em><a href="https://github.com/MKevinEvans" target="_blank">@mkevinevans</a></em>
             <p>
               Kevin taught Music Technology at Santa Barbara City College where he became enthralled by the idea that
-              technology can provide new ways to communicate, engage, and educate.
+              technology can create fresh means to communicate, engage, and educate.
               He is a great fan of learning, and loves new ways of telling old stories.
             </p>
           </div>

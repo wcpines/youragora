@@ -1,3 +1,5 @@
+require 'auth'
+
 class StashesController < ApplicationController
 
   # list users stashes

@@ -11,7 +11,7 @@ class ArticleParser
       client.parse(url)
     end
 
-    unless html.nil?
+    unless html.nil? || html.word_count < 10
 
       if html.author
         author = html.author.split[0...2].join(" ")

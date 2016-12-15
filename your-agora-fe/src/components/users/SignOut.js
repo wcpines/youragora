@@ -14,7 +14,7 @@ function SignOut(props){
   }
 
   return (
-    <a id="sign-out-link" onClick={handleClick.bind(props)}>Sign Out</a>
+    <a id="sign-out-link" onClick={handleClick.bind(props)}>  Sign Out</a>
   )
 
 

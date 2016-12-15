@@ -41,10 +41,10 @@ class StashIndex extends Component {
     if(this.props.stashes.length === 0){
 
       stashIndex = <div className="stash-list">
-                    <div style={align}>
-                      <h3>Go store some articles!</h3>
-                    </div>
-                  </div>
+        <div style={align}>
+          <em><h4>Go stash some articles!</h4></em>
+        </div>
+      </div>
 
     } else {
 
@@ -57,14 +57,14 @@ class StashIndex extends Component {
       </ol>
 
     }
-        return(
-          <div>
-            <Header />
-            <div className="stash-list">
-            {stashIndex}
-            </div>
-          </div>
-        )
+    return(
+      <div>
+        <Header />
+        <div className="stash-list">
+          {stashIndex}
+        </div>
+      </div>
+    )
   }
 
 }

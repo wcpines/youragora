@@ -30,7 +30,13 @@ function articles(state = {fetched: [], fetching: false, fetching_first_article:
     case 'FETCHED_FIRST_ARTICLE':
       return {...state, fetching_first_article: false}
     case "FETCH_ARTICLES":
-      return {...state, fetched: [...state.fetched, ...action.payload], fetching: false}
+      // Filters duplicates being returned before updating the state because
+      // fetch_first_articles may return the same source, therefore same articles as create
+      let ids = state.fetched.map((article)=> article.id )
+      articles = action.payload.filter((article)=>{
+        return !ids.includes(article.id)
+      })
+      return {...state, fetched: [...state.fetched, ...articles], fetching: false}
     default:
       return state
   }

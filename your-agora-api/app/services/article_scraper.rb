@@ -15,14 +15,15 @@ class ArticleScraper
           articles << {url: article_url, source_id: 6}
         end
       else
-        GoogleNews.get_articles(num_of_articles, search_term.name, domain).each do |article_url|
+        GoogleNews.new.get_articles(num_of_articles, search_term.name, domain).each do |article_url|
           articles << {url: article_url, source_id: Source.find_by(domain: domain).id}
         end
       end
 
     end
-    articles
 
+    articles
+    
   end
 
   def find_or_parse_articles(articles, search_term)
@@ -54,9 +55,8 @@ class ArticleScraper
 
   def run_parser(source_domains_hash, search_term)
 
-    articles = get_article_urls(source_domains_hash, search_term)
-
-    find_or_parse_articles(articles, search_term)
+      articles = get_article_urls(source_domains_hash, search_term)
+      find_or_parse_articles(articles, search_term)
 
   end
 

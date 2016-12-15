@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from './Header'
-// import EditProfileButton from  '../
 
 export default function About(props) {
 
@@ -74,6 +73,54 @@ export default function About(props) {
             </p>
           </div>
 
+        </div>
+
+        <h3> Our Sources </h3>
+
+        <div className="row" id="sources-list">
+          <div className="three columns sources-column">
+            <ul>
+              <li><a target="_blank" href="https://theamericanconservative.com ">The American Conservative</a></li>
+              <li><a target="_blank" href="https://aei.org ">American Enterprise Institute</a></li>
+              <li><a target="_blank" href="https://prospect.org">The American Prospect</a></li>
+              <li><a target="_blank" href="https://spectator.org">American Spectator</a></li>
+              <li><a target="_blank" href="http://americanthinker.com">American Thinker</a></li>
+              <li><a target="_blank" href="https://theatlantic.com">The Atlantic</a></li>
+              <li><a target="_blank" href="https://brookings.edu">Brookings Institute</a></li>
+              <li><a target="_blank" href="http://cato.org">Cato Institute</a></li>
+              <li><a target="_blank" href="https://americanprogress.org">Center for American Progress</a></li>
+              <li><a target="_blank" href="https://epi.org">Economic Policy Institute</a></li>
+            </ul>
+          </div>
+          <div className="three columns sources-column">
+            <ul>
+              <li><a target="_blank" href="https://eff.org">Electronic Frontier Foundation</a></li>
+              <li><a target="_blank" href="https://firstthings.com">First Things</a></li>
+              <li><a target="_blank" href="https://frontporchrepublic.com">Front Porch Republic</a></li>
+              <li><a target="_blank" href="http://guttmacher.org">Guttmacher Institute</a></li>
+              <li><a target="_blank" href="http://heritage.org">The Heritage Foundation</a></li>
+              <li><a target="_blank" href="https://hoover.org">Hoover Institute</a></li>
+              <li><a target="_blank" href="http://huffingtonpost.com">The Huffington Post</a></li>
+              <li><a target="_blank" href="http://theimaginativeconservative.org">The Imaginative Conservative</a></li>
+              <li><a target="_blank" href="http://independent.org">Independent Institute</a></li>
+              <li><a target="_blank" href="https://jacobinmag.com">Jacobin</a></li>
+            </ul>
+          </div>
+          <div className="three columns sources-column">
+            <ul>
+              <li><a target="_blank" href="https://mises.org">Mises Institute</a></li>
+              <li><a target="_blank" href="https://motherjones.com">Mother Jones</a></li>
+              <li><a target="_blank" href="http://npr.org">NPR</a></li>
+              <li><a target="_blank" href="https://nationalreview.com">National Review</a></li>
+              <li><a target="_blank" href="https://mic.com/policy">Policy Mic</a></li>
+              <li><a target="_blank" href="http://progressive.org">The Progressive</a></li>
+              <li><a target="_blank" href="https://reason.com">Reason</a></li>
+              <li><a target="_blank" href="http://slate.com">Slate</a></li>
+              <li><a target="_blank" href="https://urban.org">Urban Institute</a></li>
+              <li><a target="_blank" href="https://vanityfair.com">Vanity Fair</a></li>
+              <li><a target="_blank" href="https://vox.com">Vox</a></li>
+            </ul>
+          </div>
         </div>
 
       </div>

@@ -57,7 +57,13 @@ a:hover {
   margin: 2%;
 }
 
+#sources-list {
+  text-align: center;
+}
 
+.sources-column {
+  text-align: left;
+}
 
 /************
  STASH INDEX

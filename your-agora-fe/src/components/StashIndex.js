@@ -51,7 +51,7 @@ class StashIndex extends Component {
       stashIndex = <ol>
         {this.props.stashes.map((stash)=>{ return (
           <li key={stash.id}><ReadStashedButton article={stash.article} title={stash.article.title} />
-            <img onClick={this.handleClick} id={stash.id}src="/images//trashcan.png" />
+            <img onClick={this.handleClick} role="presentation" id={stash.id}src="/images//trashcan.png" />
           </li>)}
         )}
       </ol>

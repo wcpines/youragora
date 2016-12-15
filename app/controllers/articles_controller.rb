@@ -29,6 +29,7 @@ class ArticlesController < ApplicationController
         # !!Note Source Name camel case because it's going to JS
     # ###### TESTING  END ######
 
+
     # If the parser breaks it will return back nil so
     # we need to remove those before sending the data back
 
@@ -61,7 +62,6 @@ class ArticlesController < ApplicationController
       end
     end
 
-    # # NOTE to self: This is where you'll pull in service object. -- CP
 
     @full_articles = ArticleScraper.new.run_parser(source_domains_hash, search_term)
       ###### PRODUCTION END ######

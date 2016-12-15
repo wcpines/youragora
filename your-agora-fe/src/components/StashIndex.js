@@ -41,30 +41,30 @@ class StashIndex extends Component {
     if(this.props.stashes.length === 0){
 
       stashIndex = <div className="stash-list">
-                    <div style={align}>
-                      <h3>Go store some articles!</h3>
-                    </div>
-                  </div>
+        <div style={align}>
+          <em><h4>Go stash some articles!</h4></em>
+        </div>
+      </div>
 
     } else {
 
       stashIndex = <ol>
         {this.props.stashes.map((stash)=>{ return (
           <li key={stash.id}><ReadStashedButton article={stash.article} title={stash.article.title} />
-            <img onClick={this.handleClick} id={stash.id}src="/images//trashcan.png" />
+            <img onClick={this.handleClick} role="presentation" id={stash.id}src="/images//trashcan.png" />
           </li>)}
         )}
       </ol>
 
     }
-        return(
-          <div>
-            <Header />
-            <div className="stash-list">
-            {stashIndex}
-            </div>
-          </div>
-        )
+    return(
+      <div>
+        <Header />
+        <div className="stash-list">
+          {stashIndex}
+        </div>
+      </div>
+    )
   }
 
 }

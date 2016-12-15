@@ -46,6 +46,7 @@ function mapStateToProps(state){
 
 export default connect(mapStateToProps)(MainTeaser)
 
+// function redacts source names from article content before returning it to the page.
 function previewContent(content, article){
 
   var regex = new RegExp(article.sourceName, 'g', 'i')
@@ -53,13 +54,13 @@ function previewContent(content, article){
 
   if(redactedContent.includes("<p>")){
     if(redactedContent.match(/<p>/g).length > 2){
-      var content = redactedContent.replace(/(<img)(.*?)(>)/g, '')
+      var fixedContent = redactedContent.replace(/(<img)(.*?)(>)/g, '')
       var pattern = /(<p>)(.*?)(<\/p>)/g
       // TODO: Can we loop this more elegantly?
-      var par1 = pattern.exec(content)[0]
-      var par2 = pattern.exec(content)[0]
-      var par3 = pattern.exec(content)[0]
-      var par4 = pattern.exec(content)[0]
+      var par1 = pattern.exec(fixedContent)[0]
+      var par2 = pattern.exec(fixedContent)[0]
+      var par3 = pattern.exec(fixedContent)[0]
+      var par4 = pattern.exec(fixedContent)[0]
       return [par1, par2, par3, par4].join(" ")
     } else {
       return '';}

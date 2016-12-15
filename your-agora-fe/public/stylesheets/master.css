@@ -69,6 +69,11 @@ a:hover {
  STASH INDEX
 ************/
 
+.stash-list h4{
+  font-family: Baskerville;
+  margin-top: 20%;
+}
+
 .stash-list {
   margin: 20px;
 }
@@ -76,6 +81,16 @@ a:hover {
 .stash-list img {
   width: 20px;
   margin-left: 10px;
+  cursor: pointer;
+}
+
+#no-stashes-message {
+  /* vertical-align: center; */
+  margin: ;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 /***********
@@ -88,20 +103,20 @@ a:hover {
 }
 
 #homepage-logo {
-  margin-top: 125px;
+  margin-top: 3%;
 }
 
 #search-bar-homepage input[type="text"]{
-  width: 250px;
+  width: 270px;
 }
 
-.sign-links-homepage {
-  margin: 2% 2% 0 0;
+.links-homepage {
+  margin: 1% 1% 0 0;
   text-align: right;
   vertical-align: baseline;
 }
 
-.sign-links-homepage a{
+.links-homepage a{
   font-size: 1.5em;
   font-weight: 600;
   margin: 0px 10px;
@@ -125,7 +140,7 @@ a:hover {
 }
 
 #delete-account {
-  color: red;
+  color: #ca4a34;
   padding: 2px;
 }
 
@@ -156,6 +171,58 @@ a:hover {
   padding-top: -20px;
 }
 
+/*********************
+  MENU BAR - HOMEPAGE
+*********************/
+
+.signed-in-links, .signed-out-links {
+  margin: 0px 10px;
+  font-weight: 600;
+  font-family: Georgia;
+  text-align: center;
+  font-size: 1.2em;
+  text-align: inline;
+}
+
+
+
+/***********
+  HEADER
+***********/
+
+#welcome-message {
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: right;
+  font-family: Baskerville;
+}
+
+.header-container {
+  width: 100%;
+  background-color: rgba(39,62,109,0.1);
+}
+
+
+.logo-div {
+  margin-left: 0;
+  float: left;
+
+}
+#header-logo {
+  margin: 1% 0 0 1%;
+  width: 40%;
+}
+
+.nav-bar-container a{
+  font-family: Georgia;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0px 10px;
+}
+
+#sign-out-link {
+  cursor: pointer;
+}
 /********************
   SIGNIN/SIGNUP PAGE
 ********************/
@@ -178,47 +245,12 @@ a:hover {
   text-align: center;
 }
 
-/***********
-  HEADER
-***********/
-
-.header-container {
-  width: 100%;
-  background-color: rgba(39,62,109,0.1);
-}
-
-#header-logo {
-  margin: 1% 0 0 1%;
-  width: 40%;
-}
-
-#welcome-message {
-  font-size: 1.5em;
-  font-family: Baskerville;
-}
-
-.signed-in-links, .signed-out-links {
-  text-align: right;
-  vertical-align: baseline;
-}
-
-.nav-bar-container a{
-  font-family: Georgia;
-  font-size: 1em;
-  font-weight: 600;
-  margin: 0px 10px;
-}
-
-#sign-out-link {
-  cursor: pointer;
-}
-
-/***********
+/******************
   SEARCH BAR - APP
-***********/
+******************/
 
 .search-bar {
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -243,9 +275,9 @@ a:hover {
   color: #d75241;
 }
 
-/***********
+/*************
   MAIN TEASER
-***********/
+*************/
 
 #teaser-preview{
   width: 100%;
@@ -275,9 +307,9 @@ a:hover {
   font-family: Georgia;
 }
 
-/***********
+/*************
   MAIN ARTICLE
-***********/
+**************/
 
 #reaction-buttons {
   display: inline;

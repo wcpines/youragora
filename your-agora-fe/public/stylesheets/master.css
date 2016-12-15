@@ -69,6 +69,10 @@ a:hover {
  STASH INDEX
 ************/
 
+.stash-list h3{
+  margin-top: 20%;
+}
+
 .stash-list {
   margin: 20px;
 }

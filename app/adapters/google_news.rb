@@ -22,7 +22,8 @@ class GoogleNews
     elsif call_api
 
       formatted_search = search_term.split(" ").join("%20")
-      results = JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{formatted_search}&cx=007438961960256472316%3A4gdkpqmpbru&num=#{num_of_articles}&siteSearch=#{domain}&sort=date&key=#{KEY}").read)
+      results = []
+      # results = JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{formatted_search}&cx=007438961960256472316%3A4gdkpqmpbru&num=#{num_of_articles}&siteSearch=#{domain}&sort=date&key=#{KEY}").read)
 
       results['items'].map do |result|
         result['link']

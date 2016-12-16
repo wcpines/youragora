@@ -16,3 +16,12 @@ config/secrets.yml
 
 # Ignore Byebug command history file.
 .byebug_history
+
+
+tags
+Tags
+.DS_Sore
+./*node_modules
+config/secrets.yml
+.env
+config/npm-debug.log

@@ -3,7 +3,7 @@ import $ from 'jquery'
 export default function unstashArticle(stashId){
   return function(dispatch){  
     $.ajax({
-      url: `http://localhost:3000/stashes/`+stashId,
+      url: `https://safe-escarpment-99271.herokuapp.com/stashes/`+stashId,
       type: "DELETE",
       headers: {authorization: localStorage.getItem('jwt')},
       contentType: 'application/json; charset=utf-8',

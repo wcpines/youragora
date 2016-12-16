@@ -4,7 +4,7 @@ export default function fetchUserId(){
   return function(dispatch){
     dispatch({type: 'FETCHING_USER'})
     $.ajax({
-      url: "http://localhost:3000/users",
+      url: "https://safe-escarpment-99271.herokuapp.com/users",
       type: "GET",
       headers: {authorization: localStorage.getItem('jwt')}
     }).done(function(data){

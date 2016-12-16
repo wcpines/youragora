@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router'
 
 export function signUp(formValues){
   return function(dispatch){
-    $.ajax({url: `http://localhost:3000/users`,
+    $.ajax({url: `https://safe-escarpment-99271.herokuapp.com/users`,
       type: "POST",
       data: JSON.stringify({auth: {email: formValues.email.toLowerCase().trim(), password: formValues.password, name: formValues.name.toLowerCase().trim()}}),
       contentType: 'application/json; charset=utf-8',

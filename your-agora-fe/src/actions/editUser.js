@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router'
 
 export default function editUser(id, name, email){
   return function(dispatch){
-    $.ajax({url: `http://localhost:3000/users/${id}`,
+    $.ajax({url: `https://safe-escarpment-99271.herokuapp.com/users/${id}`,
       type: "PUT",
       data: JSON.stringify({auth: {name: name, email: email}}),
       contentType: 'application/json; charset=utf-8',

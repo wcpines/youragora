@@ -17,7 +17,7 @@ WORKDIR /app
 RUN bundle install
 
 ADD . /app
-RUN bundle exec rake assets:precompile
+# RUN bundle exec rake assets:precompile
 
 ENV PORT 3000
 EXPOSE 3000

@@ -11,7 +11,7 @@ class GoogleNews
     news = suppress(Exception) do
       Nokogiri::HTML(open("https://www.google.com/search?q=#{search_term}+#{domain}&tbm=nws"), 'html')
     end
-
+    news = false
     if news
 
       publications = news.css('.g') # each article displayed by GN

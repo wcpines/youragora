@@ -8,11 +8,9 @@ class GoogleNews
 
   def get_articles(num_of_articles, search_term, domain)
 
-    # news = suppress(Exception) do
-    #   Nokogiri::HTML(open("https://www.google.com/search?q=#{search_term}+#{domain}&tbm=nws"), 'html')
-    # end
-
-    news = false
+    news = suppress(Exception) do
+      Nokogiri::HTML(open("https://www.google.com/search?q=#{search_term}+#{domain}&tbm=nws"), 'html')
+    end
 
     if news
 
@@ -22,7 +20,6 @@ class GoogleNews
       formatted_links[0...num_of_articles].map { |link| URI.decode(link) }  # handle cases where URIs are returned encoded.
 
     elsif call_api
-      puts "this worked"
       formatted_search = search_term.split(" ").join("%20")
       results = JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{formatted_search}&cx=007438961960256472316%3A4gdkpqmpbru&num=#{num_of_articles}&siteSearch=#{domain}&sort=date&key=#{KEY}").read)
 

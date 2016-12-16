@@ -11,7 +11,7 @@ class GoogleNews
     news = suppress(Exception) do
       Nokogiri::HTML(open("https://www.google.com/search?q=#{search_term}+#{domain}&tbm=nws"), 'html')
     end
-    news = false
+
     if news
 
       publications = news.css('.g') # each article displayed by GN
@@ -22,15 +22,13 @@ class GoogleNews
     elsif call_api
 
       formatted_search = search_term.split(" ").join("%20")
-      results = []
-      # results = JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{formatted_search}&cx=007438961960256472316%3A4gdkpqmpbru&num=#{num_of_articles}&siteSearch=#{domain}&sort=date&key=#{KEY}").read)
+      results = JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{formatted_search}&cx=007438961960256472316%3A4gdkpqmpbru&num=#{num_of_articles}&siteSearch=#{domain}&sort=date&key=#{KEY}").read)
 
       results['items'].map do |result|
         result['link']
       end
 
     else
-      puts "this worked"
       # In the event that scrapping and API fails pull from our database for
       # the most recent search term matches
       articles = Article.joins(:search_terms).order(created_at: :desc).limit(10).where("name = '#{search_term}'").pluck(:url)

@@ -8,7 +8,7 @@ class ArticleParser
     # When Mercury Parser barfs on url ignore error and return nil
     html = suppress(Exception) do
       article = client.parse(url)
-      return nil unless article.title
+      return nil unless article.word_count
         return article
     end
 
@@ -29,6 +29,7 @@ class ArticleParser
       }
 
       Article.new(article_attributes_hash)
+      puts "this actually happened #{html.word_count}" 
     else
       "Article not found"
     end

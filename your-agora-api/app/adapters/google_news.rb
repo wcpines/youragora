@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'uri'
 
-KEY = Rails.application.secrets[:google_api_key]
+KEY = ENV['google_api_key']
 
 class GoogleNews
 
@@ -35,7 +35,7 @@ class GoogleNews
       articles = Article.joins(:search_terms).order(created_at: :desc).limit(10).where("name = '#{search_term}'").pluck(:url)
 
       if articles.length < 10
-          articles << Article.order("RANDOM()").limit(10 - articles.length)
+          articles << Article.order("RANDOM()").limit(10 - articles.length).pluck(:url)
       end
 
       articles

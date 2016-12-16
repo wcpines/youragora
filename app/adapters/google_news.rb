@@ -29,13 +29,13 @@ class GoogleNews
       end
 
     else
-
+      puts "this worked"
       # In the event that scrapping and API fails pull from our database for
       # the most recent search term matches
       articles = Article.joins(:search_terms).order(created_at: :desc).limit(10).where("name = '#{search_term}'").pluck(:url)
 
       if articles.length < 10
-          articles << Article.order("RANDOM()").limit(10 - articles.length)
+          articles << Article.order("RANDOM()").limit(10 - articles.length).pluck(:url)
       end
 
       articles

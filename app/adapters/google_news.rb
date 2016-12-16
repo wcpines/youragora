@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'uri'
 
-KEY = ENV['google_api_key']
+KEY = ENV["google_api_key"]
 
 class GoogleNews
 
@@ -20,6 +20,7 @@ class GoogleNews
       formatted_links[0...num_of_articles].map { |link| URI.decode(link) }  # handle cases where URIs are returned encoded.
 
     elsif call_api
+
       formatted_search = search_term.split(" ").join("%20")
       results = JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{formatted_search}&cx=007438961960256472316%3A4gdkpqmpbru&num=#{num_of_articles}&siteSearch=#{domain}&sort=date&key=#{KEY}").read)
 
@@ -28,7 +29,6 @@ class GoogleNews
       end
 
     else
-
       # In the event that scrapping and API fails pull from our database for
       # the most recent search term matches
       articles = Article.joins(:search_terms).order(created_at: :desc).limit(10).where("name = '#{search_term}'").pluck(:url)

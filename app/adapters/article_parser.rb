@@ -1,15 +1,14 @@
 class ArticleParser
 
   def self.get_article_html(url)
+    # url = "https://www.aei.org/publication/why-we-need-the-electoral-college" # NOTE: Bad link for testing 12/8/2016
 
     client = MercuryParser::Client.new(api_key: ENV['mercury_api_key'])
 
     # PRETTY DOPE
     # When Mercury Parser barfs on url ignore error and return nil
     html = suppress(Exception) do
-      article = client.parse(url)
-      return nil unless article.title
-        return article
+      client.parse(url)
     end
 
     unless html.nil? || html.word_count < 10

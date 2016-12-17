@@ -31,11 +31,11 @@ class GoogleNews
 
       # In the event that scrapping and API fails pull from our database for
       # the most recent search term matches
-      articles = Article.joins(:search_terms).order(created_at: :desc).limit(10).where("name = '#{search_term}'").pluck(:url)
+      # articles = Article.joins(:search_terms).order(created_at: :desc).limit(10).where("name = '#{search_term}'").pluck(:url)
 
-      if articles.length < 10
+      # if articles.length < 10
           articles << Article.order("RANDOM()").limit(10 - articles.length).pluck(:url)
-      end
+      # end
 
       articles
 
@@ -44,6 +44,7 @@ class GoogleNews
   end
 
   def call_api
+    formatted_search = search_term.split(" ").join("%20")
     suppress(Exception) do
       JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{formatted_search}&cx=007438961960256472316%3A4gdkpqmpbru&num=#{num_of_articles}&siteSearch=#{domain}&sort=date&key=#{KEY}").read)
     end

@@ -8,8 +8,9 @@ class ArticleParser
     # When Mercury Parser barfs on url ignore error and return nil
     html = suppress(Exception) do
       article = client.parse(url)
-      return nil unless article.title
-        return article
+      if article.word_count
+         article
+      end
     end
 
     unless html.nil? || html.word_count < 10

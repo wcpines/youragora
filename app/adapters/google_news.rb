@@ -19,13 +19,16 @@ class GoogleNews
       formatted_links = correct_publications.map { |publication| publication.css('.r').children.map(&:attributes)[0]["href"].value.split(/(http.*)/)[1].split('&')[0]} # get just the URI
       formatted_links[0...num_of_articles].map { |link| URI.decode(link) }  # handle cases where URIs are returned encoded.
 
-    elsif call_api
+    elsif call_api(search_term, num_of_articles, domain)
 
       formatted_search = search_term.split(" ").join("%20")
       results = JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{formatted_search}&cx=007438961960256472316%3A4gdkpqmpbru&num=#{num_of_articles}&siteSearch=#{domain}&sort=date&key=#{KEY}").read)
 
-      results['items'].map do |result|
-        result['link']
+      
+        if results['items'].length >= 1
+          results['items'].map do |result|
+          result['link']
+        end
       end
 
     else
@@ -43,8 +46,9 @@ class GoogleNews
 
   end
 
-  def call_api
+  def call_api(search_term, num_of_articles, domain)
     suppress(Exception) do
+      formatted_search = search_term.split(" ").join("%20")
       JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{formatted_search}&cx=007438961960256472316%3A4gdkpqmpbru&num=#{num_of_articles}&siteSearch=#{domain}&sort=date&key=#{KEY}").read)
     end
   end

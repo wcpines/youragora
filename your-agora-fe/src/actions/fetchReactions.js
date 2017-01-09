@@ -4,7 +4,7 @@ export default function fetchReactions(){
   return function(dispatch){
     dispatch({type: 'FETCHING_REACTIONS'})
     $.ajax({
-      url: `https://safe-escarpment-99271.herokuapp.com/reactions`,
+      url: `http://localhost:3000/reactions`,
       type: "GET",
       headers: {authorization: localStorage.getItem('jwt')},
       contentType: 'application/json; charset=utf-8',

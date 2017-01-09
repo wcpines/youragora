@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'uri'
 
-KEY = ENV['google_api_key']
+KEY = Rails.application.secrets.google_api_key
 
 class GoogleNews
 

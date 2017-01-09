@@ -17,7 +17,7 @@ export default function reactToArticle(userId, leaningId, reaction, articleId){
 
   return function(dispatch){
     $.ajax({
-      url: `https://safe-escarpment-99271.herokuapp.com/reactions`,
+      url: `http://localhost:3000/reactions`,
       type: "POST",
       headers: {authorization: localStorage.getItem('jwt')},
       contentType: 'application/json; charset=utf-8',
@@ -25,7 +25,7 @@ export default function reactToArticle(userId, leaningId, reaction, articleId){
       dataType: 'json'
     }).done(function(data){
       $.ajax({
-        url: `https://safe-escarpment-99271.herokuapp.com/leanings/${leaningId}`,
+        url: `http://localhost:3000/leanings/${leaningId}`,
         type: "PUT",
         headers: {authorization: localStorage.getItem('jwt')},
         contentType: 'application/json; charset=utf-8',

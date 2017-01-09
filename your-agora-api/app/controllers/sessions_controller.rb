@@ -1,3 +1,5 @@
+require 'auth'
+
 class SessionsController < ApplicationController
 
   skip_before_action :authenticate_user
@@ -11,7 +13,7 @@ class SessionsController < ApplicationController
       else
         render :json => { :errors => "email or password not found" }, :status => 422
       end
-    else 
+    else
         render :json => { :errors => "email or password not found" }, :status => 422
     end
   end

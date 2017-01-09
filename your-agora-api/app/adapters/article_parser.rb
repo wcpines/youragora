@@ -2,12 +2,12 @@ class ArticleParser
 
   def self.get_article_html(url)
 
-    client = MercuryParser::Client.new(api_key: Rails.application.secrets.mercury_api_key)
+    client = MercuryParser::Client.new(api_key: ENV['mercury_api_key'])
 
     html = suppress(Exception) do
       article = client.parse(url)
       if article.word_count
-         article
+        article
       end
     end
 
@@ -28,7 +28,7 @@ class ArticleParser
       }
 
       Article.new(article_attributes_hash)
-      
+
     else
       "Article not found"
     end

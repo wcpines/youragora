@@ -3,7 +3,7 @@ require 'auth'
 
 class Auth
 
-  SECRET_KEY_BASE = Rails.application.secrets.secret_key_base
+  SECRET_KEY_BASE = ENV['secret_key_base']
   ALGORITHM = 'HS256'
 
   def self.issue(payload)

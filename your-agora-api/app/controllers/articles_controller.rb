@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
 
   def fetch_first_article
 
-
     ###### PRODUCTION ######
 
     search_term = SearchTerm.find_by(name: params[:search_term])
@@ -17,8 +16,7 @@ class ArticlesController < ApplicationController
       Source.where("leaning = 'libr_lean'").order("RANDOM()").limit(1)[0].domain => 1
     }
 
-
-    @full_articles = ArticleScraper.new.run_parser(source_domains_hash, search_term)
+    @full_articles = ArticleScraper.new.run(source_domains_hash, search_term)
 
     ###### PRODUCTION END ######
 
@@ -28,10 +26,6 @@ class ArticlesController < ApplicationController
     #   # !!Note Source Name camel case because it's going to JS
     # end
     # ###### TESTING  END ######
-
-
-    # If the parser breaks it will return back nil so
-    # we need to remove those before sending the data back
 
     render json: @full_articles.compact
 
@@ -47,12 +41,12 @@ class ArticlesController < ApplicationController
 
       @user = User.find params[:current_user_id]
       sources = WeightedSourceGenerator.new(@user).get_weighted_sources
-      # => [ full of source objects ]
+      
       source_domains_hash = sources.reduce(Hash.new(0)) do |source_domain, quantity|
         source_domain[quantity] += 1
         source_domain
       end
-      # => {mises.org: 2, huffingtonpost.com: 3, ...}
+
     else
 
       sources = RandomSourceGenerator.random_sources
@@ -63,7 +57,7 @@ class ArticlesController < ApplicationController
     end
 
 
-    @full_articles = ArticleScraper.new.run_parser(source_domains_hash, search_term)
+    @full_articles = ArticleScraper.new.run(source_domains_hash, search_term)
       ###### PRODUCTION END ######
 
       # ###### TESTING ######
@@ -73,9 +67,7 @@ class ArticlesController < ApplicationController
       # end
       # ###### TESTING  END ######
 
-      # If the parser breaks it will return back nil so
-      # we need to remove those before sending the data back
-      render json: @full_articles.compact
+    render json: @full_articles.compact
 
   end
 end

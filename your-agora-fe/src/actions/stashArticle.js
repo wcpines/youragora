@@ -3,7 +3,7 @@ import $ from 'jquery'
 export default function stashArticle(stashId){
   return function(dispatch){
     $.ajax({
-      url: `https://safe-escarpment-99271.herokuapp.com/stashes`,
+      url: `http://localhost:3000/stashes`,
       type: "POST",
       headers: {authorization: localStorage.getItem('jwt')},
       contentType: 'application/json; charset=utf-8',

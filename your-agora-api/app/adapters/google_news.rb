@@ -39,9 +39,6 @@ class GoogleNews
 
         articles
       end
-
     end
-
   end
-
 end

@@ -5,7 +5,7 @@ export function signIn(formValues){
   return function(dispatch){
     dispatch({type: 'FINDING_USER'})
     $.ajax({
-      url: `http://localhost:3000/sessions`,
+      url: `https://youragora-api-prod.herokuapp.com/sessions`,
       type: "POST",
       data: JSON.stringify({auth: {email: formValues.email.toLowerCase().trim(), password: formValues.password}}),
       contentType: 'application/json; charset=utf-8',

@@ -17,7 +17,7 @@ export default function reactToArticle(userId, leaningId, reaction, articleId){
 
   return function(dispatch){
     $.ajax({
-      url: `http://localhost:3000/reactions`,
+      url: `https://youragora-api-prod.herokuapp.com/reactions`,
       type: "POST",
       headers: {authorization: localStorage.getItem('jwt')},
       contentType: 'application/json; charset=utf-8',
@@ -25,7 +25,7 @@ export default function reactToArticle(userId, leaningId, reaction, articleId){
       dataType: 'json'
     }).done(function(data){
       $.ajax({
-        url: `http://localhost:3000/leanings/${leaningId}`,
+        url: `https://youragora-api-prod.herokuapp.com/leanings/${leaningId}`,
         type: "PUT",
         headers: {authorization: localStorage.getItem('jwt')},
         contentType: 'application/json; charset=utf-8',

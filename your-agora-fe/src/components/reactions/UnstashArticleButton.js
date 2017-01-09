@@ -28,7 +28,7 @@ function mapDispatchToProps(dispatch){
 function mapStateToProps(state){
   var stashId;
   if(state.stashes.some((stash)=>stash.article.id === state.mainArticle.id)){
-     stashId = state.stashes.find((stash)=>stash.article.id === state.mainArticle.id).id
+    stashId = state.stashes.find((stash)=>stash.article.id === state.mainArticle.id).id
   } else {
     stashId = "not stashed"
   }

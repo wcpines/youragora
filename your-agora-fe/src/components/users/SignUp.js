@@ -40,20 +40,20 @@ class SignUp extends Component {
     return(
       <div>
         <NavBar />
-          <div id="signup-container">
-            <h3>Sign Up</h3>
-            <form onSubmit={this.handleSubmit}>
-              <label htmlFor="name-input">Name:</label>
-              <input className="u-full-width" onChange={this.handleName} type="text" />
-              <label htmlFor="email-input">Email:</label>
-              <input className="u-full-width" onChange={this.handleEmail} type="email" />
-              <label htmlFor="password-input">Password:</label>
-              <input className="u-full-width" onChange={this.handlePassword} type="password" />
-              <input className="u-full-width button" id="signup-button" type="submit" value="Sign Up!" />
-              <ErrorMessage />
-            </form>
-            <Link id="already-a-member" to='/signin'><p>Already a member? Sign In</p></Link>
-          </div>
+        <div id="signup-container">
+          <h3>Sign Up</h3>
+          <form onSubmit={this.handleSubmit}>
+            <label htmlFor="name-input">Name:</label>
+            <input className="u-full-width" onChange={this.handleName} type="text" />
+            <label htmlFor="email-input">Email:</label>
+            <input className="u-full-width" onChange={this.handleEmail} type="email" />
+            <label htmlFor="password-input">Password:</label>
+            <input className="u-full-width" onChange={this.handlePassword} type="password" />
+            <input className="u-full-width button" id="signup-button" type="submit" value="Sign Up!" />
+            <ErrorMessage />
+          </form>
+          <Link id="already-a-member" to='/signin'><p>Already a member? Sign In</p></Link>
+        </div>
       </div>
     )
 

@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
 export default function unstashArticle(stashId){
-  return function(dispatch){  
+  return function(dispatch){
     $.ajax({
       url: `http://localhost:3000/stashes/`+stashId,
       type: "DELETE",

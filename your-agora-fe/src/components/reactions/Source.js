@@ -20,7 +20,7 @@ function mapStateToProps(state){
   return {
     sourceName: state.mainArticle.sourceName,
     sourceUrl: state.mainArticle.url
-    }
+  }
 }
 
 export default connect(mapStateToProps)(Source)

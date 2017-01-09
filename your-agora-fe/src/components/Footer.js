@@ -6,5 +6,4 @@ export default function Footer(props) {
     <div id="footer-container" className="row">
     </div>
   )
-
 }

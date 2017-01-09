@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   post '/fetch_first_article' , to: 'articles#fetch_first_article'
 
+  post '/leanings/reset' , to: 'leanings#reset'
+
 end

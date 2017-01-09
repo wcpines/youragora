@@ -1,4 +1,5 @@
 require 'jwt'
+require 'auth'
 
 class Auth
 

@@ -11,7 +11,6 @@ class ApplicationController < ActionController::API
     unless request.env["HTTP_AUTHORIZATION"].empty?
 
       auth_string = Auth.decode(request.env["HTTP_AUTHORIZATION"])[0] #
-
       @user = User.find(auth_string["user_id"])
 
     end

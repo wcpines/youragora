@@ -17,15 +17,6 @@ class ReactionsController < ApplicationController
 
     end
 
-    # {
-    #  id: 1,
-    #  rating:-1,
-    #  article_title: "Hooded Thieves Swarm San Francisco Apple Store, Swipe Gadgets",
-    #  article_url: "http://www.huffingtonpost.com/entry/apple-store-theft-san-francisco_us_584a8b88e4b04c8e2baf477d",
-    #  article_author: "Lee Moran"
-    # }
-
-
     render json: article_reactions
 
   end

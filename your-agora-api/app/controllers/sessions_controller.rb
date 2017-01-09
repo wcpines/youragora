@@ -1,3 +1,5 @@
+require 'auth'
+
 class SessionsController < ApplicationController
 
   skip_before_action :authenticate_user
@@ -11,7 +13,7 @@ class SessionsController < ApplicationController
       else
         render :json => { :errors => "email or password not found" }, :status => 422
       end
-    else 
+    else
         render :json => { :errors => "email or password not found" }, :status => 422
     end
   end
@@ -23,16 +25,3 @@ class SessionsController < ApplicationController
   end
 
 end
-
-=begin auth flow notes
-
-1. Sign up
-2. signUp Email and password => users/create
-3. Create a user, issue a token using algo, secret key, user_id/pass (Auth.issue)
-4. Returns JWT as json, or throws an error/returns 404
-5. JWT comes in as data in signUp.js, assigned to localstorage
-6. Dispatches login_user action with current_user payload; user's id.
-7. State reads {making_user: false, currentUser: [user_id] }
-8.
-
-=end

@@ -20,4 +20,3 @@ We currently use a set [source list](https://github.com/wcpines/youragora/blob/m
 - Mercury Web Parser [API](https://github.com/wcpines/youragora/blob/master/your-agora-api/db/seeds.rb)
 - Skeleton [CSS](http://getskeleton.com/)
 - JSON Web Tokens
-

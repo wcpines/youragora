@@ -6,6 +6,8 @@ The resulting echo chambers amplify opinions and reinforce some positions, while
 
 Happy reading.
 
+https://youragora.herokuapp.com/
+
 ##How it works
 
 We currently use a set [source list](https://github.com/wcpines/youragora/blob/master/your-agora-api/db/seeds.rb)*, with each source coursely bucketed into conservative, progressive, or libertarian leanings.  As a user votes ('reacts') on an article, we use the source's corresponding lean to increment or decrement that user's overal lean preferences. The next set of articles fetched will be inversely proportional to those preferences.  

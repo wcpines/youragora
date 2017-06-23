@@ -1,4 +1,4 @@
-##About
+## About
 
 YourAgora started as a response to the current political climate in the U.S. The country has become increasingly polarized, and social media appears to have had the unfortunate effect of creating opinion silos, as algorithms designed to deliver relevant content surface more and more of what a person identifies with.
 
@@ -8,13 +8,13 @@ Happy reading.
 
 https://youragora.herokuapp.com/
 
-##How it works
+## How it works
 
 We currently use a set [source list](https://github.com/wcpines/youragora/blob/master/your-agora-api/db/seeds.rb)*, with each source coursely bucketed into conservative, progressive, or libertarian leanings.  As a user votes ('reacts') on an article, we use the source's corresponding lean to increment or decrement that user's overal lean preferences. The next set of articles fetched will be inversely proportional to those preferences.  
 
 **If you'd like to suggest source additions, feel free to open an issue or pull request!*
 
-##Technologies and frameworks
+## Technologies and frameworks
 
 - React/Redux
 - Ruby on Rails API + postgresql
